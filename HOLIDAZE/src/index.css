@@ -5,8 +5,14 @@
 }
 
 #root {
+  top: 0;
   margin: 0;
   padding: 0;
+}
+
+.navbar {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /*  #2F3645    */
@@ -20,4 +26,23 @@
 
 .container-fluid {
   background-color: #2F3645;
+
+}
+
+.custom-dropdown-menu {
+  background-color: #2F3645 !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: white;
+}
+
+.navbar-toggler {
+  border: none !important;
+
+}
+
+.hero-image {
+  width: 100%;
 }

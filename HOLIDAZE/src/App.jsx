@@ -5,7 +5,8 @@ function App() {
   return (
     <>
       <NavBar />
-      <h1>HOLIDAZE</h1>
+      <div><img src="../src/assets/hero-image.jpg" alt="lake side hotel" className="hero-image" />
+      </div>
     </>
   )
 }
