@@ -10,26 +10,26 @@ export default function NavBar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                        <ul className="navbar-nav mx-5 mb-2 mb-lg-0">
+                            <li className="nav-item me-4">
                                 <a className="nav-link" aria-current="page" href="#">Home</a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <a className="nav-link" href="#">About</a>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <a className="nav-link" href="#">Contact Us</a>
                             </li>
-                            <li className="nav-item dropdown">
+                            <li className="nav-item dropdown me-4">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Register
                                 </a>
-                                <ul className="dropdown-menu">
+                                <ul className="dropdown-menu me-4">
                                     <li><a className="dropdown-item" href="#">Private Person</a></li>
                                     <li><a className="dropdown-item" href="#">Admin</a></li>
                                 </ul>
                             </li>
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <a className="nav-link" href="#">Log Out</a>
                             </li>
                         </ul>
