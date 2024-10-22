@@ -35,7 +35,6 @@
 
 .container-fluid {
   background-color: #2F3645;
-
 }
 
 .custom-dropdown-menu {
@@ -48,7 +47,22 @@
 }
 
 .navbar-toggler {
-  border-color: #FFE382 !important;
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.bars {
+  height: 40px;
+  width: 40px;
+  padding-bottom: 10px;
 }
 
 .navbar-nav {
