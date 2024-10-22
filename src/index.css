@@ -49,17 +49,13 @@
 .navbar-toggler {
   outline: none;
   box-shadow: none;
-  border: none;
+  border: none !important;
 }
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
   outline: none;
   box-shadow: none;
-  border: none;
-}
-
-.navbar-toggler-icon {
   border: none;
 }
 
@@ -71,11 +67,12 @@
 
 .navbar-nav {
   align-items: center;
-  margin-top: 3%;
+  margin-top: 5%;
+  width: 300px !important;
 }
 
 .navbar-nav li {
-  padding-bottom: 7px;
+  padding-bottom: 8px;
 }
 
 .logo {
@@ -158,11 +155,11 @@
     font-family: "MonteCarlo", cursive;
     font-weight: 400;
     font-style: normal;
-    font-size: 2.2rem !important;
+    font-size: 2.3rem !important;
   }
 
   .lead {
-    font-size: 14px !important;
+    font-size: 15px !important;
   }
 
   .button-banner {
