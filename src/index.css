@@ -20,6 +20,14 @@
   color: #FFE382;
 }
 
+.links {
+  text-decoration: none;
+}
+
+.links.active {
+  color: white;
+}
+
 .nav-item a:hover {
   color: white;
 }
@@ -34,7 +42,7 @@
 }
 
 .navbar .nav-link:hover,
-.navbar .nav-link:focus {
+.navbar .links:active {
   color: white;
 }
 
