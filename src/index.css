@@ -10,6 +10,7 @@
   padding: 0;
 }
 
+/*----------------------NAVBAR STYLES----------------------------------------------*/
 .navbar {
   margin: 0 !important;
   padding: 0 !important;
@@ -47,7 +48,16 @@
 }
 
 .navbar-toggler {
-  border: none !important;
+  border-color: #FFE382 !important;
+}
+
+.navbar-nav {
+  align-items: center;
+  margin-top: 3%;
+}
+
+.navbar-nav li {
+  padding-bottom: 7px;
 }
 
 .logo {
@@ -55,7 +65,7 @@
   width: 100px;
 }
 
-/*------------------------------------HERO SECTION-----------------------*/
+/*----------------------------HERO SECTION----------------------------------------------*/
 .hero-image {
   position: relative;
   height: 500px;
@@ -85,6 +95,8 @@
 
 .lead {
   font-family: "Karla", sans-serif;
+  font-weight: bold !important;
+  color: #FFE382;
 }
 
 .button-banner {
@@ -101,7 +113,7 @@
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 22px;
 }
 
@@ -133,7 +145,6 @@
 
   .lead {
     font-size: 14px !important;
-    text-shadow: #FFE382 2px;
   }
 
   .button-banner {
