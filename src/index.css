@@ -59,6 +59,10 @@
   border: none;
 }
 
+.navbar-toggler-icon {
+  border: none;
+}
+
 .bars {
   height: 40px;
   width: 40px;
