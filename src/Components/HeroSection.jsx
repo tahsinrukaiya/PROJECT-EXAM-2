@@ -8,7 +8,7 @@ export default function HeroSection() {
                 <div className="overlay">
                     <h1 className="display-4 text-white slogan">Easy Booking, Memorable Stays</h1>
                     <p className="lead text-white">Raising comfort to the highest level</p>
-                    <a href="#" className="btn btn-primary btn-lg px-4 rounded-pill button-banner">Book Your venue Here</a>
+                    <a href="#" className="btn btn-primary btn-lg px-4 rounded-pill button-banner">Book Venue Here</a>
                 </div>
             </div>
 
