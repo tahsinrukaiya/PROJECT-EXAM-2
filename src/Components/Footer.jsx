@@ -1,3 +1,5 @@
+import Logo from "../assets/logo.JPG"
+
 export default function Footer() {
     return (
         <>
@@ -8,9 +10,10 @@ export default function Footer() {
                         </h5>
                     </div>
                     <div className="container p-2">
-                        <img src="../src/assets/logo.JPG" className="footer-logo"></img>
+                        <img src={Logo} className="footer-logo"></img>
                     </div>
-
+                    <div className="container p-4 pb-0">
+                    </div>
                     <div className="text-center p-2">
                         <h6 className="copyright">© 2024 Copyright : Holidayz.com</h6>
                     </div>

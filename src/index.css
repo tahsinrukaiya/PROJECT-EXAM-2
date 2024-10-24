@@ -147,14 +147,14 @@
 }
 
 .sub-btn {
-  background-color: #FFE382;
-  color: #2F3645;
+  background-color: #FFE382 !important;
+  color: #2F3645 !important;
 
 }
 
 .sub-btn:hover {
-  background-color: #2F3645;
-  color: #FFE382;
+  background-color: #2F3645 !important;
+  color: #FFE382 !important;
 }
 
 .form {
@@ -180,7 +180,7 @@
 .copyright {
   color: #FFE382;
   font-weight: 200;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .footer-logo {

@@ -1,7 +1,7 @@
 export default function SubscribeForm() {
     return (
         <>
-            <div className="sub-form-container mt-5">
+            <div className="sub-form-container mt-5 mx-5">
                 <div className="col-lg-6 sub-form">
                     <h3 className="form-title text-center mb-2">Subscribe to our newsletter</h3>
                     <div>
@@ -14,5 +14,4 @@ export default function SubscribeForm() {
             </div>
         </>
     )
-
 }
