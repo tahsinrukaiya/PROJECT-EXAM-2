@@ -137,7 +137,10 @@
   border: none;
   color: #2F3645;
   background-color: #FFE382;
+}
 
+.btn-text {
+  font-size: 15px !important;
 }
 
 .card-title {
@@ -171,7 +174,6 @@
 .sub-btn {
   background-color: #FFE382 !important;
   color: #2F3645 !important;
-
 }
 
 .sub-btn:hover {
@@ -246,9 +248,77 @@
     width: 180px !important;
   }
 
-  .sub-form {
-    margin-left: 5%;
-    padding: 30px;
+  .viewBtn {
+    border: none;
+    color: #2F3645;
+    background-color: #FFE382;
+    padding-bottom: 0 !important;
+
   }
+
+  .btn-text {
+    font-size: 10px !important;
+  }
+
+  .card-title {
+    color: white;
+    font-size: 13px;
+  }
+
+  .sub-form .input-group {
+    flex-direction: column;
+  }
+
+  .sub-form .form-control {
+    margin-bottom: 10px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .sub-form .sub-btn {
+    width: 100%;
+  }
+
+  .sub-form {
+    margin-left: 0;
+    padding: 40px;
+  }
+
+  .form-title {
+    color: #FFE382;
+    font-weight: 300;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .footer-text {
+    font-size: 12px !important;
+    font-weight: 300;
+    color: white;
+  }
+
+  .copyright {
+    color: #FFE382;
+    font-weight: 200;
+    font-size: 8px;
+  }
+
+  .footer-logo {
+    height: 40px;
+    width: 80px;
+  }
+
 
 }

@@ -11,7 +11,7 @@ export default function VenueCards() {
                             <img src={Venue} className="card-img" alt=""></img>
                             <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                                 <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
+                                <button className="viewBtn rounded-pill pt-2 px-3"><h6 className="btn-text">View Now</h6></button>
                             </div>
                         </div>
                     </div>
@@ -20,7 +20,7 @@ export default function VenueCards() {
                             <img src={Venue} className="card-img" alt=""></img>
                             <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                                 <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
+                                <button className="viewBtn rounded-pill pt-2 px-3"><h6 className="btn-text">View Now</h6></button>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@ export default function VenueCards() {
                             <img src={Venue} className="card-img" alt=""></img>
                             <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                                 <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
+                                <button className="viewBtn rounded-pill pt-2 px-3"><h6 className="btn-text">View Now</h6></button>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@ export default function VenueCards() {
                             <img src={Venue} className="card-img" alt=""></img>
                             <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                                 <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
+                                <button className="viewBtn rounded-pill pt-2 px-3"><h6 className="btn-text">View Now</h6></button>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ export default function VenueCards() {
                             <img src={Venue} className="card-img" alt=""></img>
                             <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                                 <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
+                                <button className="viewBtn rounded-pill pt-2 px-3"><h6 className="btn-text">View Now</h6></button>
                             </div>
                         </div>
                     </div>
