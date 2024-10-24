@@ -212,7 +212,7 @@
   width: 100px;
 }
 
-/*-------------------------------MEDIA QUERY--------------------------*/
+/*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/
 @media only screen and (max-width: 768px) {
 
   .navbar-nav {
@@ -289,20 +289,6 @@
     font-weight: 300;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   .footer-text {
     font-size: 12px !important;
     font-weight: 300;
@@ -319,6 +305,4 @@
     height: 40px;
     width: 80px;
   }
-
-
 }
