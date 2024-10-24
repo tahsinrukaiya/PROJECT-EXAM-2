@@ -131,6 +131,28 @@
   padding: 22px;
 }
 
+
+/*----------------------------VENUECARDS-------------------------------*/
+.viewBtn {
+  border: none;
+  color: #2F3645;
+  background-color: #FFE382;
+
+}
+
+.card-title {
+  color: white;
+  font-size: 26px;
+}
+
+.card-img {
+  filter: brightness(0.7) grayscale(20%);
+}
+
+
+
+
+
 /*-------------------------------SUBSCRIBE----------------------------------------*/
 .sub-form-container {
   background-color: #2F3645;

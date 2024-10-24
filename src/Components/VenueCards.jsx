@@ -7,39 +7,48 @@ export default function VenueCards() {
             <div className="container mt-5">
                 <div className="row g-4">
                     <div className="col-6 col-md-6 col-lg-4">
-                        <div className="card">
-                            <img src={Venue} className="card-image-top"></img>
-                            <div className="card-body">
+                        <div className="card text-white">
+                            <img src={Venue} className="card-img" alt=""></img>
+                            <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                                 <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn">View Now</button>
+                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
                             </div>
                         </div>
+                    </div>
+                    <div className="col-6 col-md-6 col-lg-4">
+                        <div className="card text-white">
+                            <img src={Venue} className="card-img" alt=""></img>
+                            <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+                                <h5 className="card-title">Hafjell, Lillehamer</h5>
+                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-6 col-md-6 col-lg-4">
+                        <div className="card text-white">
+                            <img src={Venue} className="card-img" alt=""></img>
+                            <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+                                <h5 className="card-title">Hafjell, Lillehamer</h5>
+                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-6 col-md-6 col-lg-4">
+                        <div className="card text-white">
+                            <img src={Venue} className="card-img" alt=""></img>
+                            <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+                                <h5 className="card-title">Hafjell, Lillehamer</h5>
+                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
+                            </div>
+                        </div>
+                    </div>
 
-                    </div>
                     <div className="col-6 col-md-6 col-lg-4">
-                        <div className="card">
-                            <img src={Venue} className="card-image-top"></img>
-                            <div className="card-body">
+                        <div className="card text-white">
+                            <img src={Venue} className="card-img" alt=""></img>
+                            <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                                 <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn">View Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-6 col-lg-4">
-                        <div className="card">
-                            <img src={Venue} className="card-image-top"></img>
-                            <div className="card-body">
-                                <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn">View Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-6 col-lg-4">
-                        <div className="card">
-                            <img src={Venue} className="card-image-top"></img>
-                            <div className="card-body">
-                                <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <button className="viewBtn">View Now</button>
+                                <button className="viewBtn rounded-pill pt-2"><h6>View Now</h6></button>
                             </div>
                         </div>
                     </div>
