@@ -227,17 +227,42 @@
 }
 
 /*-------------------------------LOG IN FORM----------------*/
+.form-text {
+  font-size: 18px;
+  margin-left: 25%;
+}
+
+.register-link {
+  color: #2F3645 !important;
+  text-decoration: underline;
+  text-decoration-color: #2F3645 !important;
+}
+
 .login-form {
-  border: 1px solid #939185;
+  border: 1px solid #b7bac1;
   padding: 40px;
 }
 
 .form-title {
+  color: #2F3645 !important;
+}
+
+.submit-btn {
+  background-color: #2F3645;
+  color: #FFE382;
+  margin-left: 25% !important;
+}
+
+.submit-btn:hover {
+  background-color: #FFE382;
   color: #2F3645;
 }
 
-
-
+.login-link {
+  color: #2F3645 !important;
+  text-decoration: underline;
+  text-decoration-color: #2F3645 !important;
+}
 
 
 
@@ -375,4 +400,23 @@
     height: 40px;
     width: 80px;
   }
+
+  /*-------------------------FORMS---------------------*/
+  .form-title {
+    font-size: 18px;
+
+  }
+
+  .form-text {
+    font-size: 14px;
+    margin-left: 10%;
+  }
+
+
+
+
+
+
+
+
 }

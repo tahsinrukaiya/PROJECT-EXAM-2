@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Menubar from "../assets/bar.JPG";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +9,7 @@ export default function NavBar() {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary nav_container">
             <div className="container-fluid">
-                <a className="navbar-brand mx-4" href="#"><img src={Logo} className="logo" /></a>
+                <Link to="/"><img src={Logo} className="logo" /></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"><img src={Menubar} className="bars" /></span>
                 </button>
