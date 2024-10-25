@@ -5,7 +5,7 @@ export default function VenueCards() {
         <>
             <div className="heading2 mt-4 text-center"><h3>Venues</h3></div>
             <div className="container mt-5">
-                <div className="row g-4">
+                <div className="row g-3">
                     <div className="col-6 col-md-6 col-lg-4">
                         <div className="card text-white">
                             <img src={Venue} className="card-img" alt=""></img>

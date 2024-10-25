@@ -3,7 +3,7 @@ export default function SubscribeForm() {
         <>
             <div className="sub-form-container mt-5 mx-5">
                 <div className="col-lg-6 sub-form">
-                    <h3 className="form-title text-center mb-2">Subscribe to our newsletter</h3>
+                    <h3 className="form-title text-center mb-3">Subscribe to our newsletter</h3>
                     <div>
                         <form className="d-flex flex-row mb-2 p-1 input-group">
                             <input type="email" className="form-control rounded border-2 mx-3" placeholder="Your Email" />
