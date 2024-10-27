@@ -116,10 +116,10 @@
 }
 
 .button-banner {
-  color: #2F3645;
-  box-shadow: none;
-  border: none;
-  background-color: #FFE382;
+  color: #2F3645 !important;
+  box-shadow: none !important;
+  border: none !important;
+  background-color: #FFE382 !important;
   font-size: 18px !important;
 }
 
@@ -183,10 +183,10 @@
 }
 
 .sub-btn {
-  color: #2F3645;
+  color: #2F3645 !important;
   box-shadow: none;
   border: none;
-  background-color: #FFE382;
+  background-color: #FFE382 !important;
   font-size: 18px !important;
 }
 
