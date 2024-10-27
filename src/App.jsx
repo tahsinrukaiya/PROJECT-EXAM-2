@@ -6,6 +6,7 @@ import LogIn from './Components/Pages/LogIn'
 import Register from './Components/Pages/Register'
 import LogOut from './Components/Pages/LogOut'
 import RouteNotFound from './Components/RouteNotFound'
+import Footer from './Components/Footer'
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
@@ -24,6 +25,7 @@ function App() {
           <Route path="logout" element={<LogOut />} />
           <Route path="*" element={<RouteNotFound />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   )

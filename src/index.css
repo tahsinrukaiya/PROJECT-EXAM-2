@@ -116,17 +116,16 @@
 }
 
 .button-banner {
-  color: white;
+  color: #2F3645;
   box-shadow: none;
-  border: 1.5px solid #FFE382 !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  color: white !important;
+  border: none;
+  background-color: #FFE382;
   font-size: 18px !important;
 }
 
 .button-banner:hover {
-  border-color: #FFE382 !important;
-  background-color: transparent !important;
+  background-color: #2F3645;
+  color: #FFE382;
 }
 
 .overlay {
@@ -138,16 +137,17 @@
 /*----------------------------VENUECARDS-------------------------------*/
 
 .viewBtn {
-  color: white;
+  color: #2F3645;
   box-shadow: none;
-  border: 1.5px solid #FFE382 !important;
-  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  background-color: #FFE382;
+  font-size: 18px !important;
 }
 
 .viewBtn:hover,
 .viewBtn:focus {
-  border-color: #FFE382 !important;
-  background-color: transparent !important;
+  color: #FFE382;
+  background-color: #2F3645;
 }
 
 .btn-text {
@@ -177,22 +177,23 @@
   padding: 40px;
 }
 
-.form-title {
+.sub-form-title {
   color: #FFE382;
   font-weight: 300;
 }
 
 .sub-btn {
-  color: white !important;
+  color: #2F3645;
   box-shadow: none;
-  border: 1.5px solid #FFE382 !important;
-  background-color: #2F3645;
+  border: none;
+  background-color: #FFE382;
+  font-size: 18px !important;
 }
 
 .sub-btn:hover {
-  border: 2px solid #FFE382 !important;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.2);
+  color: #FFE382;
+  background-color: #2F3645;
+  border: 1px solid #FFE382;
 }
 
 .form {
@@ -379,7 +380,7 @@
     padding: 40px;
   }
 
-  .form-title {
+  .sub-form-title {
     color: #FFE382;
     font-weight: 300;
   }

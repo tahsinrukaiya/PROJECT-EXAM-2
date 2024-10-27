@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Footer from "../Footer";
 
 export default function LogIn() {
     return (
@@ -25,7 +24,6 @@ export default function LogIn() {
                     </form>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

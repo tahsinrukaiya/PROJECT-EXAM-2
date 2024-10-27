@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import Footer from "../Footer";
 
 export default function Register() {
     return (
@@ -29,7 +28,6 @@ export default function Register() {
                     </form>
                 </div>
             </div>
-            <Footer />
         </>
     )
 }
