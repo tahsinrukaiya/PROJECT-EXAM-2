@@ -1,16 +1,18 @@
 import NavBar from './Components/NavBar'
 import Home from './Components/Pages/Home'
+import VenueList from "./Components/Pages/VenueList"
 import AboutUs from './Components/Pages/AboutUs'
 import Contact from './Components/Pages/Contact'
-import LogIn from './Components/Pages/LogIn'
-import RegisterCustomer from './Components/Pages/RegisterCustomer'
-import RegisterVenueManager from './Components/Pages/RegisterVenueManger'
+import LogIn from './Components/Pages/Authentication/LogIn'
+import RegisterType from './Components/Pages/Authentication/RegisterType'
+import RegisterCustomer from './Components/Pages/Authentication/RegisterCustomer'
+import RegisterVenueManager from './Components/Pages/Authentication/RegisterVenueManger'
 import RouteNotFound from './Components/RouteNotFound'
 import Footer from './Components/Footer'
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import RegisterType from './Components/Pages/RegisterType'
+
 
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route index element={<Home />} />
+          <Route path="venue_list" element={<VenueList />} />
           <Route path="about_us" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<LogIn />} />

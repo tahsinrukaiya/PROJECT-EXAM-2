@@ -139,7 +139,7 @@
 .viewBtn {
   color: #2F3645;
   box-shadow: none;
-  border: none;
+  border: none !important;
   background-color: #FFE382;
   font-size: 18px !important;
 }
@@ -163,7 +163,13 @@
   filter: brightness(0.7) grayscale(20%);
 }
 
-
+.see-all-link {
+  text-decoration: underline !important;
+  color: #2F3645 !important;
+  text-decoration-color: #2F3645 !important;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+}
 
 
 
@@ -207,12 +213,17 @@
 
 /*-------------------------REGISTER TYPE-----------------------*/
 
-.reg-type {
+.reg-type-btn {
   border: none;
   box-shadow: none;
-  color: #FFE382;
-  background-color: #2F3645;
+  color: #2F3645 !important;
+  background-color: #FFE382 !important;
   padding: 5px;
+}
+
+.reg-type-btn:hover {
+  color: #FFE382 !important;
+  background-color: #2F3645 !important;
 }
 
 .reg-type-container {
@@ -266,14 +277,15 @@
 }
 
 .submit-btn {
-  background-color: #2F3645;
-  color: #FFE382;
+  background-color: #FFE382 !important;
+  color: #2F3645 !important;
   margin-left: 25% !important;
 }
 
 .submit-btn:hover {
-  background-color: #FFE382;
-  color: #2F3645;
+  background-color: #2F3645 !important;
+  color: #FFE382 !important;
+
 }
 
 .login-link {
@@ -378,6 +390,10 @@
     border: 1px solid #FFE382 !important;
   }
 
+  .see-all-link {
+    font-size: 14px !important;
+  }
+
   .sub-form .input-group {
     flex-direction: column;
   }
@@ -422,7 +438,6 @@
   /*-------------------------FORMS---------------------*/
   .form-title {
     font-size: 18px;
-
   }
 
   .form-text {
@@ -436,7 +451,15 @@
     margin-bottom: 6px !important;
   }
 
+  .reg-type-title {
+    font-size: 20px !important;
+  }
 
+  .reg-type-btn {
+    margin-bottom: 10px !important;
+    margin-left: 25px !important;
+    font-size: 14px !important;
+  }
 
 
 

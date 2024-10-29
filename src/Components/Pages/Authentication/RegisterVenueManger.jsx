@@ -6,7 +6,7 @@ export default function RegisterVenueManager() {
             <div className="form-container d-flex justify-content-center align-items-center vh-50 mt-5">
                 <div className="col-10 col-md-6 col-lg-6">
                     <h1 className="form-title text-center mb-4">Register yourself as a venue manager on Holidayz.com</h1>
-                    <div className="form-text mb-3">Already a user?<Link to="/login"><span className="login-link mx-2">Log in here!</span></Link></div>
+                    <div className="form-text mb-3">Already a user?<Link to="/login_venue_manager"><span className="login-link mx-2">Log in here!</span></Link></div>
                     <form className="login-form rounded">
                         <div className="mb-3">
                             <label htmlFor="exampleInputEmail1" className="form-label">Your Name</label>

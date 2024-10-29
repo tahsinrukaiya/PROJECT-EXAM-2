@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-export default function LogIn() {
+export default function LogInCustomer() {
     return (
         <>
             <div className="form-container d-flex justify-content-center align-items-center vh-50 mt-5">
                 <div className="col-10 col-md-6 col-lg-6">
-                    <h1 className="form-title text-center mb-4">Log in as a user to your Holidayz account here</h1>
-                    <div className="form-text mb-3">Not registered before?<Link to="/register"><span className="register-link mx-2">Register here!</span></Link></div>
+                    <h1 className="form-title text-center mb-4">Log in here</h1>
+                    <div className="form-text mb-3">Not registered before?<Link to="/register_type"><span className="register-link mx-2">Register here!</span></Link></div>
                     <form className="login-form rounded">
                         <div className="mb-3">
                             <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
