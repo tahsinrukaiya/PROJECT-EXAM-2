@@ -1,5 +1,30 @@
 import { Link } from "react-router-dom";
 
+/*import React, { useState, useContext } from 'react';
+import { AuthContext } from './AuthContext';
+
+const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const { handleLogin } = useContext(AuthContext);
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        await handleLogin(email, password);
+    };
+
+    return (
+        <form onSubmit={onSubmit}>
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+            <button type="submit">Login</button>
+        </form>
+    );
+};
+
+export default Login;
+*/
+
 export default function LogInCustomer() {
     return (
         <>
@@ -16,10 +41,6 @@ export default function LogInCustomer() {
                             <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                             <input type="password" className="form-control" id="exampleInputPassword1"></input>
                         </div>
-                        <div className="mb-3 form-check">
-                            <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
-                            <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                        </div>
                         <button type="submit" className="btn w-50 rounded-pill submit-btn">Submit</button>
                     </form>
                 </div>
@@ -27,3 +48,4 @@ export default function LogInCustomer() {
         </>
     )
 }
+

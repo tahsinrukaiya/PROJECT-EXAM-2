@@ -1,4 +1,3 @@
-
 import Venue from "/src/assets/venue.jpg";
 
 export default function VenueList() {
