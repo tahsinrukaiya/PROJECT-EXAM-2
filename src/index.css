@@ -120,15 +120,22 @@
 }
 
 .search-form {
-  margin-left: 50% !important;
+  margin-left: 13% !important;
+  width: 500px !important;
 }
 
 .search-btn {
-  color: #FFE382 !important;
+  color: #2F3645 !important;
   box-shadow: none !important;
   border: none !important;
-  background-color: #2F3645 !important;
+  background-color: #FFE382 !important;
   font-size: 18px !important;
+}
+
+.search-btn:hover {
+  color: #FFE382 !important;
+  background-color: #2F3645 !important;
+
 }
 
 .button-banner {
@@ -417,7 +424,8 @@
   }
 
   .search-form {
-    margin-left: 13% !important;
+    margin-left: 0% !important;
+    width: 250px !important;
   }
 
   .search-btn {

@@ -10,13 +10,11 @@ export default function HeroSection() {
                     <p className="lead text-white">Raising comfort to the highest level</p>
                     <h3 className="lead-2 text-white">Find a venue that is perfect for your event and activities</h3>
                     <div className="col-10 col-md-6 col-lg-6">
-                        <div className="input-group search-form">
+                        <div className="input-group search-form mt-3 mb-3">
                             <input type="search" className="form-control rounded" placeholder="search" aria-label="Search" aria-describedby="search-addon" />
                             <button type="button" className="search-btn  rounded-pill mx-2 px-3" data-mdb-ripple-init>Search</button>
                         </div>
-
                     </div>
-
                 </div>
             </div>
 
