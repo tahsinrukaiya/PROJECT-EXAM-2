@@ -297,10 +297,37 @@
   text-decoration-color: #2F3645 !important;
 }
 
+/*--------------------------SINGLE VENUE---------------------------*/
+.venue-title {
+  color: #2F3645;
+}
 
+.venue-address {
+  color: #2F3645;
+}
 
+.venue-detail {
+  font-weight: 300;
+  font-family: "karla";
+}
 
+.venue-description {
+  font-size: 18px;
+  font-family: "karla";
+}
 
+.book-btn {
+  color: #2F3645 !important;
+  background-color: #FFE382 !important;
+  border: none !important;
+  width: 200px !important;
+  font-size: 18px !important;
+}
+
+.book-btn:hover {
+  color: #FFE382 !important;
+  background-color: #2F3645 !important;
+}
 
 
 

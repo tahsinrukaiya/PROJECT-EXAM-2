@@ -1,5 +1,5 @@
 import HeroSection from "../HeroSection"
-import VenueCards from "../VenueCards"
+import VenueCards from "./Venues/VenueCards"
 import SubscribeForm from "../SubscribeForm"
 
 
