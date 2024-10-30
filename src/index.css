@@ -111,8 +111,24 @@
 .lead {
   font-family: "Karla", sans-serif;
   font-weight: 400 !important;
-  font-size: 26px;
+  font-size: 24px;
   color: #FFE382;
+}
+
+.lead-2 {
+  color: #FFE382 !important;
+}
+
+.search-form {
+  margin-left: 50% !important;
+}
+
+.search-btn {
+  color: #FFE382 !important;
+  box-shadow: none !important;
+  border: none !important;
+  background-color: #2F3645 !important;
+  font-size: 18px !important;
 }
 
 .button-banner {
@@ -377,6 +393,10 @@
     padding: 30px;
   }
 
+  .hero-text {
+    width: 300px !important;
+  }
+
   .hero-image {
     height: 400px;
   }
@@ -390,6 +410,18 @@
 
   .lead {
     font-size: 15px !important;
+  }
+
+  .lead-2 {
+    display: none !important;
+  }
+
+  .search-form {
+    margin-left: 13% !important;
+  }
+
+  .search-btn {
+    font-size: 14px !important;
   }
 
   .button-banner {
