@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: [
-        '/src/components/Pages/Venues/VenueCards'
+        '/src/components/Pages/Venues/VenueCard'
       ]
     }
   }
