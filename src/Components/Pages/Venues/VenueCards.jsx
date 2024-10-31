@@ -1,7 +1,7 @@
 // src/components/VenueCards.jsx
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import VenueCard from '/src/components/Pages/Venues/VenueCard';
+import VenueCard from '/src/Components/Pages/Venues/VenueCard';
 import API_URLS from '/src/config.js';
 
 const VenueCards = ({ limit = 6 }) => {

@@ -1,6 +1,6 @@
 
 // src/pages/AllVenuesPage.jsx
-import VenueCards from '/src/components/Pages/Venues/VenueCards';
+import VenueCards from '/src/Components/Pages/Venues/VenueCards';
 
 const AllVenuesPage = () => {
     return (
