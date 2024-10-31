@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import NavBar from './Components/NavBar'
 import Home from './Components/Pages/Home'
-import VenueList from "./Components/Pages/Venues/VenueList"
+import AllVenues from "./Components/Pages/Venues/AllVenues"
 import SingleVenue from './Components/Pages/Venues/SingleVenue'
 import AboutUs from './Components/Pages/AboutUs'
 import Contact from './Components/Pages/Contact'
@@ -20,7 +20,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route index element={<Home />} />
-          <Route path="venue_list" element={<VenueList />} />
+          <Route path="venue_list" element={<AllVenues />} />
           <Route path="single_venue" element={<SingleVenue />} />
           <Route path="about_us" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />

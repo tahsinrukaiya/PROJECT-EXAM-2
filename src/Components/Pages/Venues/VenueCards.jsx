@@ -1,24 +1,54 @@
-import { Link } from "react-router-dom";
-import Venue from "/src/assets/venue.jpg";
+// src/components/VenueCards.jsx
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import VenueCard from '/src/components/Pages/Venues/VenueCard';
+import API_URLS from '/src/config.js';
 
-export default function VenueCards() {
+const VenueCards = ({ limit = 3 }) => {
+    const [venues, setVenues] = useState([]);
+    const [error, setError] = useState(null);
+
+    const fetchVenues = async () => {
+        try {
+            // Wait for 1 second before fetching (adjust as needed)
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            const response = await fetch(API_URLS.ALL_VENUES);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            setVenues(data.data);
+        } catch (error) {
+            console.error('Error fetching venues:', error);
+            setError(error.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchVenues();
+    }, []);
+
     return (
         <>
             <div className="heading2 mt-5 text-center"><h3>Venues</h3></div>
+            {error && <div className="error">Error: {error}</div>}
             <div className="container mt-5">
                 <div className="row g-3">
-                    <div className="col-6 col-md-6 col-lg-4">
-                        <div className="card text-white">
-                            <img src={Venue} className="card-img" alt=""></img>
-                            <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                                <h5 className="card-title">Hafjell, Lillehamer</h5>
-                                <Link to="single_venue"><button className="viewBtn rounded-pill pt-2 px-3"><h6 className="btn-text">View Now</h6></button></Link>
-                            </div>
-                        </div>
-                    </div>
+                    {venues.slice(0, limit).map((venue) => (
+                        <VenueCard key={venue.id} venue={venue} />
+                    ))}
                 </div>
             </div>
-            <Link to="/venue_list"><div className="see-all-link text-center mt-4"><h6 className="see-all-link">See All</h6></div></Link>
+
         </>
-    )
-}
+    );
+};
+
+// Define PropTypes for VenueCards
+VenueCards.propTypes = {
+    limit: PropTypes.number,
+    id: PropTypes.string,
+};
+
+export default VenueCards;
