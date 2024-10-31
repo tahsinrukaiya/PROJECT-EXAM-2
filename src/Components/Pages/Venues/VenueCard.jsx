@@ -12,7 +12,7 @@ const VenueCard = ({ venue }) => {
                     alt={venue.media[0]?.alt || 'Fallback description'}
                 />
                 <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                    <h5 className="card-title">{venue.name}</h5> {/* Ensure 'name' is correct */}
+                    <h5 className="card-title">{venue.name}</h5>
                     <Link to={`/single_venue/${venue.id}`}>
                         <button className="viewBtn rounded-pill pt-2 px-3">
                             <h6 className="btn-text">View Now</h6>

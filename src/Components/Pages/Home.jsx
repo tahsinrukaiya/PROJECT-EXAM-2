@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <>
             <HeroSection />
-            <VenueCards limit={3} />
+            <VenueCards limit={6} />
             <Link to="/venue_list">
                 <div className="see-all-link text-center mt-4">
                     <h6 className="see-all-link">See All</h6>

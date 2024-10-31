@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import VenueCard from '/src/components/Pages/Venues/VenueCard';
 import API_URLS from '/src/config.js';
 
-const VenueCards = ({ limit = 3 }) => {
+const VenueCards = ({ limit = 6 }) => {
     const [venues, setVenues] = useState([]);
     const [error, setError] = useState(null);
 
@@ -18,6 +18,8 @@ const VenueCards = ({ limit = 3 }) => {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const data = await response.json();
+            console.log(data); // Log the entire response
+            console.log(`Fetched ${data.data.length} venues`); // Log the count of venues
             setVenues(data.data);
         } catch (error) {
             console.error('Error fetching venues:', error);
@@ -40,7 +42,6 @@ const VenueCards = ({ limit = 3 }) => {
                     ))}
                 </div>
             </div>
-
         </>
     );
 };
@@ -48,7 +49,6 @@ const VenueCards = ({ limit = 3 }) => {
 // Define PropTypes for VenueCards
 VenueCards.propTypes = {
     limit: PropTypes.number,
-    id: PropTypes.string,
 };
 
 export default VenueCards;
