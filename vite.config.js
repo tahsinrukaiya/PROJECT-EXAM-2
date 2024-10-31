@@ -5,6 +5,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.JPG'],
+  build: {
+    rollupOptions: {
+      external: [
+        '/src/components/Pages/Venues/VenueCards'
+      ]
+    }
+  }
 })
 
 
