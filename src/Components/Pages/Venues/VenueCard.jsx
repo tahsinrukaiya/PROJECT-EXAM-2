@@ -1,6 +1,5 @@
-// src/components/VenueCard.jsx
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types'; // For prop validation
+import PropTypes from 'prop-types';
 
 const VenueCard = ({ venue }) => {
     return (
