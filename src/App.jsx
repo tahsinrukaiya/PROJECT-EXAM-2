@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="venue_list" element={<AllVenues />} />
-          <Route path="single_venue" element={<SingleVenue />} />
+          <Route path="/single_venue/:id" element={<SingleVenue />} />
           <Route path="about_us" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<LogIn />} />

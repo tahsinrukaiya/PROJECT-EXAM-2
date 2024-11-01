@@ -27,7 +27,6 @@ const VenueCard = ({ venue }) => {
   );
 };
 
-// Prop validation
 VenueCard.propTypes = {
   venue: PropTypes.shape({
     id: PropTypes.string.isRequired,

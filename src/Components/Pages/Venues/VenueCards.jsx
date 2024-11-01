@@ -9,7 +9,6 @@ const VenueCards = ({ limit = 6 }) => {
 
     const fetchVenues = async () => {
         try {
-            // Wait for 1 second before fetching (adjust as needed)
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             const response = await fetch(API_URLS.ALL_VENUES);
@@ -17,8 +16,8 @@ const VenueCards = ({ limit = 6 }) => {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const data = await response.json();
-            console.log(data); // Log the entire response
-            console.log(`Fetched ${data.data.length} venues`); // Log the count of venues
+            console.log(data);
+            console.log(`Fetched ${data.data.length} venues`);
             setVenues(data.data);
         } catch (error) {
             console.error("Error fetching venues:", error);
@@ -47,7 +46,6 @@ const VenueCards = ({ limit = 6 }) => {
     );
 };
 
-// Define PropTypes for VenueCards
 VenueCards.propTypes = {
     limit: PropTypes.number,
 };

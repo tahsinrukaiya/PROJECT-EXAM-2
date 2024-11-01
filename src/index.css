@@ -328,8 +328,13 @@
   font-family: "karla";
 }
 
-.venue-description {
-  font-size: 18px;
+.location {
+  font-size: 26px;
+  font-family: "karla";
+}
+
+.meta {
+  font-size: 20px;
   font-family: "karla";
 }
 
