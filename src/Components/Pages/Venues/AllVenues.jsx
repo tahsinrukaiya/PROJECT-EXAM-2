@@ -1,13 +1,12 @@
-
 // src/pages/AllVenuesPage.jsx
-import VenueCards from '/src/Components/Pages/Venues/VenueCards';
+import VenueCards from "/src/Components/Pages/Venues/VenueCards";
 
 const AllVenuesPage = () => {
-    return (
-        <div>
-            <VenueCards limit={30} />
-        </div>
-    );
+  return (
+    <div>
+      <VenueCards limit={30} />
+    </div>
+  );
 };
 
 export default AllVenuesPage;

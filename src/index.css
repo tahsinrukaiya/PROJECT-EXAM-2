@@ -18,7 +18,7 @@
 
 /*  #2F3645    */
 .nav-item a {
-  color: #FFE382;
+  color: #ffe382;
 }
 
 .links {
@@ -34,11 +34,11 @@
 }
 
 .container-fluid {
-  background-color: #2F3645;
+  background-color: #2f3645;
 }
 
 .custom-dropdown-menu {
-  background-color: #2F3645 !important;
+  background-color: #2f3645 !important;
 }
 
 .navbar .nav-link:hover,
@@ -112,11 +112,11 @@
   font-family: "Karla", sans-serif;
   font-weight: 400 !important;
   font-size: 24px;
-  color: #FFE382;
+  color: #ffe382;
 }
 
 .lead-2 {
-  color: #FFE382 !important;
+  color: #ffe382 !important;
 }
 
 .search-form {
@@ -125,30 +125,29 @@
 }
 
 .search-btn {
-  color: #2F3645 !important;
+  color: #2f3645 !important;
   box-shadow: none !important;
   border: none !important;
-  background-color: #FFE382 !important;
+  background-color: #ffe382 !important;
   font-size: 18px !important;
 }
 
 .search-btn:hover {
-  color: #FFE382 !important;
-  background-color: #2F3645 !important;
-
+  color: #ffe382 !important;
+  background-color: #2f3645 !important;
 }
 
 .button-banner {
-  color: #2F3645 !important;
+  color: #2f3645 !important;
   box-shadow: none !important;
   border: none !important;
-  background-color: #FFE382 !important;
+  background-color: #ffe382 !important;
   font-size: 18px !important;
 }
 
 .button-banner:hover {
-  background-color: #2F3645 !important;
-  color: #FFE382 !important;
+  background-color: #2f3645 !important;
+  color: #ffe382 !important;
 }
 
 .overlay {
@@ -156,21 +155,20 @@
   padding: 30px;
 }
 
-
 /*----------------------------VENUECARDS-------------------------------*/
 
 .viewBtn {
-  color: #2F3645;
+  color: #2f3645;
   box-shadow: none;
   border: none !important;
-  background-color: #FFE382;
+  background-color: #ffe382;
   font-size: 18px !important;
 }
 
 .viewBtn:hover,
 .viewBtn:focus {
-  color: #FFE382;
-  background-color: #2F3645;
+  color: #ffe382;
+  background-color: #2f3645;
 }
 
 .btn-text {
@@ -188,17 +186,15 @@
 
 .see-all-link {
   text-decoration: underline !important;
-  color: #2F3645 !important;
-  text-decoration-color: #2F3645 !important;
+  color: #2f3645 !important;
+  text-decoration-color: #2f3645 !important;
   font-size: 18px !important;
   font-weight: 300 !important;
 }
 
-
-
 /*-------------------------------SUBSCRIBE----------------------------------------*/
 .sub-form-container {
-  background-color: #2F3645;
+  background-color: #2f3645;
 }
 
 .sub-form {
@@ -207,22 +203,22 @@
 }
 
 .sub-form-title {
-  color: #FFE382;
+  color: #ffe382;
   font-weight: 300;
 }
 
 .sub-btn {
-  color: #2F3645 !important;
+  color: #2f3645 !important;
   box-shadow: none;
   border: none;
-  background-color: #FFE382 !important;
+  background-color: #ffe382 !important;
   font-size: 18px !important;
 }
 
 .sub-btn:hover {
-  color: #FFE382 !important;
-  background-color: #2F3645 !important;
-  border: 1px solid #FFE382 !important;
+  color: #ffe382 !important;
+  background-color: #2f3645 !important;
+  border: 1px solid #ffe382 !important;
 }
 
 .form {
@@ -236,20 +232,20 @@
 
 /*-------------------------REGISTER TYPE-----------------------*/
 .reg-type-title {
-  color: #2F3645 !important;
+  color: #2f3645 !important;
 }
 
 .reg-type-btn {
   border: none;
   box-shadow: none;
-  color: #2F3645 !important;
-  background-color: #FFE382 !important;
+  color: #2f3645 !important;
+  background-color: #ffe382 !important;
   padding: 5px;
 }
 
 .reg-type-btn:hover {
-  color: #FFE382 !important;
-  background-color: #2F3645 !important;
+  color: #ffe382 !important;
+  background-color: #2f3645 !important;
 }
 
 .reg-type-container {
@@ -258,10 +254,9 @@
   margin-bottom: 10% !important;
 }
 
-
 /*---------------------FOOTER---------------------*/
 .footer-container {
-  background-color: #2F3645;
+  background-color: #2f3645;
 }
 
 .footer-text {
@@ -271,7 +266,7 @@
 }
 
 .copyright {
-  color: #FFE382;
+  color: #ffe382;
   font-weight: 200;
   font-size: 13px;
 }
@@ -288,9 +283,9 @@
 }
 
 .register-link {
-  color: #2F3645 !important;
+  color: #2f3645 !important;
   text-decoration: underline;
-  text-decoration-color: #2F3645 !important;
+  text-decoration-color: #2f3645 !important;
 }
 
 .login-form {
@@ -299,34 +294,33 @@
 }
 
 .form-title {
-  color: #2F3645 !important;
+  color: #2f3645 !important;
 }
 
 .submit-btn {
-  background-color: #FFE382 !important;
-  color: #2F3645 !important;
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
   margin-left: 25% !important;
 }
 
 .submit-btn:hover {
-  background-color: #2F3645 !important;
-  color: #FFE382 !important;
-
+  background-color: #2f3645 !important;
+  color: #ffe382 !important;
 }
 
 .login-link {
-  color: #2F3645 !important;
+  color: #2f3645 !important;
   text-decoration: underline;
-  text-decoration-color: #2F3645 !important;
+  text-decoration-color: #2f3645 !important;
 }
 
 /*--------------------------SINGLE VENUE---------------------------*/
 .venue-title {
-  color: #2F3645;
+  color: #2f3645;
 }
 
 .venue-address {
-  color: #2F3645;
+  color: #2f3645;
 }
 
 .venue-detail {
@@ -340,54 +334,20 @@
 }
 
 .book-btn {
-  color: #2F3645 !important;
-  background-color: #FFE382 !important;
+  color: #2f3645 !important;
+  background-color: #ffe382 !important;
   border: none !important;
   width: 200px !important;
   font-size: 18px !important;
 }
 
 .book-btn:hover {
-  color: #FFE382 !important;
-  background-color: #2F3645 !important;
+  color: #ffe382 !important;
+  background-color: #2f3645 !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/
 @media only screen and (max-width: 768px) {
-
   .navbar-nav {
     margin-top: 5%;
   }
@@ -457,7 +417,7 @@
     padding-bottom: 0 !important;
     padding-left: 6px !important;
     padding-right: 6px !important;
-    border: 1px solid #FFE382 !important;
+    border: 1px solid #ffe382 !important;
   }
 
   .see-all-link {
@@ -484,7 +444,7 @@
   }
 
   .sub-form-title {
-    color: #FFE382;
+    color: #ffe382;
     font-weight: 300;
   }
 
@@ -495,7 +455,7 @@
   }
 
   .copyright {
-    color: #FFE382;
+    color: #ffe382;
     font-weight: 200;
     font-size: 8px;
   }
@@ -530,8 +490,4 @@
     margin-left: 25px !important;
     font-size: 14px !important;
   }
-
-
-
-
 }
