@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import API_URLS from "../../../config";
+import { API_URLS } from "../../../config";
+import { Link } from "react-router-dom";
 
 export default function SingleVenue() {
   const { id } = useParams();
@@ -39,15 +40,30 @@ export default function SingleVenue() {
               <h3 className="venue-detail px-5 mt-5">Maximum guests :
                 {venue.maxGuests}
               </h3>
-              <h4 className="meta"> Facilities
-                {venue.meta.wifi}
-                {venue.meta.parking}
-                {venue.meta.breakfast}
-                {venue.meta.pets}
-              </h4>
-              <button className="book-btn rounded-pill px-3 pt-2 pb-2 mt-3">
+              <div className="meta-data d-flex p-3 justify-content-center">
+                <div className="me-4">{venue.meta.wifi.isAvailable ? (
+                  <h6> Wifi : Available</h6>) : (<h6>
+                    Wifi : Not Available
+                  </h6>
+                )}</div>
+                <div className="me-4">
+                  {venue.meta.parking.isAvailable ? (
+                    <h6>Parking : Available</h6>
+                  ) : (<h6>Parking: Not Available</h6>)}</div>
+                <div className="me-4">
+                  {venue.meta.breakfast.isAvailable ? (<h6>
+                    Breakfast : Available
+                  </h6>) : (<h6>Breakfast : Not Available</h6>)}</div>
+                <div className="me-4">
+                  {venue.meta.pets.isAvailable ? (<h6>
+                    Pets : Allowed
+                  </h6>) : (<h6>
+                    Pets : Not Allowed
+                  </h6>)}</div>
+              </div>
+              <Link to="/login"><button className="book-btn rounded-pill px-3 pt-2 pb-2 mt-3">
                 Book now
-              </button>
+              </button></Link>
             </div>
             <img
               src={venue.media && venue.media.length > 0 ? venue.media[0].url : 'fallback-image-url.jpg'}

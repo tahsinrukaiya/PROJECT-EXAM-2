@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import VenueCard from "../Venues/VenueCard";
-import API_URLS from "../../../config";
+import { API_URLS } from "../../../config";
 
 const VenueCards = ({ limit = 6 }) => {
     const [venues, setVenues] = useState([]);
