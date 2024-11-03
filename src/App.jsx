@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Pages/Home";
@@ -9,6 +10,7 @@ import LogIn from "./Components/Pages/Authentication/LogIn";
 import RegisterType from "./Components/Pages/Authentication/RegisterType";
 import RegisterCustomer from "./Components/Pages/Authentication/RegisterCustomer";
 import RegisterVenueManager from "./Components/Pages/Authentication/RegisterVenueManger";
+import { AuthProvider } from "./Components/Pages/Authentication/AuthContext";
 import RouteNotFound from "./Components/RouteNotFound";
 import Footer from "./Components/Footer";
 
@@ -25,9 +27,10 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<LogIn />} />
           <Route path="register_customer" element={<RegisterCustomer />} />
+
           <Route
             path="register_venue_manager"
-            element={<RegisterVenueManager />}
+            element={<AuthProvider><RegisterVenueManager /></AuthProvider>}
           />
           <Route path="register_type" element={<RegisterType />} />
           <Route path="*" element={<RouteNotFound />} />

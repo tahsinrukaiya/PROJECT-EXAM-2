@@ -1,17 +1,18 @@
-import axios from "axios";
+import { API_URLS } from "../../../config";
+console.log(API_URLS.REGISTER);
 
-const API_URL = "https://api.example.com"; // replace with your API endpoint
-
-export const login = async (email, password) => {
-  const response = await axios.post(`${API_URL}/login`, { email, password });
-  return response.data;
-};
-
-export const register = async (userData) => {
-  const response = await axios.post(`${API_URL}/register`, userData);
-  return response.data;
-};
-
-export const logout = async () => {
-  await axios.post(`${API_URL}/logout`);
-};
+export async function registerUser(userData) {
+  const response = await fetch(`${API_URLS.REGISTER}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData),
+  });
+  if (!response.ok) {
+    const errorMessage = await response.text();
+    console.error("Registration error details:", errorMessage);
+    throw new Error("Failed to register user: " + errorMessage);
+  }
+  return response.json();
+}
