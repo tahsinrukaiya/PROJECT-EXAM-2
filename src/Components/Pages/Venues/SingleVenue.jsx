@@ -40,7 +40,7 @@ export default function SingleVenue() {
               <h3 className="venue-detail px-5 mt-5">Maximum guests :
                 {venue.maxGuests}
               </h3>
-              <div className="meta-data d-flex p-3 justify-content-center">
+              <div className="meta-data d-flex pt-2 justify-content-center">
                 <div className="me-4">{venue.meta.wifi.isAvailable ? (
                   <h6 className="meta-info"> Wifi : Available</h6>) : (<h6 className="meta-info">
                     Wifi : Not Available
