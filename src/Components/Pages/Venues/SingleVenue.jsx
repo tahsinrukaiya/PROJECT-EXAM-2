@@ -42,22 +42,22 @@ export default function SingleVenue() {
               </h3>
               <div className="meta-data d-flex p-3 justify-content-center">
                 <div className="me-4">{venue.meta.wifi.isAvailable ? (
-                  <h6> Wifi : Available</h6>) : (<h6>
+                  <h6 className="meta-info"> Wifi : Available</h6>) : (<h6 className="meta-info">
                     Wifi : Not Available
                   </h6>
                 )}</div>
                 <div className="me-4">
                   {venue.meta.parking.isAvailable ? (
-                    <h6>Parking : Available</h6>
-                  ) : (<h6>Parking: Not Available</h6>)}</div>
+                    <h6 className="meta-info">Parking : Available</h6>
+                  ) : (<h6 className="meta-info">Parking: Not Available</h6>)}</div>
                 <div className="me-4">
-                  {venue.meta.breakfast.isAvailable ? (<h6>
+                  {venue.meta.breakfast.isAvailable ? (<h6 className="meta-info">
                     Breakfast : Available
-                  </h6>) : (<h6>Breakfast : Not Available</h6>)}</div>
+                  </h6>) : (<h6 className="meta-info">Breakfast : Not Available</h6>)}</div>
                 <div className="me-4">
-                  {venue.meta.pets.isAvailable ? (<h6>
+                  {venue.meta.pets.isAvailable ? (<h6 className="meta-info">
                     Pets : Allowed
-                  </h6>) : (<h6>
+                  </h6>) : (<h6 className="meta-info">
                     Pets : Not Allowed
                   </h6>)}</div>
               </div>
