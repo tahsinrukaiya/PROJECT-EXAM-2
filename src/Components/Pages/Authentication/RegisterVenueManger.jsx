@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../Authentication/AuthContext";
 import { Link } from "react-router-dom";
-import SuccessModal from "../Authentication/SuccessModal"
+import SuccessModalReg from "../Authentication/SuccessModalReg"
 
 export default function RegisterVenueManager() {
   const { handleRegister } = useAuth();
@@ -9,6 +9,7 @@ export default function RegisterVenueManager() {
     name: "",
     email: "",
     password: "",
+    venueManager: true,
   });
 
   const [showModal, setShowModal] = useState(false);
@@ -38,7 +39,7 @@ export default function RegisterVenueManager() {
         </h1>
         <div className="form-text mb-3">
           Already a user?
-          <Link to="/login_venue_manager">
+          <Link to="/login">
             <span className="login-link mx-2">Log in here!</span>
           </Link>
         </div>
@@ -90,7 +91,7 @@ export default function RegisterVenueManager() {
           </button>
         </form>
       </div>
-      <SuccessModal
+      <SuccessModalReg
         show={showModal}
         onClose={() => setShowModal(false)}
         message={successMessage}

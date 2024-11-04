@@ -1,5 +1,6 @@
 import { API_URLS } from "../../../config";
 console.log(API_URLS.REGISTER);
+console.log(API_URLS.LOGIN);
 
 export async function registerUser(userData) {
   const response = await fetch(`${API_URLS.REGISTER}`, {
@@ -16,3 +17,20 @@ export async function registerUser(userData) {
   }
   return response.json();
 }
+
+// authAPI.js
+export const loginUser = async (email, password) => {
+  const response = await fetch(`${API_URLS.LOGIN}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || 'Login failed');
+  }
+  return await response.json();
+};

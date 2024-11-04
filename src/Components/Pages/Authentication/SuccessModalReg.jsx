@@ -1,6 +1,6 @@
 import { Modal, Button } from "react-bootstrap";
 
-export default function SuccessModal({ show, onClose, message }) {
+export default function SuccessModalReg({ show, onClose, message }) {
     return (
         <Modal show={show} onHide={onClose}>
             <Modal.Header closeButton>
