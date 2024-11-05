@@ -16,10 +16,10 @@ export default function Profile() {
                     <div className="col col-lg-6 mb-4 mb-lg-0">
                         <div className="card mb-3">
                             <div className="row g-0">
-                                <div className="col-md-4 gradient-custom text-center text-white">
+                                <div className="col-md-4">
                                     <img src={userData?.banner.url || "banner"}
-                                        alt="Avatar" className="img-fluid my-5" />
-                                    <button type="button" className="btn text-body rounded-pill px-4 edit-banner-btn" data-mdb-ripple-color="dark">
+                                        alt="Avatar" className="img-fluid my-5 mx-2" />
+                                    <button type="button" className="btn text-body rounded-pill px-4 mx-3 edit-banner-btn">
                                         Edit Banner
                                     </button>
                                 </div>
