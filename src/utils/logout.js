@@ -8,3 +8,5 @@ export const logout = (setAuthData) => {
     setAuthData(null);
     console.log("User logged out.");
 };
+
+

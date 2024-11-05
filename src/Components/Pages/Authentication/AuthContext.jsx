@@ -21,6 +21,8 @@ export function AuthProvider({ children }) {
             } else {
                 console.log("User is registered as a customer.");
             }
+            // Save data only in authData
+            saveUserData(response.data);
             return response;
         } catch (error) {
             console.error("Registration failed:", error);
@@ -33,8 +35,8 @@ export function AuthProvider({ children }) {
             const response = await loginUser(email, password, venueManager);
             setAuthData(response.data);
             console.log("Logged in successfully:", response.data);
+            // Save data only in authData
             saveUserData(response.data);
-            localStorage.setItem('authData', JSON.stringify(response.data));
             return response;
         } catch (error) {
             console.error("Login failed:", error);
