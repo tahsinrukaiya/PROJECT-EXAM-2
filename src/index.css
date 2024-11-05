@@ -395,6 +395,33 @@
   font-weight: 300 !important;
 }
 
+/*---------------------------------PROFILE PAGE----------------------*/
+
+.edit-banner-btn {
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
+}
+
+.edit-banner-btn:hover {
+  color: #ffe382 !important;
+  background-color: #2f3645 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/
 @media only screen and (max-width: 768px) {
   .navbar-nav {

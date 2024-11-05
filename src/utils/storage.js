@@ -7,7 +7,7 @@ export const saveUserData = (userData) => {
 
 // Load auth data from localStorage
 export const loadUserData = () => {
-    const storedUserData = localStorage.getItem('userData');
+    const storedUserData = localStorage.getItem('authData');
     return storedUserData ? JSON.parse(storedUserData) : null;
 };
 
