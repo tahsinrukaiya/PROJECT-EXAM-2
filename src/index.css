@@ -79,6 +79,15 @@
   width: 100px;
 }
 
+.user-icon {
+  font-size: 18px !important;
+  color: #ffe382 !important;
+}
+
+.logout-icon {
+  color: #ffe382 !important;
+}
+
 /*----------------------------HERO SECTION----------------------------------------------*/
 .hero-image {
   position: relative;
@@ -324,6 +333,10 @@
   color: #2f3645 !important;
   text-decoration: underline;
   text-decoration-color: #2f3645 !important;
+}
+
+.form-heading {
+  color: #2f3645;
 }
 
 /*--------------------------SINGLE VENUE---------------------------*/

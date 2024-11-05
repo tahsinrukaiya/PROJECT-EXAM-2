@@ -30,7 +30,6 @@ export default function LogInCustomer() {
   return (
     <div className="form-container d-flex justify-content-center align-items-center vh-50 mt-5">
       <div className="col-10 col-md-6 col-lg-6">
-        <h1 className="form-title text-center mb-4">Log in here</h1>
         <div className="form-text mb-3">
           Not registered before?
           <Link to="/register_type">
@@ -38,7 +37,7 @@ export default function LogInCustomer() {
           </Link>
         </div>
         <form onSubmit={handleSubmit} className="login-form rounded">
-          <h1 className="text-center">
+          <h1 className="text-center form-title mb-4">
             Login {isVenueManager ? "as Venue Manager" : "as Customer"}
           </h1>
 
