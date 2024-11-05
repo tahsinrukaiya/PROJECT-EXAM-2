@@ -43,8 +43,8 @@ export default function NavBar() {
               </NavLink>
             </li>
             <li className="nav-item me-5">
-              <NavLink to="/about_us" className="links">
-                About Us
+              <NavLink to="/venue_list" className="links">
+                Our Venues
               </NavLink>
             </li>
             <li className="nav-item me-5">
