@@ -1,14 +1,21 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { registerUser, loginUser } from "../../../Api/auth";
 import { saveUserData } from "../../../utils/storage";
 import { logout } from "../../../utils/logout";
+import { API_URLS } from "../../../config";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
     const [authData, setAuthData] = useState(() => {
-        const storedData = localStorage.getItem('authData');
-        return storedData ? JSON.parse(storedData) : null;
+        try {
+            const storedData = localStorage.getItem('authData');
+            return storedData ? JSON.parse(storedData) : null;
+        } catch (error) {
+            console.error("Error parsing authData from localStorage:", error);
+            localStorage.removeItem('authData');
+            return null;
+        }
     });
 
     const handleRegister = async (userData) => {
@@ -21,7 +28,6 @@ export function AuthProvider({ children }) {
             } else {
                 console.log("User is registered as a customer.");
             }
-            // Save data only in authData
             saveUserData(response.data);
             return response;
         } catch (error) {
@@ -30,16 +36,36 @@ export function AuthProvider({ children }) {
         }
     };
 
+
+
     const handleLogin = async ({ email, password, venueManager }) => {
         try {
-            const response = await loginUser(email, password, venueManager);
-            setAuthData(response.data);
-            console.log("Logged in successfully:", response.data);
-            // Save data only in authData
-            saveUserData(response.data);
-            return response;
+            const loginUrl = `${API_URLS.LOGIN}?_holidaze=true`;
+            const response = await fetch(loginUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Login failed with status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log("API Response Data:", data);
+
+            if (!data || !data.data || !data.data.accessToken) {
+                throw new Error("Missing accessToken in response data");
+            }
+
+            setAuthData(data.data);
+            console.log("Logged in successfully:", data.data);
+            saveUserData(data.data);
+            return data.data;
         } catch (error) {
-            console.error("Login failed:", error);
+            console.error("Login failed:", error.message);
             throw error;
         }
     };
@@ -48,13 +74,6 @@ export function AuthProvider({ children }) {
         logout(setAuthData);
         localStorage.removeItem('authData');
     };
-
-    useEffect(() => {
-        const storedData = localStorage.getItem('authData');
-        if (storedData) {
-            setAuthData(JSON.parse(storedData));
-        }
-    }, []);
 
     return (
         <AuthContext.Provider value={{ authData, handleRegister, handleLogin, handleLogout }}>

@@ -89,6 +89,14 @@
   color: white !important;
 }
 
+.user-icon:hover {
+  color: white !important;
+}
+
+.logout-icon:hover {
+  color: white !important;
+}
+
 /*-------------------------LOGOUT MODAL---------------------*/
 .cancel-btn {
   background-color: #b7bac1 !important;
@@ -188,6 +196,10 @@
 .viewBtn:focus {
   color: #ffe382;
   background-color: #2f3645;
+}
+
+.heading-one {
+  color: #2f3645 !important;
 }
 
 .btn-text {
@@ -407,6 +419,13 @@
   background-color: #2f3645 !important;
 }
 
+.heading-profile {
+  color: #2f3645 !important;
+}
+
+.profile-data {
+  color: #2f3645 !important;
+}
 
 
 
@@ -584,6 +603,11 @@
 
   .meta-info {
     font-size: .7rem !important;
+  }
+
+  .banner {
+    width: 380px !important;
+    padding-left: 7px !important;
   }
 
 

@@ -32,7 +32,7 @@ const VenueCards = ({ limit = 6 }) => {
     return (
         <>
             <div className="heading2 mt-5 text-center">
-                <h3>Venues</h3>
+                <h1 className="heading-one">Venues</h1>
             </div>
             {error && <div className="error">Error: {error}</div>}
             <div className="container mt-5">
