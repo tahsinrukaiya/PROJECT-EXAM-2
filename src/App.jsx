@@ -7,6 +7,7 @@ import SingleVenue from "./Components/Pages/Venues/SingleVenue";
 import AboutUs from "./Components/Pages/AboutUs";
 import Contact from "./Components/Pages/Contact";
 import Profile from './Components/Pages/Profile';
+import CreateVenueForm from './Components/Pages/Venues/CreateVenueForm';
 import LoginForm from './Components/Pages/Authentication/LoginForm';
 import LoginCustomer from './Components/Pages/Authentication/LoginCustomer';
 import LoginVenueManager from './Components/Pages/Authentication/LoginVenueManager';
@@ -39,6 +40,7 @@ function App() {
               path="register_venue_manager"
               element={<RegisterVenueManager />}
             />
+            <Route path="/lease-venue" element={<CreateVenueForm />} />
             <Route path="register_type" element={<RegisterType />} />
             <Route path="*" element={<RouteNotFound />} />
           </Routes>

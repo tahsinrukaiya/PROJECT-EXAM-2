@@ -407,9 +407,67 @@
   font-weight: 300 !important;
 }
 
+/*-------------------------------LEASE VENUE FORM-------------------*/
+.form-label {
+  font-weight: 400 !important;
+  color: #2f3645 !important;
+}
+
+input::placeholder {
+  font-size: 14px !important;
+}
+
+textarea::placeholder {
+  font-size: 14px !important;
+}
+
+
+.lease-venue-form {
+  border: 1.3px solid #b7bac1 !important;
+}
+
+.lease-form-btn {
+  color: #2f3645 !important;
+  background-color: #ffe382 !important;
+  border: none !important;
+  width: 200px !important;
+  font-size: 18px !important;
+}
+
+.lease-form-btn:hover {
+  color: #ffe382 !important;
+  background-color: #2f3645 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*---------------------------------PROFILE PAGE----------------------*/
 
 .edit-banner-btn {
+  border: none;
   background-color: #ffe382 !important;
   color: #2f3645 !important;
 }
@@ -427,7 +485,16 @@
   color: #2f3645 !important;
 }
 
+.lease-btn {
+  border: none;
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
+}
 
+.lease-btn:hover {
+  color: #ffe382 !important;
+  background-color: #2f3645 !important;
+}
 
 
 
@@ -606,8 +673,9 @@
   }
 
   .banner {
-    width: 380px !important;
-    padding-left: 7px !important;
+    width: 100% !important;
+    padding-left: 3% !important;
+    padding-right: 7% !important;
   }
 
 

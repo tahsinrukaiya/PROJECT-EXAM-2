@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { loadAuthData } from "../../utils/storage";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
     const [authData, setAuthData] = useState(null);
@@ -25,7 +26,7 @@ export default function Profile() {
                                 <div className="col-md-4">
                                     <img src={authData.banner.url || "banner"}
                                         alt="Avatar" className="img-fluid my-5 mx-2 banner" />
-                                    <button type="button" className="btn text-body rounded-pill px-4 mx-3 edit-banner-btn">
+                                    <button className="rounded-pill px-3 pt-1 pb-1 mx-3 edit-banner-btn">
                                         Edit Banner
                                     </button>
                                 </div>
@@ -47,9 +48,9 @@ export default function Profile() {
                                                 <p className="text-muted">{userRole}</p>
                                             </div>
                                         </div>
+                                        {authData.venueManager && <Link to="/lease-venue"><button className="lease-btn rounded-pill mb-4 px-3 pt-1 pb-1">Lease a venue</button></Link>}
                                         <h6 className="profile-data">Your Venues</h6>
                                         <hr className="mt-0 mb-4"></hr>
-
                                         <div className="venuelist">
                                             <p>Venue 1</p>
                                             <p>venue 2</p>
