@@ -6,6 +6,7 @@ export const API_URLS = {
   DELETE_VENUE: import.meta.env.VITE_DELETE_VENUE,
   REGISTER: import.meta.env.VITE_REGISTER,
   LOGIN: import.meta.env.VITE_LOGIN,
+  PROFILE: import.meta.env.VITE_PROFILE,
 };
 
 export const API_KEY = import.meta.env.VITE_API_KEY;
