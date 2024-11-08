@@ -496,9 +496,21 @@ textarea::placeholder {
   background-color: #2f3645 !important;
 }
 
+.update-venue {
+  border: none;
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
 
-
-
+.delete-venue {
+  border: none;
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
 
 
 

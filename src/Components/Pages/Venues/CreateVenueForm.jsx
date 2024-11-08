@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createVenue } from "../../../Api/createVenue";
+import SuccessModalCreate from "./successModalCreate";
 
 export default function CreateVenueForm() {
     const [venueData, setVenueData] = useState({
@@ -13,6 +14,9 @@ export default function CreateVenueForm() {
         parking: false,
         pets: false,
     });
+
+    const [showModal, setShowModal] = useState(false);
+    const [message, setMessage] = useState("");
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -58,11 +62,18 @@ export default function CreateVenueForm() {
             const response = await createVenue(venueDataFormatted);
             console.log("Venue created successfully", response);
 
-            localStorage.setItem('newVenue', JSON.stringify(response));
-            window.location.href = "/venue_list";
+            setMessage("Venue created successfully!");
+            setShowModal(true);
         } catch (error) {
             console.error("Error creating venue", error);
+            setMessage("There was an error creating the venue. Please try again.");
+            setShowModal(true);
         }
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        window.location.href = "/venue_list";
     };
 
     return (
@@ -169,6 +180,11 @@ export default function CreateVenueForm() {
                     </div>
                 </form>
             </div>
+            <SuccessModalCreate
+                show={showModal}
+                onClose={handleCloseModal}
+                message={message}
+            />
         </div>
     );
 }

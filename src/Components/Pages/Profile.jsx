@@ -118,7 +118,7 @@ export default function Profile() {
                                     )}
                                     <h6 className="profile-data">Your Venues</h6>
                                     <hr className="mt-0 mb-4" />
-                                    <div className="venuelist">
+                                    <div className="venuelist col-12 col-md-10 col-lg-10">
                                         {profileData.venues && profileData.venues.length > 0 ? (
                                             profileData.venues.map((venue) => (
                                                 <div key={venue.id} className="card">
@@ -126,14 +126,12 @@ export default function Profile() {
                                                         className="card-img-top"
                                                         src={venue.media[0]?.url}
                                                         alt={venue.name} />
-                                                    <h5 className="card-title">{venue.name}</h5>
-                                                    <div className="d-flex flex-row bd-highlight mb-3">
-                                                        <div className="p-2 mx-4">
-                                                            <button className="update-venue">Update</button>
-                                                        </div>
-                                                        <div className="p-2">
-                                                            <button className="delete-venue">Delete</button>
-                                                        </div>
+                                                    <h6 className="profile-card-title mt-2 mx-2">{venue.name}</h6>
+                                                    <div className="d-flex gap-5 button-container mb-3 px-4">
+
+                                                        <button className="update-venue rounded-pill"><i className="fa-regular fa-pen-to-square"></i>Update</button>
+                                                        <button className="delete-venue rounded-pill "><i className="fa-solid fa-trash"></i>Delete</button>
+
                                                     </div>
                                                 </div>
                                             ))
