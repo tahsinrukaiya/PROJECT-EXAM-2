@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
 import { API_URLS } from "../../../config";
 import { Link } from "react-router-dom";
+
 
 export default function SingleVenue() {
   const { id } = useParams();
@@ -25,6 +28,16 @@ export default function SingleVenue() {
   useEffect(() => {
     fetchVenue();
   }, [id]);
+
+
+  // Initialize Flatpickr
+  useEffect(() => {
+    flatpickr("#datePicker", {
+      dateFormat: "Y-m-d",
+      enableTime: "false",
+    });
+  }, []); // Runs once when the component mounts
+
 
   return (
     <>
@@ -64,9 +77,53 @@ export default function SingleVenue() {
                     Pets : Not Allowed
                   </h6>)}</div>
               </div>
+
+              {/*--------------------------- BOOKING FORM----------------------------------------------*/}
+              <div className="d-flex book-form-container justify-content-center mt-5">
+                <form className="d-flex">
+                  <div className="form-group p-2 flex-fill bd-highlight">
+                    <label htmlFor="datePicker"><h6>Select dates</h6></label>
+                    <input type="text" className="form-control" id="datePicker" placeholder="Select a date" />
+
+                  </div>
+                  <div className="form-group p-2 flex-fill bd-highlight">
+                    <label htmlFor="formGroupExampleInput"><h6>Number of guests</h6></label>
+                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder="number of guests" />
+                  </div>
+                  <div className="form-group p-2 flex-fill bd-highlight">
+                    <label htmlFor="formGroupExampleInput2"><h6>Price per night</h6></label>
+                    <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="price" />
+                  </div>
+
+                </form>
+              </div>
               <Link to="/login"><button className="book-btn rounded-pill px-3 pt-2 pb-2 mt-3">
                 Book now
               </button></Link>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
             <img
               src={venue.media && venue.media.length > 0 ? venue.media[0].url : 'fallback-image-url.jpg'}
