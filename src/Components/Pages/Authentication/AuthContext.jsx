@@ -3,6 +3,7 @@ import { registerUser, loginUser } from "../../../Api/auth";
 import { saveUserData } from "../../../utils/storage";
 import { logout } from "../../../utils/logout";
 import { API_URLS } from "../../../config";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -17,6 +18,8 @@ export function AuthProvider({ children }) {
             return null;
         }
     });
+
+    const navigate = useNavigate(); // Initialize navigate inside the component
 
     const handleRegister = async (userData) => {
         try {
@@ -35,8 +38,6 @@ export function AuthProvider({ children }) {
             throw error;
         }
     };
-
-
 
     const handleLogin = async ({ email, password, venueManager }) => {
         try {
@@ -73,6 +74,7 @@ export function AuthProvider({ children }) {
     const handleLogout = () => {
         logout(setAuthData);
         localStorage.removeItem('authData');
+        navigate('/'); // Redirects to homepage
     };
 
     return (
