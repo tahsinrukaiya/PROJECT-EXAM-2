@@ -7,6 +7,9 @@ export const API_URLS = {
   REGISTER: import.meta.env.VITE_REGISTER,
   LOGIN: import.meta.env.VITE_LOGIN,
   PROFILE: import.meta.env.VITE_PROFILE,
+  CREATE_BOOKING: import.meta.env.VITE_BOOKING_CREATE,
+  UPDATE_BOOKING: import.meta.env.VITE_BOOKING_UPDATE,
+  DELETE_BOOKING: import.meta.env.VITE_BOOKING_DELETE,
 };
 
 export const API_KEY = import.meta.env.VITE_API_KEY;

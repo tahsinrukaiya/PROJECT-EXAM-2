@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
 import { API_URLS } from "../../../config";
 import { Link } from "react-router-dom";
-
+import bookVenue from "../../../Api/bookVenue"
+import BookingForm from "./BookingForm";
 
 export default function SingleVenue() {
   const { id } = useParams();
@@ -29,16 +28,6 @@ export default function SingleVenue() {
     fetchVenue();
   }, [id]);
 
-
-  // Initialize Flatpickr
-  useEffect(() => {
-    flatpickr("#datePicker", {
-      dateFormat: "Y-m-d",
-      enableTime: "false",
-    });
-  }, []); // Runs once when the component mounts
-
-
   return (
     <>
       {error && <div className="error">Error: {error}</div>}
@@ -46,15 +35,18 @@ export default function SingleVenue() {
         <div className="card_container d-flex flex-column bd-highlight mb-3 mt-5">
           <div className="card col-10 col-md-6 col-lg-10 mx-auto">
             <div className="venue-title text-center mt-5">
-              <h1>{venue.name}</h1>
+              <h1 className="venue-title">{venue.name}</h1>
             </div>
             <div className="venue-address text-center">
-              <h5 className="location">Location : {venue.location.address}</h5>
-              <h3 className="venue-detail px-5 mt-3 pb-3">Maximum guests :
+              <h5 className="venue-location">Location : {venue.location.address}</h5>
+              <h5 className="venue-detail px-5 mt-3 pb-0">Maximum guests :
                 {venue.maxGuests}
-              </h3>
+              </h5>
               <h5 className="venue-detail px-5 pb-3">Price per night :
                 {venue.price} NOK
+              </h5>
+              <h5 className="px-5 pb-3 venue-id">Venue ID :
+                {venue.id}
               </h5>
               <div className="meta-data d-flex justify-content-center">
                 <div className="me-4 pt-2 pb-1"><i className="fa-solid fa-wifi"></i> {venue.meta.wifi.isAvailable ? (
@@ -77,53 +69,7 @@ export default function SingleVenue() {
                     Pets : Not Allowed
                   </h6>)}</div>
               </div>
-
-              {/*--------------------------- BOOKING FORM----------------------------------------------*/}
-              <div className="d-flex book-form-container justify-content-center mt-5">
-                <form className="d-flex">
-                  <div className="form-group p-2 flex-fill bd-highlight">
-                    <label htmlFor="datePicker"><h6>Select dates</h6></label>
-                    <input type="text" className="form-control" id="datePicker" placeholder="Select a date" />
-
-                  </div>
-                  <div className="form-group p-2 flex-fill bd-highlight">
-                    <label htmlFor="formGroupExampleInput"><h6>Number of guests</h6></label>
-                    <input type="text" className="form-control" id="formGroupExampleInput" placeholder="number of guests" />
-                  </div>
-                  <div className="form-group p-2 flex-fill bd-highlight">
-                    <label htmlFor="formGroupExampleInput2"><h6>Price per night</h6></label>
-                    <input type="text" className="form-control" id="formGroupExampleInput2" placeholder="price" />
-                  </div>
-
-                </form>
-              </div>
-              <Link to="/login"><button className="book-btn rounded-pill px-3 pt-2 pb-2 mt-3">
-                Book now
-              </button></Link>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              <BookingForm />
             </div>
             <img
               src={venue.media && venue.media.length > 0 ? venue.media[0].url : 'fallback-image-url.jpg'}

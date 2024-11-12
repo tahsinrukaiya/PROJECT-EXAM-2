@@ -362,12 +362,20 @@
 }
 
 /*--------------------------SINGLE VENUE---------------------------*/
+.card {
+  background-color: #F1F1F1 !important;
+}
+
 .venue-title {
   color: #2f3645;
 }
 
 .venue-address {
   color: #2f3645;
+}
+
+.venue-id {
+  display: none !important;
 }
 
 .venue-detail {
@@ -399,12 +407,16 @@
 }
 
 .meta-data {
-  background-color: #F1F1F1;
+  background-color: white !important;
 }
 
 .meta-info {
   color: #2f3645 !important;
   font-weight: 300 !important;
+}
+
+.book-form-container {
+  background-color: white !important;
 }
 
 /*-------------------------------LEASE VENUE FORM-------------------*/
@@ -667,11 +679,19 @@ textarea::placeholder {
   }
 
   /*-------------------------SINGLE VENUE---------------------------*/
+  .venue-title {
+    font-size: 20px !important;
+  }
+
+  .venue-location {
+    font-size: 16px !important;
+  }
+
   .venue-detail {
     margin-top: 0 !important;
     padding-top: 0x !important;
-    padding-bottom: 10px !important;
-    font-size: 16px !important;
+    padding-bottom: 0px !important;
+    font-size: 15px !important;
     font-family: "karla";
   }
 
@@ -690,5 +710,19 @@ textarea::placeholder {
     padding-right: 7% !important;
   }
 
+  /*------------Book form*/
+  .book-form-container {
+    flex-direction: column !important;
+  }
+
+  .booking-form {
+    flex-direction: column !important;
+  }
+
+  .book-btn {
+    margin-left: 17% !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+  }
 
 }
