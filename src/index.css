@@ -419,6 +419,25 @@
   background-color: white !important;
 }
 
+/*-------------------------------BOOK VENUE FORM-------------------*/
+.error-message {
+  color: #973131 !important;
+  background-color: #ffe382 !important;
+  font-size: 16px !important;
+}
+
+.success-message {
+  background-color: #2f3645 !important;
+  color: #ffe382 !important;
+}
+
+
+
+
+
+
+
+
 /*-------------------------------LEASE VENUE FORM-------------------*/
 .form-label {
   font-weight: 400 !important;
@@ -524,7 +543,21 @@ textarea::placeholder {
   padding-bottom: 3px !important;
 }
 
+.update-booking {
+  border: none;
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
 
+.delete-booking {
+  border: none;
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
 
 
 

@@ -5,6 +5,7 @@ import { fetchProfileData } from '../../api/fetchProfileData';
 import { handleUpdateClick, handleDeleteClick, handleCloseModal } from './profileHandlers';
 import SuccessModalDelete from "./Venues/SuccessModalDelete";
 import { API_KEY } from '../../config';
+import fetchBookings from '../../Api/fetchBooking';
 
 export default function Profile() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,6 +15,7 @@ export default function Profile() {
     const [userRole, setUserRole] = useState(null);
     const [venueToDelete, setVenueToDelete] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [bookings, setBookings] = useState([]);
 
     const navigate = useNavigate();
 
@@ -29,6 +31,12 @@ export default function Profile() {
                 setProfileData(result.data);
                 setUserRole(result.data.venueManager ? 'Venue Manager' : 'Customer');
                 setIsLoading(false);
+
+                if (result.data.venueManager) {
+                } else {
+                    const bookingsData = await fetchBookings(name, token);
+                    setBookings(bookingsData);
+                }
             } catch (err) {
                 setError(err.message);
                 setIsLoading(false);
@@ -60,7 +68,7 @@ export default function Profile() {
     return (
         <div className="container py-5 h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
-                <div className="col col-lg-6 mb-4 mb-lg-0">
+                <div className="col col-lg-8 mb-4 mb-lg-0">
                     <div className="card mb-3">
                         <div className="row g-0">
                             <div className="col-md-4">
@@ -91,17 +99,39 @@ export default function Profile() {
                                             <p className="text-muted">{userRole}</p>
                                         </div>
                                     </div>
-                                    {profileData?.venueManager && (
+
+                                    {/* Conditional rendering based on userRole */}
+                                    {userRole === 'Venue Manager' && profileData?.venueManager && (
                                         <Link to="/lease-venue">
                                             <button className="lease-btn rounded-pill mb-4 px-3 pt-1 pb-1">
                                                 Lease a venue
                                             </button>
                                         </Link>
                                     )}
-                                    <h6 className="profile-data">Your Venues</h6>
+
+                                    {/* Conditional rendering for Bookings or Venues */}
+                                    <h5 className="profile-data">{userRole === 'Customer' ? 'Your Bookings' : 'Your Venues'}</h5>
                                     <hr className="mt-0 mb-4" />
-                                    <div className="venuelist col-12 col-md-10 col-lg-10">
-                                        {profileData?.venues?.length > 0 ? (
+                                    <div className="col-12 col-md-10 col-lg-10">
+                                        {userRole === 'Customer' && bookings.length > 0 ? (
+                                            bookings.map((booking, index) => (
+                                                <div key={booking.id || `booking-${index}`} className="card mb-3">
+                                                    <div className="card-body">
+                                                        <div className="profile-card-title mt-2 mx-2 mb-2"><h6 className="book-id">Booking ID: {booking.id}</h6></div>
+
+                                                        <p className="text-muted">From: {booking.dateFrom}</p>
+                                                        <p className="text-muted">To: {booking.dateTo}</p>
+                                                        <p className="text-muted">Guests: {booking.guests}</p>
+                                                        <button className="rounded-pill me-2 update-booking"><i className="fa-regular fa-pen-to-square"></i>Update</button>
+                                                        <button className="rounded-pill delete-booking"><i className="fa-solid fa-trash"></i>Delete</button>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <p>No bookings available</p>
+                                        )}
+
+                                        {userRole === 'Venue Manager' && profileData?.venues?.length > 0 ? (
                                             profileData.venues.map((venue, index) => (
                                                 <div key={venue.id || `venue-${index}`} className="card mb-3">
                                                     <img
@@ -109,9 +139,9 @@ export default function Profile() {
                                                         src={venue.media && venue.media[0]?.url}
                                                         alt={venue.name} />
                                                     <h6 className="profile-card-title mt-2 mx-2">{venue.name}</h6>
-                                                    <div className="d-flex gap-5 button-container mb-3 px-4">
+                                                    <div className="button-container mx-3 mb-3">
                                                         <button
-                                                            className="update-venue rounded-pill"
+                                                            className="update-venue rounded-pill me-3"
                                                             onClick={() => handleUpdateClick(venue, navigate)}
                                                         >
                                                             <i className="fa-regular fa-pen-to-square"></i>Update

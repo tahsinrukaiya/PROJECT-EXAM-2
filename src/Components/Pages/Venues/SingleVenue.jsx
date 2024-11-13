@@ -69,7 +69,7 @@ export default function SingleVenue() {
                     Pets : Not Allowed
                   </h6>)}</div>
               </div>
-              <BookingForm />
+              <BookingForm venueId={venue.id} />
             </div>
             <img
               src={venue.media && venue.media.length > 0 ? venue.media[0].url : 'fallback-image-url.jpg'}

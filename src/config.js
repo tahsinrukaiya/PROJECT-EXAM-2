@@ -10,6 +10,7 @@ export const API_URLS = {
   CREATE_BOOKING: import.meta.env.VITE_BOOKING_CREATE,
   UPDATE_BOOKING: import.meta.env.VITE_BOOKING_UPDATE,
   DELETE_BOOKING: import.meta.env.VITE_BOOKING_DELETE,
+  ALL_BOOKINGS: import.meta.env.VITE_ALL_BOOKINGS,
 };
 
 export const API_KEY = import.meta.env.VITE_API_KEY;
