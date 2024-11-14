@@ -23,11 +23,14 @@ async function bookVenue({ dateFrom, dateTo, guests, venueId, token }) {
         });
 
         if (!response.ok) {
-            throw new Error("Failed to create booking.");
+            const errorDetails = await response.json();
+            if (response.status === 409) {
+                throw new Error("You have already booked this venue.");
+            }
+            throw new Error(errorDetails.message || "Failed to create booking.");
         }
 
         const data = await response.json();
-        console.log(data);
         console.log("Booking created successfully!");
         return { success: true, data };
     } catch (error) {

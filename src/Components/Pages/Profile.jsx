@@ -5,7 +5,7 @@ import { fetchProfileData } from '../../api/fetchProfileData';
 import { handleUpdateClick, handleDeleteClick, handleCloseModal } from './profileHandlers';
 import SuccessModalDelete from "./Venues/SuccessModalDelete";
 import { API_KEY } from '../../config';
-import fetchBookings from '../../Api/fetchBooking';
+import fetchBookings from '../../api/fetchBooking';
 
 export default function Profile() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -77,6 +77,9 @@ export default function Profile() {
                                     alt="Banner"
                                     className="img-fluid my-5 mx-2 banner"
                                 />
+
+                                <input type="file" className="custom-file-input mx-3" id="inputGroupFile01" />
+
                                 <button className="rounded-pill px-3 pt-1 pb-1 mx-3 edit-banner-btn">
                                     Edit Banner
                                 </button>

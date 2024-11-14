@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import bookVenue from '../../../Api/bookVenue';
+import bookVenue from "../../../api/bookVenue";
 
-export default function BookingForm({ venueId }) {
+export default function BookingForm({ venueId, bookings, maxGuests }) {
     const [dateFrom, setDateFrom] = useState("");
     const [dateTo, setDateTo] = useState("");
     const [guests, setGuests] = useState(1);
@@ -14,16 +14,33 @@ export default function BookingForm({ venueId }) {
     const dateFromRef = useRef(null);
     const dateToRef = useRef(null);
 
+    const getDisabledDates = () => {
+        return bookings.map((booking) => {
+            const dateFrom = new Date(booking.dateFrom);
+            const dateTo = new Date(booking.dateTo);
+            let dates = [];
+            for (let d = new Date(dateFrom); d <= dateTo; d.setDate(d.getDate() + 1)) {
+                dates.push(d.toISOString().split("T")[0]);
+            }
+            return dates;
+        }).flat();
+    };
+
     useEffect(() => {
+        const disabledDates = getDisabledDates();
+
         flatpickr(dateFromRef.current, {
             dateFormat: "Y-m-d",
+            disable: disabledDates,
             onChange: (selectedDates) => setDateFrom(selectedDates[0]),
         });
+
         flatpickr(dateToRef.current, {
             dateFormat: "Y-m-d",
+            disable: disabledDates,
             onChange: (selectedDates) => setDateTo(selectedDates[0]),
         });
-    }, []);
+    }, [bookings]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,6 +49,11 @@ export default function BookingForm({ venueId }) {
 
         if (!token) {
             setError("You must be logged in to book a venue!");
+            return;
+        }
+
+        if (guests > maxGuests) {
+            setError("You have exceeded the maximum number of guests!");
             return;
         }
 
@@ -92,3 +114,4 @@ export default function BookingForm({ venueId }) {
         </div>
     );
 }
+

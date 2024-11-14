@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { updateVenue } from "../../../Api/updateVenue";
+import { updateVenue } from "../../../api/updateVenue";
 
 export default function UpdateVenueForm() {
     const [venueData, setVenueData] = useState(null);

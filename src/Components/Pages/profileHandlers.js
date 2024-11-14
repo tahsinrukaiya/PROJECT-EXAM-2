@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { deleteVenue } from '../../Api/deleteVenue';
+import { deleteVenue } from '../../api/deleteVenue';
 import SuccessModalDelete from './Venues/SuccessModalDelete';
 
 
