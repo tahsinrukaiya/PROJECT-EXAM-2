@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { API_URLS } from "../../../config";
-import { Link } from "react-router-dom";
-import bookVenue from "../../../api/bookVenue";
 import BookingForm from "./BookingForm";
 
 export default function SingleVenue() {
