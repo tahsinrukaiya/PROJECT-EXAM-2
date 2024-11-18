@@ -6,6 +6,8 @@ import { handleUpdateClick, handleDeleteClick, handleCloseModal } from './profil
 import SuccessModalDelete from "./Venues/SuccessModalDelete";
 import { API_KEY } from '../../config';
 import fetchBookings from '../../api/fetchBooking';
+import { updateAvatar } from '../../api/updateAvatar';
+
 
 export default function Profile() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -73,16 +75,20 @@ export default function Profile() {
                         <div className="row g-0">
                             <div className="col-md-4">
                                 <img
-                                    src={profileData?.banner?.url || "banner"}
-                                    alt="Banner"
-                                    className="img-fluid my-5 mx-2 banner"
+                                    src={profileData?.avatar?.url || "avatar"}
+                                    alt="Avatar"
+                                    className="img-fluid my-5 mx-2 avatar pt-3 pb-3 px-3 avatar"
                                 />
 
-                                <input type="file" className="custom-file-input mx-3" id="inputGroupFile01" />
+                                <div className="input-group">
+                                    <input type="file" className="custom-file-input" id="inputGroupFile01" hidden />
 
-                                <button className="rounded-pill px-3 pt-1 pb-1 mx-3 edit-banner-btn">
-                                    Edit Banner
-                                </button>
+                                    <label htmlFor="inputGroupFile01" className="btn rounded-pill mx-4 update-avatar">
+                                        Change your avatar
+                                    </label>
+                                </div>
+
+
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body p-4">
@@ -103,7 +109,6 @@ export default function Profile() {
                                         </div>
                                     </div>
 
-                                    {/* Conditional rendering based on userRole */}
                                     {userRole === 'Venue Manager' && profileData?.venueManager && (
                                         <Link to="/lease-venue">
                                             <button className="lease-btn rounded-pill mb-4 px-3 pt-1 pb-1">
@@ -112,7 +117,7 @@ export default function Profile() {
                                         </Link>
                                     )}
 
-                                    {/* Conditional rendering for Bookings or Venues */}
+
                                     <h5 className="profile-data">{userRole === 'Customer' ? 'Your Bookings' : 'Your Venues'}</h5>
                                     <hr className="mt-0 mb-4" />
                                     <div className="col-12 col-md-10 col-lg-10">

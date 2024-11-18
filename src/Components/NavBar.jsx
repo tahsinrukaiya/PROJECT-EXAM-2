@@ -52,6 +52,7 @@ export default function NavBar() {
                 Contact
               </NavLink>
             </li>
+
             <li className="nav-item me-5">
               <NavLink to="/register_type" className="links">
                 Register
@@ -78,10 +79,12 @@ export default function NavBar() {
                   Login
                 </NavLink>
               </li>
+
             )}
           </ul>
         </div>
       </div>
+
       <LogoutModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

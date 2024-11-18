@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { deleteVenue } from '../../api/deleteVenue';
 import SuccessModalDelete from './Venues/SuccessModalDelete';
-
+import { API_URLS } from '../../config';
+import { API_KEY } from '../../config';
 
 export const handleUpdateClick = (venue, navigate) => {
     localStorage.setItem('selectedVenue', JSON.stringify(venue));

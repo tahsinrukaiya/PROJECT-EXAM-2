@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 const VenueCard = ({ venue }) => {
   return (
     <div className="col-6 col-md-6 col-lg-4">
-      <div className="card text-white">
+      <div className="card">
         <img
           src={
             venue.media && venue.media.length > 0
               ? venue.media[0].url
               : "fallback-image-url.jpg"
           }
-          className="card-img"
+          className="venue-img rounded"
           alt={venue.media[0]?.alt || "Fallback description"}
         />
         <div className="card-img-overlay d-flex flex-column justify-content-center align-items-center">
