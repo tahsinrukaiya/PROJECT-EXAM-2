@@ -1,13 +1,13 @@
 import { API_URLS } from "../config";
 import { API_KEY } from "../config";
 
-export async function updateAvatar(name, token) {
-    if (!name || !token) {
-        throw new Error('Missing name or token');
+export async function updateAvatar(name, token, avatarUrl, avatarAlt = 'Updated Avatar') {
+    if (!name || !token || !avatarUrl) {
+        throw new Error('Missing name, token, or avatar URL');
     }
 
     const encodedName = encodeURIComponent(name);
-    const url = `${API_URLS.UPDATE_PROFILE}/${encodedName}`;
+    const url = `${API_URLS.UPDATE_AVATAR}${encodedName}`;
     const apiKey = API_KEY;
 
     try {
@@ -16,8 +16,14 @@ export async function updateAvatar(name, token) {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`,
-                "X-Noroff-API-Key": apiKey,
+                'X-Noroff-API-Key': apiKey,
             },
+            body: JSON.stringify({
+                avatar: {
+                    url: avatarUrl,
+                    alt: avatarAlt
+                }
+            })
         });
 
         if (!response.ok) {
@@ -28,6 +34,14 @@ export async function updateAvatar(name, token) {
 
         const data = await response.json();
         console.log('Profile Data:', data);
+
+        const userData = JSON.parse(localStorage.getItem("userData"));
+        if (userData) {
+            userData.avatar.url = data.avatar.url;
+            console.log(userData.avatar.url);
+
+            localStorage.setItem("userData", JSON.stringify(userData));
+        }
         return data;
 
     } catch (err) {

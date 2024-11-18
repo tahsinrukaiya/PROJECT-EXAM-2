@@ -7,7 +7,7 @@ import SuccessModalDelete from "./Venues/SuccessModalDelete";
 import { API_KEY } from '../../config';
 import fetchBookings from '../../api/fetchBooking';
 import { updateAvatar } from '../../api/updateAvatar';
-
+import UpdateProfileForm from './updateProfileForm';
 
 export default function Profile() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,9 +18,12 @@ export default function Profile() {
     const [venueToDelete, setVenueToDelete] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [bookings, setBookings] = useState([]);
+    const [avatar, setAvatar] = useState(() => {
+        const storedUserData = localStorage.getItem('userData');
+        return storedUserData ? JSON.parse(storedUserData).avatar : {};
+    });
 
     const navigate = useNavigate();
-
     const token = localStorage.getItem('accessToken');
     const storedAuthData = JSON.parse(localStorage.getItem('authData'));
     const name = storedAuthData?.name;
@@ -59,6 +62,17 @@ export default function Profile() {
         }
     }, [profileData, isLoading]);
 
+    const handleAvatarChange = async (newAvatarUrl) => {
+        try {
+            const data = await updateAvatar(name, token, newAvatarUrl);
+            setAvatar(data.avatar);
+            const updatedUserData = { ...JSON.parse(localStorage.getItem('userData')), avatar: data.avatar };
+            localStorage.setItem('userData', JSON.stringify(updatedUserData));
+        } catch (error) {
+            console.error('Failed to update avatar:', error);
+        }
+    };
+
     if (error) {
         return <div className="alert alert-danger">Error: {error}</div>;
     }
@@ -74,21 +88,13 @@ export default function Profile() {
                     <div className="card mb-3">
                         <div className="row g-0">
                             <div className="col-md-4">
+
                                 <img
                                     src={profileData?.avatar?.url || "avatar"}
                                     alt="Avatar"
                                     className="img-fluid my-5 mx-2 avatar pt-3 pb-3 px-3 avatar"
                                 />
-
-                                <div className="input-group">
-                                    <input type="file" className="custom-file-input" id="inputGroupFile01" hidden />
-
-                                    <label htmlFor="inputGroupFile01" className="btn rounded-pill mx-4 update-avatar">
-                                        Change your avatar
-                                    </label>
-                                </div>
-
-
+                                <UpdateProfileForm name={name} token={token} onAvatarChange={handleAvatarChange} />
                             </div>
                             <div className="col-md-8">
                                 <div className="card-body p-4">
@@ -117,7 +123,6 @@ export default function Profile() {
                                         </Link>
                                     )}
 
-
                                     <h5 className="profile-data">{userRole === 'Customer' ? 'Your Bookings' : 'Your Venues'}</h5>
                                     <hr className="mt-0 mb-4" />
                                     <div className="col-12 col-md-10 col-lg-10">
@@ -126,7 +131,6 @@ export default function Profile() {
                                                 <div key={booking.id || `booking-${index}`} className="card mb-3">
                                                     <div className="card-body">
                                                         <div className="profile-card-title mt-2 mx-2 mb-2"><h6 className="book-id">Booking ID: {booking.id}</h6></div>
-
                                                         <p className="text-muted">From: {booking.dateFrom}</p>
                                                         <p className="text-muted">To: {booking.dateTo}</p>
                                                         <p className="text-muted">Guests: {booking.guests}</p>
@@ -145,7 +149,8 @@ export default function Profile() {
                                                     <img
                                                         className="card-img-top"
                                                         src={venue.media && venue.media[0]?.url}
-                                                        alt={venue.name} />
+                                                        alt={venue.name}
+                                                    />
                                                     <h6 className="profile-card-title mt-2 mx-2">{venue.name}</h6>
                                                     <div className="button-container mx-3 mb-3">
                                                         <button
