@@ -23,13 +23,14 @@ export default function UpdateProfileForm({ name, token }) {
 
     return (
         <form onSubmit={handleFormSubmit} className="update-avatar-form mx-4">
-            <label htmlFor="basic-url" className="form-label">Your avatar URL</label>
+            <label htmlFor="basic-url" className="form-label">Change your avatar</label>
             <div className="input-group mb-3">
                 <input
                     type="text"
                     className="form-control"
                     id="basic-url"
                     aria-describedby="basic-addon3"
+                    placeholder='enter a url'
                     value={avatarUrl}
                     onChange={(e) => setAvatarUrl(e.target.value)}
                 />
