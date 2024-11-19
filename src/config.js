@@ -12,6 +12,7 @@ export const API_URLS = {
   DELETE_BOOKING: import.meta.env.VITE_BOOKING_DELETE,
   ALL_BOOKINGS: import.meta.env.VITE_ALL_BOOKINGS,
   UPDATE_AVATAR: import.meta.env.VITE_UPDATE_PROFILE,
+  ALL_VENUES_BY_PROFILE: import.meta.env.VITE_ALL_VENUES_BY_PROFILE
 };
 
 export const API_KEY = import.meta.env.VITE_API_KEY;

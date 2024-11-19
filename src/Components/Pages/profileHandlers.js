@@ -15,7 +15,7 @@ export const handleDeleteClick = async (venue, setProfileData, setVenueToDelete,
     try {
         await deleteVenue(venue, () => {
             setProfileData(prevData => {
-                const updatedVenues = prevData.venues.filter(v => v.id !== venue.id);
+                const updatedVenues = prevData?.venues?.filter(v => v.id !== venue.id) || [];
                 localStorage.setItem('venues', JSON.stringify(updatedVenues));
 
                 return {

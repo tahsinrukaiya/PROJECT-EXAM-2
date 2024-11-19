@@ -1,19 +1,16 @@
 import { useState, useEffect } from "react";
 import { updateVenue } from "../../../api/updateVenue";
 
-
 export default function UpdateVenueForm() {
     const [venueData, setVenueData] = useState(null);
 
     useEffect(() => {
-        // Retrieve venue data from local storage
         const storedVenue = JSON.parse(localStorage.getItem('selectedVenue'));
         if (storedVenue) {
-            // Ensure the media URL is extracted if available
             const mediaUrl = storedVenue.media && storedVenue.media.length > 0 ? storedVenue.media[0].url : '';
             setVenueData({
                 ...storedVenue,
-                imageUrl: mediaUrl,  // Add media URL to venueData
+                imageUrl: mediaUrl,
             });
         }
     }, []);
@@ -27,7 +24,6 @@ export default function UpdateVenueForm() {
                 [name]: checked,
             });
         } else if (name === "location.address") {
-            // Specifically handle location.address change
             setVenueData({
                 ...venueData,
                 location: {
@@ -36,10 +32,9 @@ export default function UpdateVenueForm() {
                 },
             });
         } else if (name === "maxGuests" || name === "price") {
-            // Ensure price and maxGuests are handled as numbers
             setVenueData({
                 ...venueData,
-                [name]: Number(value),  // Ensure the value is a number
+                [name]: Number(value),
             });
         } else {
             setVenueData({
@@ -52,7 +47,6 @@ export default function UpdateVenueForm() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        // Basic validation
         if (!venueData.name || !venueData.location.address || !venueData.price || isNaN(venueData.maxGuests)) {
             alert("Please fill in all required fields and ensure maxGuests is a number.");
             return;
@@ -61,14 +55,12 @@ export default function UpdateVenueForm() {
         try {
             const updatedVenue = await updateVenue(venueData);
 
-            // Ensure the venue is updated successfully
             if (updatedVenue) {
                 alert('Venue updated successfully!');
-                // Update the form data with the updated venue data
                 setVenueData(updatedVenue);
                 localStorage.setItem('selectedVenue', JSON.stringify(updatedVenue));
 
-                window.location.href = "/venue_list";  // Redirect after success
+                window.location.href = "/venue_list";
             } else {
                 throw new Error('Failed to update venue');
             }
@@ -99,7 +91,7 @@ export default function UpdateVenueForm() {
                         <label htmlFor="location.address" className="form-label">Location</label>
                         <input
                             type="text"
-                            name="location.address"  // Use 'location.address' as the name to target it in the handler
+                            name="location.address"
                             className="form-control"
                             value={venueData.location.address}
                             onChange={handleFormChange}

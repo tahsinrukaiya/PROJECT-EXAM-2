@@ -6,6 +6,7 @@ import { handleUpdateClick, handleDeleteClick, handleCloseModal } from './profil
 import SuccessModalDelete from "./Venues/SuccessModalDelete";
 import { API_KEY } from '../../config';
 import fetchBookings from '../../api/fetchBooking';
+import { fetchVenuesByProfile } from '../../api/fetchVenuesByProfile'
 import { updateAvatar } from '../../api/updateAvatar';
 import UpdateProfileForm from './updateProfileForm';
 
@@ -18,6 +19,7 @@ export default function Profile() {
     const [venueToDelete, setVenueToDelete] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [bookings, setBookings] = useState([]);
+    const [venues, setVenues] = useState([]);
     const [avatar, setAvatar] = useState(() => {
         const storedUserData = localStorage.getItem('userData');
         return storedUserData ? JSON.parse(storedUserData).avatar : {};
@@ -38,6 +40,9 @@ export default function Profile() {
                 setIsLoading(false);
 
                 if (result.data.venueManager) {
+                    const venuesData = await fetchVenuesByProfile(name, token);
+                    console.log("Venues Data:", venuesData);
+                    setVenues(venuesData.data);
                 } else {
                     const bookingsData = await fetchBookings(name, token);
                     setBookings(bookingsData);
@@ -49,6 +54,7 @@ export default function Profile() {
         }
         getProfileData();
     }, [name, token]);
+
 
     useEffect(() => {
         if (profileData && !profileData.venues && !isLoading) {
@@ -143,8 +149,8 @@ export default function Profile() {
                                             <p>No bookings available</p>
                                         )}
 
-                                        {userRole === 'Venue Manager' && profileData?.venues?.length > 0 ? (
-                                            profileData.venues.map((venue, index) => (
+                                        {userRole === 'Venue Manager' && venues.length > 0 ? (
+                                            venues.map((venue, index) => (
                                                 <div key={venue.id || `venue-${index}`} className="card mb-3">
                                                     <img
                                                         className="card-img-top"
