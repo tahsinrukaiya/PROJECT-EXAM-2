@@ -157,7 +157,12 @@ export default function Profile() {
                                                         src={venue.media && venue.media[0]?.url}
                                                         alt={venue.name}
                                                     />
-                                                    <h6 className="profile-card-title mt-2 mx-2">{venue.name}</h6>
+                                                    <h3 className="profile-card-title mt-2 mx-2">{venue.name}</h3>
+                                                    <p className="mx-2">
+                                                        {venue._count?.bookings > 0
+                                                            ? `Bookings: ${venue._count.bookings}`
+                                                            : 'No bookings available'}
+                                                    </p>
                                                     <div className="button-container mx-3 mb-3">
                                                         <button
                                                             className="update-venue rounded-pill me-3"
