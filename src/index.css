@@ -488,7 +488,7 @@ textarea::placeholder {
   background-color: #2f3645 !important;
 }
 
-.update-venue {
+.update-venue-btn {
   border: none;
   background-color: #ffe382 !important;
   color: #2f3645 !important;
@@ -496,12 +496,22 @@ textarea::placeholder {
   padding-bottom: 3px !important;
 }
 
-.delete-venue {
+.delete-venue-btn {
   border: none;
   background-color: #ffe382 !important;
   color: #2f3645 !important;
   padding-top: 3px !important;
   padding-bottom: 3px !important;
+}
+
+.update-venue-btn:hover {
+  background-color: #2f3645 !important;
+  color: #ffe382 !important;
+}
+
+.delete-venue-btn:hover {
+  background-color: #2f3645 !important;
+  color: #ffe382 !important;
 }
 
 .update-booking {
@@ -528,6 +538,10 @@ textarea::placeholder {
 .update-avatar:hover {
   color: #ffe382 !important;
   background-color: #2f3645 !important;
+}
+
+.booking-list .list {
+  font-size: 16px !important;
 }
 
 /*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/

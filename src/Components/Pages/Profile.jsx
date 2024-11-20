@@ -137,6 +137,7 @@ export default function Profile() {
                                                 <div key={booking.id || `booking-${index}`} className="card mb-3">
                                                     <div className="card-body">
                                                         <div className="profile-card-title mt-2 mx-2 mb-2"><h6 className="book-id">Booking ID: {booking.id}</h6></div>
+                                                        <p className="text-muted">Venue Name: {booking.name}</p>
                                                         <p className="text-muted">From: {booking.dateFrom}</p>
                                                         <p className="text-muted">To: {booking.dateTo}</p>
                                                         <p className="text-muted">Guests: {booking.guests}</p>
@@ -158,20 +159,30 @@ export default function Profile() {
                                                         alt={venue.name}
                                                     />
                                                     <h3 className="profile-card-title mt-2 mx-2">{venue.name}</h3>
-                                                    <p className="mx-2">
-                                                        {venue._count?.bookings > 0
-                                                            ? `Bookings: ${venue._count.bookings}`
-                                                            : 'No bookings available'}
-                                                    </p>
-                                                    <div className="button-container mx-3 mb-3">
+                                                    <div className="booking-container">
+                                                        <h5 className='booking-heading mx-2'>Bookings</h5>
+                                                        {venue.bookings && venue.bookings.length > 0 ? (
+                                                            <div className="booking-list">
+                                                                {venue.bookings.map((booking, index) => (
+                                                                    <ul key={index} className="list-group px-3">
+                                                                        <li className="list-group-item list"><strong>Customer:</strong>
+                                                                            {booking.customer.name} <strong className='mx-2'>Booking Date:</strong> {new Date(booking.created).toLocaleDateString()}</li>
+                                                                    </ul>
+                                                                ))}
+                                                            </div>
+                                                        ) : (
+                                                            <p className='mx-2'>No bookings available</p>
+                                                        )}
+                                                    </div>
+                                                    <div className="button-container mx-3 mb-3 mt-3">
                                                         <button
-                                                            className="update-venue rounded-pill me-3"
+                                                            className="update-venue-btn rounded-pill me-3"
                                                             onClick={() => handleUpdateClick(venue, navigate)}
                                                         >
                                                             <i className="fa-regular fa-pen-to-square"></i>Update
                                                         </button>
                                                         <button
-                                                            className="delete-venue rounded-pill"
+                                                            className="delete-venue-btn rounded-pill"
                                                             onClick={() => handleDeleteClick(venue, setProfileData, setVenueToDelete, setError, setIsModalOpen)}
                                                         >
                                                             <i className="fa-solid fa-trash"></i>Delete
@@ -182,6 +193,7 @@ export default function Profile() {
                                         ) : (
                                             <p>No venues available</p>
                                         )}
+
                                     </div>
                                 </div>
                             </div>

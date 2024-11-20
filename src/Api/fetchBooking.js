@@ -2,7 +2,7 @@ import { API_URLS } from "../config";
 import { API_KEY } from "../config";
 
 const fetchBookings = async (profileName, token) => {
-    const url = `${API_URLS.ALL_BOOKINGS}${profileName}/bookings`;
+    const url = `${API_URLS.ALL_BOOKINGS}${profileName}/bookings?_venue=true&_customer=true`;
     const apiKey = API_KEY;
 
     try {
