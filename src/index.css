@@ -215,7 +215,6 @@
   filter: brightness(0.6) grayscale(30%);
   object-fit: cover;
   height: 250px !important;
-
 }
 
 .see-all-link {
@@ -608,6 +607,10 @@ textarea::placeholder {
   .card-title {
     color: white;
     font-size: 13px;
+  }
+
+  .venue-img {
+    height: 100px !important;
   }
 
   .viewBtn {
