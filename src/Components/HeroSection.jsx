@@ -1,4 +1,5 @@
 import BGimage from "../assets/hero-image.jpg";
+import SearchForm from "./SearchForm";
 
 export default function HeroSection() {
   return (
@@ -15,30 +16,9 @@ export default function HeroSection() {
           <h3 className="lead-2 text-white">
             Find a venue that is perfect for your event and activities
           </h3>
-
-          <div className="col-10 col-md-6 col-lg-6 search-form-container">
-            <form className="search-form">
-              <div class="d-flex">
-                <div class="p-2 flex-fill bd-highlight"><input
-                  type="search"
-                  className="form-control rounded"
-                  placeholder="search"
-                  aria-label="Search"
-                  aria-describedby="search-addon"
-                /></div>
-                <div class="p-2 justify-content-start"> <button
-                  type="submit"
-                  className="search-btn rounded-pill px-4 pt-1 pb-1">
-                  Search
-                </button></div>
-              </div>
-            </form>
-          </div>
-
+          <SearchForm />
         </div>
       </div>
     </div>
   );
 }
-
-//    <a href="#" className="btn btn-primary btn-lg px-4 rounded-pill button-banner">Book venue here</a>

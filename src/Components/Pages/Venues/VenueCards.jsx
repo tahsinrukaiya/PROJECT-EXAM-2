@@ -1,36 +1,33 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import VenueCard from "../Venues/VenueCard";
-import { API_URLS } from "../../../config";
+import { fetchVenues } from "../../../api/fetchVenues";
 
 const VenueCards = ({ limit = 6 }) => {
     const [venues, setVenues] = useState([]);
     const [error, setError] = useState(null);
-
-    const fetchVenues = async () => {
-        try {
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-
-            const response = await fetch(API_URLS.ALL_VENUES);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const data = await response.json();
-            console.log(data);
-
-            const sortedVenues = data.data.sort((a, b) => a.name.localeCompare(b.name));
-            setVenues(sortedVenues);
-            console.log(`Fetched ${data.data.length} venues`);
-        } catch (error) {
-            console.error("Error fetching venues:", error);
-            setError(error.message);
-        }
-    };
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchVenues();
+        const loadVenues = async () => {
+            try {
+                const data = await fetchVenues();
+                const sortedVenues = data.sort((a, b) => a.name.localeCompare(b.name));
+                setVenues(sortedVenues);
+                console.log(`Fetched ${data.length} venues`);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadVenues();
     }, []);
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
 
     return (
         <>

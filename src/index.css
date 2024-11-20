@@ -586,7 +586,14 @@ textarea::placeholder {
   }
 
   .search-btn {
-    font-size: 14px !important;
+    font-size: 13px !important;
+    margin-top: 2px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .search-input {
+    line-height: 20px !important;
   }
 
   .button-banner {
