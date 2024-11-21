@@ -1,38 +1,37 @@
-import { useNavigate } from 'react-router-dom';
 import { deleteVenue } from '../../api/deleteVenue';
-import SuccessModalDelete from './Venues/SuccessModalDelete';
-import { API_URLS } from '../../config';
-import { API_KEY } from '../../config';
 
 export const handleUpdateClick = (venue, navigate) => {
+    if (!venue || !navigate) {
+        console.error('Invalid venue or navigate function.');
+        return;
+    }
+
     localStorage.setItem('selectedVenue', JSON.stringify(venue));
     navigate('/update-venue');
 };
 
-export const handleDeleteClick = async (venue, setProfileData, setVenueToDelete, setError, setIsModalOpen) => {
-    setVenueToDelete(venue);
-
+export const handleDeleteClick = (venueData, token, apiKey, setProfileData, setError, setIsModalOpen) => {
     try {
-        await deleteVenue(venue, () => {
+        deleteVenue(venueData, () => {
             setProfileData(prevData => {
-                const updatedVenues = prevData?.venues?.filter(v => v.id !== venue.id) || [];
-                localStorage.setItem('venues', JSON.stringify(updatedVenues));
-
-                return {
-                    ...prevData,
-                    venues: updatedVenues,
-                };
+                const updatedVenues = (prevData.venues || []).filter(venue => venue.id !== venueData.id); // Ensure venues is an array
+                return { ...prevData, venues: updatedVenues };
             });
-            setIsModalOpen(true);
+            setIsModalOpen(false);
+            window.location.reload();
         });
-
     } catch (error) {
-        console.error('Failed to delete venue:', error);
-        setError('Failed to delete venue');
+        setError(error.message);
+        console.error("Error during venue deletion:", error);
     }
 };
 
 export const handleCloseModal = (setIsModalOpen, setVenueToDelete) => {
+    if (!setIsModalOpen || !setVenueToDelete) {
+        console.error('Invalid setters for closing modal.');
+        return;
+    }
+
     setIsModalOpen(false);
     setVenueToDelete(null);
 };

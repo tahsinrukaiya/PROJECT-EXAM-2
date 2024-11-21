@@ -1,14 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchProfileData } from '../../api/fetchProfileData';
-import { handleUpdateClick, handleDeleteClick, handleCloseModal } from './profileHandlers';
+import { fetchProfileData } from "../../api/fetchProfileData";
+import { handleUpdateClick, handleDeleteClick, handleCloseModal } from "./profileHandlers";
 import SuccessModalDelete from "./Venues/SuccessModalDelete";
-import { API_KEY } from '../../config';
-import fetchBookings from '../../api/fetchBooking';
-import { fetchVenuesByProfile } from '../../api/fetchVenuesByProfile'
-import { updateAvatar } from '../../api/updateAvatar';
-import UpdateProfileForm from './updateProfileForm';
+import { API_KEY } from "../../config";
+import fetchBookings from "../../api/fetchBooking";
+import { fetchVenuesByProfile } from "../../api/fetchVenuesByProfile";
+import { updateAvatar } from "../../api/updateAvatar";
+import UpdateProfileForm from "./updateProfileForm";
 
 export default function Profile() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,13 +21,13 @@ export default function Profile() {
     const [bookings, setBookings] = useState([]);
     const [venues, setVenues] = useState([]);
     const [avatar, setAvatar] = useState(() => {
-        const storedUserData = localStorage.getItem('userData');
+        const storedUserData = localStorage.getItem("userData");
         return storedUserData ? JSON.parse(storedUserData).avatar : {};
     });
 
     const navigate = useNavigate();
-    const token = localStorage.getItem('accessToken');
-    const storedAuthData = JSON.parse(localStorage.getItem('authData'));
+    const token = localStorage.getItem("accessToken");
+    const storedAuthData = JSON.parse(localStorage.getItem("authData"));
     const name = storedAuthData?.name;
 
     useEffect(() => {
@@ -36,12 +36,11 @@ export default function Profile() {
                 setIsLoading(true);
                 const result = await fetchProfileData(name, token);
                 setProfileData(result.data);
-                setUserRole(result.data.venueManager ? 'Venue Manager' : 'Customer');
+                setUserRole(result.data.venueManager ? "Venue Manager" : "Customer");
                 setIsLoading(false);
 
                 if (result.data.venueManager) {
                     const venuesData = await fetchVenuesByProfile(name, token);
-                    console.log("Venues Data:", venuesData);
                     setVenues(venuesData.data);
                 } else {
                     const bookingsData = await fetchBookings(name, token);
@@ -55,27 +54,14 @@ export default function Profile() {
         getProfileData();
     }, [name, token]);
 
-
-    useEffect(() => {
-        if (profileData && !profileData.venues && !isLoading) {
-            const venuesFromStorage = JSON.parse(localStorage.getItem('venues')) || [];
-            if (venuesFromStorage.length > 0) {
-                setProfileData(prevState => ({
-                    ...prevState,
-                    venues: venuesFromStorage
-                }));
-            }
-        }
-    }, [profileData, isLoading]);
-
     const handleAvatarChange = async (newAvatarUrl) => {
         try {
             const data = await updateAvatar(name, token, newAvatarUrl);
             setAvatar(data.avatar);
-            const updatedUserData = { ...JSON.parse(localStorage.getItem('userData')), avatar: data.avatar };
-            localStorage.setItem('userData', JSON.stringify(updatedUserData));
+            const updatedUserData = { ...JSON.parse(localStorage.getItem("userData")), avatar: data.avatar };
+            localStorage.setItem("userData", JSON.stringify(updatedUserData));
         } catch (error) {
-            console.error('Failed to update avatar:', error);
+            console.error("Failed to update avatar:", error);
         }
     };
 
@@ -94,7 +80,6 @@ export default function Profile() {
                     <div className="card mb-3">
                         <div className="row g-0">
                             <div className="col-md-4">
-
                                 <img
                                     src={profileData?.avatar?.url || "avatar"}
                                     alt="Avatar"
@@ -121,7 +106,7 @@ export default function Profile() {
                                         </div>
                                     </div>
 
-                                    {userRole === 'Venue Manager' && profileData?.venueManager && (
+                                    {userRole === "Venue Manager" && (
                                         <Link to="/lease-venue">
                                             <button className="lease-btn rounded-pill mb-4 px-3 pt-1 pb-1">
                                                 Lease a venue
@@ -129,51 +114,18 @@ export default function Profile() {
                                         </Link>
                                     )}
 
-                                    <h5 className="profile-data">{userRole === 'Customer' ? 'Your Bookings' : 'Your Venues'}</h5>
+                                    <h5 className="profile-data">{userRole === "Customer" ? "Your Bookings" : "Your Venues"}</h5>
                                     <hr className="mt-0 mb-4" />
                                     <div className="col-12 col-md-10 col-lg-10">
-                                        {userRole === 'Customer' && bookings.length > 0 ? (
-                                            bookings.map((booking, index) => (
-                                                <div key={booking.id || `booking-${index}`} className="card mb-3">
-                                                    <div className="card-body">
-                                                        <div className="profile-card-title mt-2 mx-2 mb-2"><h6 className="book-id">Booking ID: {booking.id}</h6></div>
-                                                        <p className="text-muted">Venue Name: {booking.name}</p>
-                                                        <p className="text-muted">From: {booking.dateFrom}</p>
-                                                        <p className="text-muted">To: {booking.dateTo}</p>
-                                                        <p className="text-muted">Guests: {booking.guests}</p>
-                                                        <button className="rounded-pill me-2 update-booking"><i className="fa-regular fa-pen-to-square"></i>Update</button>
-                                                        <button className="rounded-pill delete-booking"><i className="fa-solid fa-trash"></i>Delete</button>
-                                                    </div>
-                                                </div>
-                                            ))
-                                        ) : (
-                                            <p>No bookings available</p>
-                                        )}
-
-                                        {userRole === 'Venue Manager' && venues.length > 0 ? (
-                                            venues.map((venue, index) => (
-                                                <div key={venue.id || `venue-${index}`} className="card mb-3">
+                                        {userRole === "Venue Manager" && venues.length > 0 ? (
+                                            venues.map((venue) => (
+                                                <div key={venue.id} className="card mb-3">
                                                     <img
                                                         className="card-img-top"
                                                         src={venue.media && venue.media[0]?.url}
                                                         alt={venue.name}
                                                     />
                                                     <h3 className="profile-card-title mt-2 mx-2">{venue.name}</h3>
-                                                    <div className="booking-container">
-                                                        <h5 className='booking-heading mx-2'>Bookings</h5>
-                                                        {venue.bookings && venue.bookings.length > 0 ? (
-                                                            <div className="booking-list">
-                                                                {venue.bookings.map((booking, index) => (
-                                                                    <ul key={index} className="list-group px-3">
-                                                                        <li className="list-group-item list"><strong>Customer:</strong>
-                                                                            {booking.customer.name} <strong className='mx-2'>Booking Date:</strong> {new Date(booking.created).toLocaleDateString()}</li>
-                                                                    </ul>
-                                                                ))}
-                                                            </div>
-                                                        ) : (
-                                                            <p className='mx-2'>No bookings available</p>
-                                                        )}
-                                                    </div>
                                                     <div className="button-container mx-3 mb-3 mt-3">
                                                         <button
                                                             className="update-venue-btn rounded-pill me-3"
@@ -183,7 +135,10 @@ export default function Profile() {
                                                         </button>
                                                         <button
                                                             className="delete-venue-btn rounded-pill"
-                                                            onClick={() => handleDeleteClick(venue, setProfileData, setVenueToDelete, setError, setIsModalOpen)}
+                                                            onClick={() => {
+                                                                setVenueToDelete(venue);
+                                                                setIsModalOpen(true);
+                                                            }}
                                                         >
                                                             <i className="fa-solid fa-trash"></i>Delete
                                                         </button>
@@ -193,7 +148,6 @@ export default function Profile() {
                                         ) : (
                                             <p>No venues available</p>
                                         )}
-
                                     </div>
                                 </div>
                             </div>
@@ -204,9 +158,25 @@ export default function Profile() {
             <SuccessModalDelete
                 isOpen={isModalOpen}
                 onClose={() => handleCloseModal(setIsModalOpen, setVenueToDelete)}
-                onConfirm={() => handleDeleteClick(venueToDelete, token, API_KEY, setProfileData, setVenueToDelete, setError, setIsModalOpen)}
+                onConfirm={() => {
+                    console.log("Deleting venue", venueToDelete);
+                    if (venueToDelete) {
+                        handleDeleteClick(
+                            venueToDelete,
+                            token,
+                            API_KEY,
+                            setProfileData,
+                            setError,
+                            setIsModalOpen
+                        );
+                    } else {
+                        console.log("No venue to delete");
+                    }
+                }}
                 isError={error !== null}
             />
+
+
         </div>
     );
 }

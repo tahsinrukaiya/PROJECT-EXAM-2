@@ -1,9 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const SuccessModalDelete = ({ isOpen, onClose, onConfirm, isError }) => {
-    const modalMessage = isError ? 'Failed to delete venue' : 'Venue deleted successfully';
-
+const DeleteVenueModal = ({ isOpen, onClose, onConfirm }) => {
     return (
         <>
             {isOpen && (
@@ -14,11 +12,26 @@ const SuccessModalDelete = ({ isOpen, onClose, onConfirm, isError }) => {
                                 <h5 className="modal-title modal-heading">Delete the venue</h5>
                             </div>
                             <div className="modal-body">
-                                <p>{modalMessage}</p>
+                                <p>Are you sure you want to delete this venue?</p>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn rounded-pill cancel-btn" onClick={onClose}>
-                                    Close
+                                <button
+                                    type="button"
+                                    className="btn rounded-pill cancel-btn"
+                                    onClick={onClose}
+                                >
+                                    Cancel
+                                </button>
+
+                                <button
+                                    type="button"
+                                    className="btn rounded-pill confirm-btn"
+                                    onClick={() => {
+                                        console.log("Confirm button clicked");
+                                        onConfirm();
+                                    }}
+                                >
+                                    Yes
                                 </button>
                             </div>
                         </div>
@@ -30,4 +43,4 @@ const SuccessModalDelete = ({ isOpen, onClose, onConfirm, isError }) => {
     );
 };
 
-export default SuccessModalDelete;
+export default DeleteVenueModal;
