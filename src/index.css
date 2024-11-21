@@ -147,21 +147,24 @@
 }
 
 .search-form {
-  margin-left: 13% !important;
-  width: 500px !important;
+  margin-left: 3% !important;
+  width: 100% !important;
 }
 
-.search-btn {
-  color: #2f3645 !important;
-  box-shadow: none !important;
-  border: none !important;
-  background-color: #ffe382 !important;
-  font-size: 18px !important;
+.search-modal {
+  max-height: 400px !important;
+  overflow-y: auto !important;
+
 }
 
-.search-btn:hover {
-  color: #ffe382 !important;
-  background-color: #2f3645 !important;
+.modal-body {
+  max-height: 400px !important;
+  overflow-y: auto !important;
+}
+
+.search-icon {
+  color: white !important;
+  font-size: 25px !important;
 }
 
 .button-banner {
@@ -545,6 +548,15 @@ textarea::placeholder {
 
 /*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/
 @media only screen and (max-width: 768px) {
+  .logo {
+    padding: 6px !important;
+  }
+
+  .search-icon {
+    font-size: 18px !important;
+    margin-top: 10px !important;
+  }
+
   .navbar-nav {
     margin-top: 5%;
   }
@@ -580,21 +592,16 @@ textarea::placeholder {
     display: none !important;
   }
 
-  .search-form {
-    margin-left: 0% !important;
-    width: 250px !important;
+  /*-------------------------------SEARCH FORM--------------------*/
+  .search-form-container {
+    margin-left: 5% !important;
   }
 
-  .search-btn {
-    font-size: 13px !important;
-    margin-top: 2px !important;
-    padding-left: 7px !important;
-    padding-right: 7px !important;
+  .search-form input {
+    width: 150px !important;
+    margin-left: 0 !important;
   }
 
-  .search-input {
-    line-height: 20px !important;
-  }
 
   .button-banner {
     font-size: 14px !important;
@@ -611,6 +618,7 @@ textarea::placeholder {
     font-size: 10px !important;
   }
 
+  /*------------------------------------VENUE CARD-----------------------*/
   .card-title {
     color: white;
     font-size: 13px;
@@ -731,7 +739,7 @@ textarea::placeholder {
     margin-left: 0 !important;
   }
 
-  /*------------Book form*/
+  /*------------Book form---------------------*/
   .book-form-container {
     flex-direction: column !important;
   }

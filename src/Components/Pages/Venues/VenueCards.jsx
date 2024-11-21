@@ -1,30 +1,7 @@
-import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import VenueCard from "../Venues/VenueCard";
-import { fetchVenues } from "../../../api/fetchVenues";
 
-const VenueCards = ({ limit = 6 }) => {
-    const [venues, setVenues] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const loadVenues = async () => {
-            try {
-                const data = await fetchVenues();
-                const sortedVenues = data.sort((a, b) => a.name.localeCompare(b.name));
-                setVenues(sortedVenues);
-                console.log(`Fetched ${data.length} venues`);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadVenues();
-    }, []);
-
+const VenueCards = ({ venues, loading, error, limit = 6 }) => {
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -47,6 +24,9 @@ const VenueCards = ({ limit = 6 }) => {
 };
 
 VenueCards.propTypes = {
+    venues: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.string,
     limit: PropTypes.number,
 };
 
