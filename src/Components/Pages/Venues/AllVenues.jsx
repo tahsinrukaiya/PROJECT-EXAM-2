@@ -28,7 +28,7 @@ const AllVenuesPage = () => {
         venues={venues}
         loading={loading}
         error={error}
-        limit={50}
+        limit={100}
       />
     </div>
   );

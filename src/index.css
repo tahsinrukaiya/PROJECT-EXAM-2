@@ -506,6 +506,26 @@ textarea::placeholder {
   padding-bottom: 3px !important;
 }
 
+.cancel-btn {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  border: none;
+}
+
+.confirm-btn {
+  border: none;
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+
+.confirm-btn:hover {
+  background-color: #2f3645 !important;
+  color: #ffe382 !important;
+
+}
+
 .update-venue-btn:hover {
   background-color: #2f3645 !important;
   color: #ffe382 !important;
@@ -514,22 +534,6 @@ textarea::placeholder {
 .delete-venue-btn:hover {
   background-color: #2f3645 !important;
   color: #ffe382 !important;
-}
-
-.update-booking {
-  border: none;
-  background-color: #ffe382 !important;
-  color: #2f3645 !important;
-  padding-top: 3px !important;
-  padding-bottom: 3px !important;
-}
-
-.delete-booking {
-  border: none;
-  background-color: #ffe382 !important;
-  color: #2f3645 !important;
-  padding-top: 3px !important;
-  padding-bottom: 3px !important;
 }
 
 .update-avatar {
@@ -544,6 +548,23 @@ textarea::placeholder {
 
 .booking-list .list {
   font-size: 16px !important;
+}
+
+.booking-card {
+  background-color: #2f3645 !important;
+  color: #ffe382 !important;
+}
+
+.date-from {
+  font-weight: 300 !important;
+}
+
+.date-to {
+  font-weight: 300 !important;
+}
+
+.number-of-guests {
+  font-weight: 300 !important;
 }
 
 /*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/

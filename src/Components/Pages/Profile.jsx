@@ -5,8 +5,8 @@ import { fetchProfileData } from "../../api/fetchProfileData";
 import { handleUpdateClick, handleDeleteClick, handleCloseModal } from "./profileHandlers";
 import SuccessModalDelete from "./Venues/SuccessModalDelete";
 import { API_KEY } from "../../config";
-import fetchBookings from "../../api/fetchBooking";
 import { fetchVenuesByProfile } from "../../api/fetchVenuesByProfile";
+import fetchBookingsByProfile from "../../api/fetchBookingsByProfile"
 import { updateAvatar } from "../../api/updateAvatar";
 import UpdateProfileForm from "./updateProfileForm";
 
@@ -43,7 +43,7 @@ export default function Profile() {
                     const venuesData = await fetchVenuesByProfile(name, token);
                     setVenues(venuesData.data);
                 } else {
-                    const bookingsData = await fetchBookings(name, token);
+                    const bookingsData = await fetchBookingsByProfile(name, token);
                     setBookings(bookingsData);
                 }
             } catch (err) {
@@ -64,6 +64,21 @@ export default function Profile() {
             console.error("Failed to update avatar:", error);
         }
     };
+
+    useEffect(() => {
+        if (userRole === "Customer") {
+            const fetchUserBookings = async () => {
+                try {
+                    const fetchedBookings = await fetchBookingsByProfile(name, token);
+                    setBookings(fetchedBookings);
+                } catch (err) {
+                    setError('Failed to load bookings.');
+                }
+            };
+
+            fetchUserBookings();
+        }
+    }, [userRole, name, token]);
 
     if (error) {
         return <div className="alert alert-danger">Error: {error}</div>;
@@ -113,40 +128,54 @@ export default function Profile() {
                                             </button>
                                         </Link>
                                     )}
-
                                     <h5 className="profile-data">{userRole === "Customer" ? "Your Bookings" : "Your Venues"}</h5>
                                     <hr className="mt-0 mb-4" />
                                     <div className="col-12 col-md-10 col-lg-10">
-                                        {userRole === "Venue Manager" && venues.length > 0 ? (
-                                            venues.map((venue) => (
-                                                <div key={venue.id} className="card mb-3">
-                                                    <img
-                                                        className="card-img-top"
-                                                        src={venue.media && venue.media[0]?.url}
-                                                        alt={venue.name}
-                                                    />
-                                                    <h3 className="profile-card-title mt-2 mx-2">{venue.name}</h3>
-                                                    <div className="button-container mx-3 mb-3 mt-3">
-                                                        <button
-                                                            className="update-venue-btn rounded-pill me-3"
-                                                            onClick={() => handleUpdateClick(venue, navigate)}
-                                                        >
-                                                            <i className="fa-regular fa-pen-to-square"></i>Update
-                                                        </button>
-                                                        <button
-                                                            className="delete-venue-btn rounded-pill"
-                                                            onClick={() => {
-                                                                setVenueToDelete(venue);
-                                                                setIsModalOpen(true);
-                                                            }}
-                                                        >
-                                                            <i className="fa-solid fa-trash"></i>Delete
-                                                        </button>
+                                        {userRole === "Customer" ? (
+                                            bookings.length > 0 ? (
+                                                bookings.map((booking) => (
+                                                    <div key={booking.id} className="card mb-3 px-3 booking-card">
+                                                        <h3 className="profile-card-title mt-2 mx-2">{booking.venueName}</h3>
+                                                        <h6 className="date-from">From: {new Date(booking.dateFrom).toLocaleDateString()}</h6>
+                                                        <h6 className="date-to">To: {new Date(booking.dateTo).toLocaleDateString()}</h6>
+                                                        <h6 className="number-of-guests">Guests: {booking.guests}</h6>
                                                     </div>
-                                                </div>
-                                            ))
+                                                ))
+                                            ) : (
+                                                <p>No bookings available</p>
+                                            )
                                         ) : (
-                                            <p>No venues available</p>
+                                            venues.length > 0 ? (
+                                                venues.map((venue) => (
+                                                    <div key={venue.id} className="card mb-3 venue-card">
+                                                        <img
+                                                            className="card-img-top"
+                                                            src={venue.media && venue.media[0]?.url}
+                                                            alt={venue.name}
+                                                        />
+                                                        <h3 className="profile-card-title mt-2 mx-2">{venue.name}</h3>
+                                                        <div className="button-container mx-3 mb-3 mt-3">
+                                                            <button
+                                                                className="update-venue-btn rounded-pill me-3"
+                                                                onClick={() => handleUpdateClick(venue, navigate)}
+                                                            >
+                                                                <i className="fa-regular fa-pen-to-square"></i>Update
+                                                            </button>
+                                                            <button
+                                                                className="delete-venue-btn rounded-pill"
+                                                                onClick={() => {
+                                                                    setVenueToDelete(venue);
+                                                                    setIsModalOpen(true);
+                                                                }}
+                                                            >
+                                                                <i className="fa-solid fa-trash"></i>Delete
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <p>No venues available</p>
+                                            )
                                         )}
                                     </div>
                                 </div>
@@ -180,3 +209,4 @@ export default function Profile() {
         </div>
     );
 }
+

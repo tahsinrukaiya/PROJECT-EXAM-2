@@ -35,7 +35,7 @@ export default function UpdateProfileForm({ name, token }) {
                     onChange={(e) => setAvatarUrl(e.target.value)}
                 />
             </div>
-            <button type="submit" className="btn rounded-pill update-avatar">Save</button>
+            <button type="submit" className="btn rounded-pill mb-3 update-avatar">Save</button>
         </form>
     );
 }

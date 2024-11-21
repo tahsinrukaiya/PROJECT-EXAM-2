@@ -31,7 +31,7 @@ const DeleteVenueModal = ({ isOpen, onClose, onConfirm }) => {
                                         onConfirm();
                                     }}
                                 >
-                                    Yes
+                                    Delete
                                 </button>
                             </div>
                         </div>
