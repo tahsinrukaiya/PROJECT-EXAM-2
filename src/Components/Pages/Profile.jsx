@@ -154,16 +154,16 @@ export default function Profile() {
                                                             alt={venue.name}
                                                         />
                                                         <h3 className="profile-card-title mt-2 mx-2">{venue.name}</h3>
-                                                        {/* Check if bookings exist and display them */}
+
                                                         {venue.bookings && venue.bookings.length > 0 ? (
                                                             <div className="bookings-container mx-2 px-3">
                                                                 <h5>Bookings:</h5>
                                                                 {venue.bookings.map((booking, index) => (
                                                                     <div key={booking.id || index} className="booking-item rounded">
                                                                         <div className="booking-info px-3 pt-3 mb-3 pb-2">
-                                                                            <h6>Customer:</h6> <p>{booking.customer?.name}</p>
-                                                                            <h6>Created:</h6><p>{new Date(booking.created).toLocaleString()}</p>
-                                                                            <h6>Guests:</h6><p>{booking.guests}</p>
+                                                                            <h6>Customer:</h6> {booking.customer?.name}
+                                                                            <h6>Created:</h6>{new Date(booking.created).toLocaleString()}
+                                                                            <h6>Guests:</h6>{booking.guests}
                                                                         </div>
                                                                     </div>
                                                                 ))}
