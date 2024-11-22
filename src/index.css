@@ -567,6 +567,15 @@ textarea::placeholder {
   font-weight: 300 !important;
 }
 
+.booking-item {
+  background-color: white;
+}
+
+.booking-info h6 {
+  color: #2f3645;
+}
+
+
 /*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/
 @media only screen and (max-width: 768px) {
   .logo {
