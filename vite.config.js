@@ -7,7 +7,7 @@ export default defineConfig({
   assetsInclude: ["**/*.JPG"],
   build: {
     rollupOptions: {
-      external: ["/src/Components/Pages/Venues/VenueCard"],
+      external: [],
     },
   },
   resolve: {
