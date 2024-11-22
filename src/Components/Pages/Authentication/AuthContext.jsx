@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { registerUser } from "../../../api/auth";
+import { registerUser } from "@api/auth";
 import { saveUserData } from "../../../utils/storage";
 import { logout } from "../../../utils/logout";
 import { API_URLS } from "../../../config";
