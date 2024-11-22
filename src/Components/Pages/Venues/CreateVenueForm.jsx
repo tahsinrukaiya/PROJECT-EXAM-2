@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createVenue } from "../../../api/createVenue";
+import { createVenue } from "@api/createVenue";
 import SuccessModalCreate from "./successModalCreate";
 
 export default function CreateVenueForm() {
