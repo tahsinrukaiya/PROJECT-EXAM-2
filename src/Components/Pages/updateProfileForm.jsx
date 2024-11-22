@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { updateAvatar } from '../../api/updateAvatar';
+import { updateAvatar } from '@api/updateAvatar';
 
 export default function UpdateProfileForm({ name, token }) {
     const [avatarUrl, setAvatarUrl] = useState('');

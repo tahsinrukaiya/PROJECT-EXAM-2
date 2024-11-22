@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchProfileData } from "../../api/fetchProfileData";
+import { fetchProfileData } from "@api/fetchProfileData";
 import { handleUpdateClick, handleDeleteClick, handleCloseModal } from "./profileHandlers";
 import SuccessModalDelete from "./Venues/SuccessModalDelete";
 import { API_KEY } from "../../config";
-import { fetchVenuesByProfile } from "../../api/fetchVenuesByProfile";
-import fetchBookingsByProfile from "../../api/fetchBookingsByProfile"
-import { updateAvatar } from "../../api/updateAvatar";
+import { fetchVenuesByProfile } from "@api/fetchVenuesByProfile";
+import fetchBookingsByProfile from "@api/fetchBookingsByProfile"
+import { updateAvatar } from "@api/updateAvatar";
 import UpdateProfileForm from "./updateProfileForm";
 
 export default function Profile() {

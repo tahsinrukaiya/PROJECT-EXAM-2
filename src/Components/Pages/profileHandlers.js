@@ -1,4 +1,4 @@
-import { deleteVenue } from '../../api/deleteVenue';
+import { deleteVenue } from '@api/deleteVenue';
 
 export const handleUpdateClick = (venue, navigate) => {
     if (!venue || !navigate) {

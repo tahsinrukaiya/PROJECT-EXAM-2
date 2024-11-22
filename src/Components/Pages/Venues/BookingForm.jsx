@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-import bookVenue from "../../../api/bookVenue";
+import bookVenue from "@api/bookVenue";
 
 export default function BookingForm({ venueId, bookings, maxGuests }) {
     const [dateFrom, setDateFrom] = useState("");

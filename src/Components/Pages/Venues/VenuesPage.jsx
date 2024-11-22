@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import HeroSection from "../../HeroSection";
 import VenueCards from "./VenueCards";
 import VenueCard from "./VenueCard";
-import fetchVenues from "../../../api/fetchVenues";
+import fetchVenues from "@api/fetchVenues";
 
 const VenuesPage = () => {
     const [venues, setVenues] = useState([]);
