@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import VenueCards from "/src/Components/Pages/Venues/VenueCards";
-import { fetchVenues } from "../../../api/fetchVenues";
+import fetchVenues from "../../../api/fetchVenues";
 
 const AllVenuesPage = () => {
   const [venues, setVenues] = useState([]);

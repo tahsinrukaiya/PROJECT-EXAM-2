@@ -1,7 +1,6 @@
 import { API_URLS } from "../config";
 
-export const fetchVenues = async () => {
-
+const fetchVenues = async () => {
     try {
         const response = await fetch(API_URLS.ALL_VENUES);
         if (!response.ok) {
@@ -12,6 +11,7 @@ export const fetchVenues = async () => {
     } catch (error) {
         console.error('Error fetching venues:', error);
         throw error;
-        setError(error.message);
     }
 };
+
+export default fetchVenues;
