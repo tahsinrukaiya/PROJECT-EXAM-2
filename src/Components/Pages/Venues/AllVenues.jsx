@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import VenueCards from "/src/Components/Pages/Venues/VenueCards";
+import VenueCards from "/src/components/Pages/Venues/VenueCards";
 import fetchVenues from '@api/fetchVenues';
 
 

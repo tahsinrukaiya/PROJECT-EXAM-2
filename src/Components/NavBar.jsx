@@ -1,7 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import Menubar from "../assets/bar.JPG";
-import { useAuth } from "../Components/Pages/Authentication/AuthContext";
+import { useAuth } from "../components/Pages/Authentication/AuthContext";
 import LogoutModal from './LogoutModal';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
