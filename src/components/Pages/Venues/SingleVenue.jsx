@@ -11,7 +11,7 @@ export default function SingleVenue() {
 
   const fetchVenue = async () => {
     try {
-      const response = await fetch(`${API_URLS.SINGLE_VENUE}/${id}?_bookings=true`);
+      const response = await fetch(`${API_URLS.SINGLE_VENUE}/${id}?_owner=true&_bookings=true`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -75,6 +75,7 @@ export default function SingleVenue() {
             <div className="card-body">
               <h5 className="card-info">More Information</h5>
               <p className="venue-description">{venue.description}</p>
+              <div className="venue-description"><h4>Hosted by : </h4>{venue.owner.name}</div>
             </div>
           </div>
         </div>

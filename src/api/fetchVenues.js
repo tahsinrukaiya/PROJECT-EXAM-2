@@ -1,6 +1,7 @@
 import { API_URLS } from "../config";
 
 const fetchVenues = async () => {
+
     try {
         const response = await fetch(API_URLS.ALL_VENUES);
         if (!response.ok) {

@@ -210,8 +210,8 @@
 }
 
 .card-title {
-  color: white;
-  font-size: 26px;
+  color: white !important;
+  font-size: 26px !important;
 }
 
 .venue-img {
@@ -650,8 +650,7 @@ textarea::placeholder {
 
   /*------------------------------------VENUE CARD-----------------------*/
   .card-title {
-    color: white;
-    font-size: 13px;
+    font-size: 13px !important;
   }
 
   .venue-img {
