@@ -154,23 +154,6 @@ export default function Profile() {
                                                             alt={venue.name}
                                                         />
                                                         <h3 className="profile-card-title mt-2 mx-2">{venue.name}</h3>
-
-                                                        {venue.bookings && venue.bookings.length > 0 ? (
-                                                            <div className="bookings-container mx-2 px-3">
-                                                                <h5>Bookings:</h5>
-                                                                {venue.bookings.map((booking, index) => (
-                                                                    <div key={booking.id || index} className="booking-item rounded">
-                                                                        <div className="booking-info px-3 pt-3 mb-3 pb-2">
-                                                                            <h6>Customer:</h6> {booking.customer?.name}
-                                                                            <h6>Created:</h6>{new Date(booking.created).toLocaleString()}
-                                                                            <h6>Guests:</h6>{booking.guests}
-                                                                        </div>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        ) : (
-                                                            <p className="no-bookings">No bookings available</p>
-                                                        )}
                                                         <div className="button-container mx-3 mb-3 mt-3">
                                                             <button
                                                                 className="update-venue-btn rounded-pill me-3"
@@ -188,6 +171,23 @@ export default function Profile() {
                                                                 <i className="fa-solid fa-trash"></i>Delete
                                                             </button>
                                                         </div>
+                                                        {venue.bookings && venue.bookings.length > 0 ? (
+                                                            <div className="bookings-container mx-2 px-3">
+                                                                <h5>Bookings:</h5>
+                                                                {venue.bookings.map((booking, index) => (
+                                                                    <div key={booking.id || index} className="booking-item rounded">
+                                                                        <div className="booking-info px-3 pt-3 mb-3 pb-2">
+                                                                            <h6>Customer:</h6> {booking.customer?.name}
+                                                                            <h6>Created:</h6>{new Date(booking.created).toLocaleString()}
+                                                                            <h6>Guests:</h6>{booking.guests}
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        ) : (
+                                                            <p className="no-bookings">No bookings available</p>
+                                                        )}
+
                                                     </div>
                                                 ))
                                             ) : (
