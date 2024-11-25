@@ -29,17 +29,25 @@ const VenuesPage = () => {
     }, []);
 
     const handleSearch = (query) => {
-        if (query) {
+        if (!query.trim()) {
+            setFilteredVenues([]);
+            setShowModal(false);
+            return;
+        }
+
+        if (query.length === 1) {
+            const results = venues.filter((venue) =>
+                venue.name.toLowerCase().startsWith(query.toLowerCase())
+            );
+            setFilteredVenues(results);
+        } else {
             const results = venues.filter((venue) =>
                 venue.name.toLowerCase().includes(query.toLowerCase())
             );
             setFilteredVenues(results);
-        } else {
-            setFilteredVenues(venues);
         }
         setShowModal(true);
     };
-
     const closeModal = () => {
         setShowModal(false);
     };

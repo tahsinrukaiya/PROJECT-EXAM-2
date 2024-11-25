@@ -43,6 +43,7 @@ export default function SingleVenue() {
               <h5 className="venue-detail px-5 mt-3 pb-0">Maximum guests: {venue.maxGuests}</h5>
               <h5 className="venue-detail px-5 pb-3">Price per night: {venue.price} NOK</h5>
               <h5 className="px-5 pb-3 venue-id">Venue ID: {venue.id}</h5>
+              <h5 className="venue-detail mb-3">Hosted by :{venue.owner.name} </h5>
               <div className="meta-data d-flex justify-content-center">
                 <div className="me-4 pt-2 pb-1"><i className="fa-solid fa-wifi"></i> {venue.meta.wifi.isAvailable ? (
                   <h6 className="meta-info">Wifi : Available</h6>) : (<h6 className="meta-info">
@@ -75,7 +76,6 @@ export default function SingleVenue() {
             <div className="card-body">
               <h5 className="card-info">More Information</h5>
               <p className="venue-description">{venue.description}</p>
-              <div className="venue-description"><h4>Hosted by : </h4>{venue.owner.name}</div>
             </div>
           </div>
         </div>

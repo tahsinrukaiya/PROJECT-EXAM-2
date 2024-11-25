@@ -424,6 +424,36 @@
   background-color: white !important;
 }
 
+/* Customizing the main calendar container--------------------------- */
+.flatpickr-day {
+  color: #2f3645;
+}
+
+.flatpickr-day:hover {
+  background-color: #ffe382;
+  color: #2f3645;
+}
+
+.flatpickr-day.selected {
+  background-color: #ffe382 !important;
+  color: #2f3645 !important;
+  font-weight: bold;
+}
+
+.flatpickr-day.today {
+  font-weight: bold;
+}
+
+.flatpickr-month {
+  color: #2f3645 !important;
+}
+
+.flatpickr-day.disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+
 /*-------------------------------BOOK VENUE FORM-------------------*/
 .error-message {
   color: #973131 !important;

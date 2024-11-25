@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 
 export default function SearchForm({ onSearch }) {
     const handleInputChange = (e) => {
-        onSearch(e.target.value); // Pass the search query back to the parent
+        onSearch(e.target.value);
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent form submission from refreshing the page
+        e.preventDefault();
     };
 
     return (
