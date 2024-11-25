@@ -142,7 +142,7 @@ export default function Profile() {
                                                     </div>
                                                 ))
                                             ) : (
-                                                <p>No bookings available</p>
+                                                <p className="px-3">No bookings available</p>
                                             )
                                         ) : (
                                             venues.length > 0 ? (
@@ -185,7 +185,7 @@ export default function Profile() {
                                                                 ))}
                                                             </div>
                                                         ) : (
-                                                            <p className="no-bookings">No bookings available</p>
+                                                            <p className="no-bookings px-3 fst-italic">No bookings available</p>
                                                         )}
 
                                                     </div>

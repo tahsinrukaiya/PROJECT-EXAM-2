@@ -147,8 +147,11 @@
 }
 
 .search-form {
-  margin-left: 3% !important;
   width: 100% !important;
+}
+
+.search-form-container {
+  margin-left: 15% !important;
 }
 
 .search-modal {
@@ -654,14 +657,12 @@ textarea::placeholder {
 
   /*-------------------------------SEARCH FORM--------------------*/
   .search-form-container {
-    margin-left: 5% !important;
+    margin-left: 10% !important;
   }
 
   .search-form input {
     width: 150px !important;
-    margin-left: 0 !important;
   }
-
 
   .button-banner {
     font-size: 14px !important;

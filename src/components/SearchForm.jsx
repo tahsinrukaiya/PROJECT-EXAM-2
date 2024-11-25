@@ -11,7 +11,7 @@ export default function SearchForm({ onSearch }) {
 
     return (
         <>
-            <div className="col-8 col-md-6 col-lg-10 mx-5 search-form-container">
+            <div className="col-8 col-md-6 col-lg-10 search-form-container">
                 <form className="search-form" onSubmit={handleSubmit}>
                     <div className="d-flex bd-highlight search-form">
                         <div className="p-2 flex-fill bd-highlight">
