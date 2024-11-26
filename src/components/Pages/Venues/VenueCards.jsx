@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
 import VenueCard from "../Venues/VenueCard";
+import LoadingSpinner from "./LoadingSpinner";
 
 const VenueCards = ({ venues, loading, error, limit = 6 }) => {
     if (loading) {
-        return <p>Loading...</p>;
+        return <LoadingSpinner />;
     }
 
     return (

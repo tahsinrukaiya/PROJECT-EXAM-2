@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { API_URLS } from "../../../config";
 import BookingForm from "./BookingForm";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function SingleVenue() {
   const { id } = useParams();
@@ -80,7 +81,7 @@ export default function SingleVenue() {
           </div>
         </div>
       ) : (
-        <p>Loading venue details...</p>
+        <LoadingSpinner />
       )}
     </>
   );
