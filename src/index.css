@@ -588,6 +588,15 @@ textarea::placeholder {
   color: #ffe382 !important;
 }
 
+.booking-item {
+  background-color: #2f3645 !important;
+  color: white !important;
+}
+
+.booking-item h6 {
+  color: #ffe382 !important;
+}
+
 .date-from {
   font-weight: 300 !important;
 }

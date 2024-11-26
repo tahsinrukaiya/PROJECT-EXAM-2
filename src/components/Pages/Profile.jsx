@@ -178,7 +178,7 @@ export default function Profile() {
                                                                     <div key={booking.id || index} className="booking-item rounded">
                                                                         <div className="booking-info px-3 pt-3 mb-3 pb-2">
                                                                             <h6>Customer:</h6> {booking.customer?.name}
-                                                                            <h6>Created:</h6>{new Date(booking.created).toLocaleString()}
+                                                                            <h6 >Created:</h6>{new Date(booking.created).toLocaleString()}
                                                                             <h6>Guests:</h6>{booking.guests}
                                                                         </div>
                                                                     </div>
