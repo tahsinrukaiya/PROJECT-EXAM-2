@@ -149,11 +149,11 @@ export default function Profile() {
                                                 venues.map((venue) => (
                                                     <div key={venue.id} className="card mb-3 venue-card">
                                                         <img
-                                                            className="card-img-top"
+                                                            className="card-img-top px-3 pb-3 pt-3"
                                                             src={venue.media && venue.media[0]?.url}
                                                             alt={venue.name}
                                                         />
-                                                        <h3 className="profile-card-title mt-2 mx-2">{venue.name}</h3>
+                                                        <h3 className="profile-card-title mt-2 mx-3">{venue.name}</h3>
                                                         <div className="button-container mx-3 mb-3 mt-3">
                                                             <button
                                                                 className="update-venue-btn rounded-pill me-3"
@@ -173,7 +173,7 @@ export default function Profile() {
                                                         </div>
                                                         {venue.bookings && venue.bookings.length > 0 ? (
                                                             <div className="bookings-container mx-2 px-3">
-                                                                <h5>Bookings:</h5>
+                                                                <h5>Bookings on this venue:</h5>
                                                                 {venue.bookings.map((booking, index) => (
                                                                     <div key={booking.id || index} className="booking-item rounded">
                                                                         <div className="booking-info px-3 pt-3 mb-3 pb-2">

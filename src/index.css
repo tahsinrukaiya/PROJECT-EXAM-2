@@ -584,7 +584,6 @@ textarea::placeholder {
 .confirm-btn:hover {
   background-color: #2f3645 !important;
   color: #ffe382 !important;
-
 }
 
 .update-venue-btn:hover {
@@ -644,7 +643,6 @@ textarea::placeholder {
 .booking-info h6 {
   color: #2f3645;
 }
-
 
 /*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/
 @media only screen and (max-width: 768px) {
