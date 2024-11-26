@@ -157,7 +157,30 @@
 .search-modal {
   max-height: 400px !important;
   overflow-y: auto !important;
+}
 
+.modal-header {
+  background-color: #ffe382 !important;
+}
+
+.modal-title {
+  color: #2f3645 !important;
+}
+
+.search-venue-list {
+  list-style: none !important;
+}
+
+.venue-link {
+  color: #2f3645 !important;
+  text-decoration: none !important;
+  font-size: 16px;
+  transition: font-size 0.4s ease;
+}
+
+.venue-link:hover {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .modal-body {

@@ -3,6 +3,7 @@ import HeroSection from "../../HeroSection";
 import VenueCards from "./VenueCards";
 import VenueCard from "./VenueCard";
 import fetchVenues from "@api/fetchVenues";
+import { Link } from "react-router-dom";
 
 const VenuesPage = () => {
     const [venues, setVenues] = useState([]);
@@ -69,9 +70,11 @@ const VenuesPage = () => {
                             </div>
                             <div className="modal-body">
                                 {filteredVenues.length > 0 ? (
-                                    filteredVenues.map((venue) => (
-                                        <VenueCard key={venue.id} venue={venue} />
-                                    ))
+                                    <ul className="search-venue-list">
+                                        {filteredVenues.map((venue) => (
+                                            <Link to={`/single_venue/${venue.id}`} className="venue-link"><li key={venue.id}>{venue.name}</li></Link>
+                                        ))}
+                                    </ul>
                                 ) : (
                                     <p>No results found</p>
                                 )}
@@ -92,109 +95,3 @@ const VenuesPage = () => {
 };
 
 export default VenuesPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-import { useState, useEffect } from "react";
-import HeroSection from "../../HeroSection";
-import VenueCards from "./VenueCards";
-import { fetchVenues } from "../../../api/fetchVenues";
-
-const VenuesPage = () => {
-    const [venues, setVenues] = useState([]);
-    const [filteredVenues, setFilteredVenues] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const loadVenues = async () => {
-            try {
-                const data = await fetchVenues();
-                const sortedVenues = data.sort((a, b) => a.name.localeCompare(b.name));
-                setVenues(sortedVenues);
-                setFilteredVenues(sortedVenues); // Initialize with all venues
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadVenues();
-    }, []);
-
-    const handleSearch = (query) => {
-        if (query) {
-            const results = venues.filter((venue) =>
-                venue.name.toLowerCase().includes(query.toLowerCase())
-            );
-            setFilteredVenues(results);
-        } else {
-            setFilteredVenues(venues); // Reset to all venues if search is cleared
-        }
-    };
-
-    return (
-        <div>
-            <HeroSection onSearch={handleSearch} />
-            <VenueCards
-                venues={filteredVenues}
-                loading={loading}
-                error={error}
-                limit={6}
-            />
-        </div>
-    );
-};
-
-export default VenuesPage;
-*/
