@@ -72,7 +72,11 @@ const VenuesPage = () => {
                                 {filteredVenues.length > 0 ? (
                                     <ul className="search-venue-list">
                                         {filteredVenues.map((venue) => (
-                                            <Link to={`/single_venue/${venue.id}`} className="venue-link"><li key={venue.id}>{venue.name}</li></Link>
+                                            <li key={venue.id}>
+                                                <Link to={`/single_venue/${venue.id}`} className="venue-link">
+                                                    {venue.name}
+                                                </Link>
+                                            </li>
                                         ))}
                                     </ul>
                                 ) : (

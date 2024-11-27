@@ -26,6 +26,7 @@ export default function RegisterVenueManager() {
       await handleRegister(formData);
       setSuccessMessage("Your registration was successful!");
       setShowModal(true);
+
     } catch (error) {
       alert("Registration failed. Please try again.");
     }
