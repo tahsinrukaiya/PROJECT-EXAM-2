@@ -7,6 +7,7 @@ export default function LogInCustomer() {
   const { handleLogin } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [isVenueManager, setIsVenueManager] = useState(false);
   const navigate = useNavigate();
 
@@ -23,7 +24,12 @@ export default function LogInCustomer() {
         navigate("/");
       }, 2000);
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error("Log in failed", error);
+      if (error.response && error.response.status === 401) {
+        setError("Wrong username or password");
+      } else {
+        setError("Wrong username or password. Please try again.");
+      }
     }
   };
 
@@ -93,6 +99,7 @@ export default function LogInCustomer() {
               required
             />
           </div>
+          {error && <h6 className="login-error mb-3">{error}</h6>}
           <button type="submit" className="btn w-50 rounded-pill submit-btn">
             Submit
           </button>

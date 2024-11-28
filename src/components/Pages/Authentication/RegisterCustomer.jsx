@@ -39,7 +39,7 @@ export default function RegisterVenueManager() {
 
   return (
     <div className="form-container d-flex justify-content-center align-items-center vh-50 mt-5">
-      <div className="col-10 col-md-6 col-lg-6">
+      <div className="col-10 col-md-6 col-lg-6 reg-form-container pt-5 pb-4 px-4 rounded border">
         <h1 className="form-title text-center mb-4">
           Register yourself as a customer on Holidayz.com
         </h1>

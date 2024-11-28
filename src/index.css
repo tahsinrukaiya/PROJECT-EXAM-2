@@ -354,7 +354,18 @@
   font-size: 15px !important;
 }
 
+.reg-form-container {
+  background-color: #F1F1F1 !important;
+}
 
+.reg-form {
+  padding: 40px;
+  background-color: #F1F1F1 !important;
+}
+
+.invalid-feedback {
+  color: #973131 !important;
+}
 
 /*---------------------FOOTER---------------------*/
 .footer-container {
@@ -391,8 +402,8 @@
 }
 
 .login-form {
-  border: 1px solid #b7bac1;
   padding: 40px;
+  background-color: #F1F1F1 !important;
 }
 
 .form-title {
@@ -418,6 +429,11 @@
 
 .form-heading {
   color: #2f3645;
+}
+
+.login-error {
+  color: #973131 !important;
+  font-size: 15px !important;
 }
 
 /*--------------------------SINGLE VENUE---------------------------*/
