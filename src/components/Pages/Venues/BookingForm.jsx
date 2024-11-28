@@ -73,8 +73,8 @@ export default function BookingForm({ venueId, bookings, maxGuests }) {
 
     return (
         <div className="d-flex book-form-container border justify-content-center mt-5 pt-3 pb-3">
-            {error && <div className="error-message"><h6>{error}</h6></div>}
-            {!error && successMessage && <div className="success-message"><h6 className="success-message pt-2">{successMessage}</h6></div>}
+            {error && <div className="error-message pt-3"><h6>{error}</h6></div>}
+            {!error && successMessage && <div className="success-message pt-3"><h6 className="success-message">{successMessage}</h6></div>}
             <form className="d-flex booking-form" onSubmit={handleSubmit}>
                 <div className="form-group p-2 flex-fill bd-highlight">
                     <label htmlFor="dateFromPicker"><h6>Date from</h6></label>
