@@ -46,27 +46,31 @@ export default function SingleVenue() {
               <h5 className="px-5 pb-3 venue-id">Venue ID: {venue.id}</h5>
               <h5 className="venue-detail mb-3">Hosted by :{venue.owner.name} </h5>
               <div className="meta-data d-flex justify-content-center">
-                <div className="me-4 pt-2 pb-1"><i className="fa-solid fa-wifi"></i> {venue.meta.wifi.isAvailable ? (
-                  <h6 className="meta-info">Wifi : Available</h6>) : (<h6 className="meta-info">
-                    Wifi : Not Available
-                  </h6>
-                )}</div>
-                <div className="me-4 pt-2 pb-1"><i className="fa-solid fa-square-parking"></i>
-                  {venue.meta.parking.isAvailable ? (
-                    <h6 className="meta-info">Parking : Available</h6>
-                  ) : (<h6 className="meta-info">Parking: Not Available</h6>)}</div>
-                <div className="me-4 pt-2 pb-1"><i className="fa-solid fa-utensils"></i>
-                  {venue.meta.breakfast.isAvailable ? (<h6 className="meta-info">
-                    Breakfast : Available
-                  </h6>) : (<h6 className="meta-info">Breakfast : Not Available</h6>)}</div>
-                <div className="me-4 pt-2 pb-1"><i className="fa-solid fa-shield-dog"></i>
-                  {venue.meta.pets.isAvailable ? (<h6 className="meta-info">
-                    Pets : Allowed
-                  </h6>) : (<h6 className="meta-info">
-                    Pets : Not Allowed
-                  </h6>)}</div>
+                {venue.meta.wifi && (
+                  <div className="me-4 pt-2 pb-1">
+                    <i className="fa-solid fa-wifi"></i>
+                    <h6 className="meta-info">Wifi: Available</h6>
+                  </div>
+                )}
+                {venue.meta.parking && (
+                  <div className="me-4 pt-2 pb-1">
+                    <i className="fa-solid fa-square-parking"></i>
+                    <h6 className="meta-info">Parking: Available</h6>
+                  </div>
+                )}
+                {venue.meta.breakfast && (
+                  <div className="me-4 pt-2 pb-1">
+                    <i className="fa-solid fa-utensils"></i>
+                    <h6 className="meta-info">Breakfast: Available</h6>
+                  </div>
+                )}
+                {venue.meta.pets && (
+                  <div className="me-4 pt-2 pb-1">
+                    <i className="fa-solid fa-shield-dog"></i>
+                    <h6 className="meta-info">Pets: Allowed</h6>
+                  </div>
+                )}
               </div>
-
               <BookingForm venueId={venue.id} bookings={bookings} maxGuests={venue.maxGuests} />
             </div>
             <img
