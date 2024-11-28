@@ -12,6 +12,7 @@ export default function CreateVenueForm() {
         maxGuests: "",
         wifi: false,
         parking: false,
+        breakfast: false,
         pets: false,
     });
 
@@ -21,7 +22,6 @@ export default function CreateVenueForm() {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
-        // Convert price and maxGuests to numbers on change
         if (name === "price" || name === "maxGuests") {
             const numericValue = value ? Number(value) : 0;
             setVenueData((prevData) => ({
@@ -47,7 +47,6 @@ export default function CreateVenueForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Check for any required fields and validation
         if (venueData.price <= 0 || venueData.maxGuests <= 0) {
             setMessage("Price and Max Guests must be greater than zero.");
             setShowModal(true);
@@ -66,40 +65,32 @@ export default function CreateVenueForm() {
             meta: {
                 wifi: venueData.wifi,
                 parking: venueData.parking,
-                breakfast: false,  // Adjust as needed
+                breakfast: venueData.breakfast,
                 pets: venueData.pets,
             },
             location: {
                 address: venueData.location,
-                city: "the city",  // Make this dynamic if needed
-                zip: "",  // Add if required by the API
-                country: "",  // Add if required
-                continent: "",  // Add if required
-                lat: 0,  // Add if required
-                lng: 0,  // Add if required
+                city: "the city",
+                zip: "",
+                country: "",
+                continent: "",
+                lat: 0,
+                lng: 0,
             },
         };
 
         try {
-            // Wait for the response from the API after creating the venue
             const response = await createVenue(venueDataFormatted);
             console.log("Venue created successfully", response);
 
-            // Check if response contains valid data
             if (response && response.data) {
                 const newVenue = response.data;
-
-                // Get existing venues from localStorage
                 const existingVenues = JSON.parse(localStorage.getItem('venues')) || [];
-
-                // Add the new venue to the existing venues
                 existingVenues.push(newVenue);
-
-                // Save the updated venues list back to localStorage
                 localStorage.setItem('venues', JSON.stringify(existingVenues));
-
                 setMessage("Venue created successfully!");
                 setShowModal(true);
+
             } else {
                 setMessage("There was an error creating the venue. No valid data returned.");
                 setShowModal(true);
@@ -113,7 +104,7 @@ export default function CreateVenueForm() {
 
     const handleCloseModal = () => {
         setShowModal(false);
-        window.location.href = "/venue_list";  // Redirect after closing the modal
+        window.location.href = "/profile";
     };
 
     return (
@@ -122,7 +113,6 @@ export default function CreateVenueForm() {
                 <form className="lease-venue-form rounded mb-3 mt-3 p-5" onSubmit={handleSubmit}>
                     <h1 className="heading-one text-center">Lease a venue</h1>
 
-                    {/* Venue Name */}
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>
                         <input
@@ -136,7 +126,6 @@ export default function CreateVenueForm() {
                         />
                     </div>
 
-                    {/* Location */}
                     <div className="mb-3">
                         <label htmlFor="location" className="form-label">Location</label>
                         <input
@@ -150,7 +139,6 @@ export default function CreateVenueForm() {
                         />
                     </div>
 
-                    {/* Description */}
                     <div className="mb-3">
                         <label htmlFor="description" className="form-label">Description</label>
                         <textarea
@@ -162,7 +150,6 @@ export default function CreateVenueForm() {
                         />
                     </div>
 
-                    {/* Image URL */}
                     <div className="mb-3">
                         <label htmlFor="imageUrl" className="form-label">Image URL</label>
                         <input
@@ -175,7 +162,6 @@ export default function CreateVenueForm() {
                         />
                     </div>
 
-                    {/* Price per night */}
                     <div className="mb-3">
                         <label htmlFor="price" className="form-label">Price per night</label>
                         <input
@@ -189,7 +175,6 @@ export default function CreateVenueForm() {
                         />
                     </div>
 
-                    {/* Maximum number of guests */}
                     <div className="mb-3">
                         <label htmlFor="maxGuests" className="form-label">Maximum number of guests</label>
                         <input
@@ -203,7 +188,6 @@ export default function CreateVenueForm() {
                         />
                     </div>
 
-                    {/* Facilities (checkboxes) */}
                     <div className="mb-3">
                         <label className="mt-3 mb-3">Facilities</label>
                         <div className="d-flex flex-row bd-highlight mb-3 meta-options">
@@ -226,6 +210,16 @@ export default function CreateVenueForm() {
                                     onChange={handleCheckboxChange}
                                 />
                                 <label className="form-check-label">Parking</label>
+                            </div>
+                            <div className="p-2">
+                                <input
+                                    className="form-check-input mx-2"
+                                    type="checkbox"
+                                    name="breakfast"
+                                    checked={venueData.breakfast}
+                                    onChange={handleCheckboxChange}
+                                />
+                                <label className="form-check-label">Breakfast</label>
                             </div>
                             <div className="p-2">
                                 <input

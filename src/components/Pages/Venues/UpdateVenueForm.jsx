@@ -2,7 +2,21 @@ import { useState, useEffect } from "react";
 import { updateVenue } from "@api/updateVenue";
 
 export default function UpdateVenueForm() {
-    const [venueData, setVenueData] = useState(null);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [venueData, setVenueData] = useState({
+        name: "",
+        location: {
+            address: "",
+        },
+        description: "",
+        imageUrl: "",
+        price: 0,
+        maxGuests: 0,
+        wifi: false,
+        parking: false,
+        breakfast: false,
+        pets: false,
+    });
 
     useEffect(() => {
         const storedVenue = JSON.parse(localStorage.getItem('selectedVenue'));
@@ -11,6 +25,7 @@ export default function UpdateVenueForm() {
             setVenueData({
                 ...storedVenue,
                 imageUrl: mediaUrl,
+                location: storedVenue.location || { address: "" },
             });
         }
     }, []);
@@ -46,21 +61,22 @@ export default function UpdateVenueForm() {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         if (!venueData.name || !venueData.location.address || !venueData.price || isNaN(venueData.maxGuests)) {
             alert("Please fill in all required fields and ensure maxGuests is a number.");
             return;
         }
-
         try {
             const updatedVenue = await updateVenue(venueData);
-
             if (updatedVenue) {
-                alert('Venue updated successfully!');
+                setSuccessMessage('Venue updated successfully!');
+
+                console.log('Success message set:', successMessage);
+
                 setVenueData(updatedVenue);
                 localStorage.setItem('selectedVenue', JSON.stringify(updatedVenue));
-
-                window.location.href = "/venue_list";
+                setTimeout(() => {
+                    window.location.href = "/profile";
+                }, 2000);
             } else {
                 throw new Error('Failed to update venue');
             }
@@ -74,6 +90,13 @@ export default function UpdateVenueForm() {
 
     return (
         <div className="form-container d-flex justify-content-center align-items-center vh-50 mt-5">
+            {successMessage && (
+                <div className="successMessage">
+                    {console.log(successMessage)}
+                    {successMessage}
+
+                </div>
+            )}
             <div className="col-10 col-md-6 col-lg-6">
                 <form className="lease-venue-form rounded mb-3 mt-3 p-5" onSubmit={handleFormSubmit}>
                     <h1 className="heading-one text-center">Update your venue</h1>
@@ -156,6 +179,16 @@ export default function UpdateVenueForm() {
                                     onChange={handleFormChange}
                                 />
                                 <label className="form-check-label">Parking</label>
+                            </div>
+                            <div className="p-2">
+                                <input
+                                    className="form-check-input mx-2"
+                                    type="checkbox"
+                                    name="breakfast"
+                                    checked={venueData.breakfast}
+                                    onChange={handleFormChange}
+                                />
+                                <label className="form-check-label">Breakfast</label>
                             </div>
                             <div className="p-2">
                                 <input

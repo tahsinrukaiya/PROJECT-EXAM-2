@@ -494,6 +494,13 @@
   background-color: white !important;
 }
 
+.successMessage {
+  color: green;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
 /* Customizing the main calendar container--------------------------- */
 .flatpickr-day {
   color: #2f3645;

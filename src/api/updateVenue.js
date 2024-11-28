@@ -1,7 +1,6 @@
 import { API_URLS } from "../config";
 import { API_KEY } from "../config";
 
-
 export async function updateVenue(venueData) {
     const token = localStorage.getItem("accessToken");
     const apiKey = API_KEY;
@@ -54,7 +53,6 @@ export async function updateVenue(venueData) {
 
         const responseBody = await response.json();
         console.log('Venue updated successfully:', responseBody);
-
         return responseBody;
     } catch (error) {
         console.error('Error updating venue:', error);
