@@ -73,9 +73,7 @@ export default function UpdateVenueForm() {
             const updatedVenue = await updateVenue(venueData);
             if (updatedVenue) {
                 setSuccessMessage('Venue updated successfully!');
-
                 console.log('Success message set:', successMessage);
-
                 setVenueData(updatedVenue);
                 localStorage.setItem('selectedVenue', JSON.stringify(updatedVenue));
                 setTimeout(() => {
@@ -91,17 +89,16 @@ export default function UpdateVenueForm() {
     };
 
     if (!venueData) return <div>Loading...</div>;
-
     return (
         <div className="form-container d-flex justify-content-center align-items-center vh-50 mt-5">
-            {successMessage && (
-                <div className="successMessage">
-                    {console.log(successMessage)}
-                    {successMessage}
-
-                </div>
-            )}
             <div className="col-10 col-md-6 col-lg-6">
+                <div className="message-container px-5">
+                    {successMessage && (
+                        <div className="update-venue-successMessage">
+                            {console.log(successMessage)}
+                            {successMessage}
+                        </div>
+                    )}</div>
                 <form className="lease-venue-form rounded mb-3 mt-3 p-5" onSubmit={handleFormSubmit}>
                     <h1 className="heading-one text-center">Update your venue</h1>
                     <div className="mb-3">
@@ -120,7 +117,7 @@ export default function UpdateVenueForm() {
                             type="text"
                             name="location.address"
                             className="form-control"
-                            value={venueData.location.address}
+                            value={venueData.location?.address || ""}
                             onChange={handleFormChange}
                             placeholder="Location of the venue"
                             required
