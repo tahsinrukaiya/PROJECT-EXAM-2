@@ -18,7 +18,6 @@ export async function registerUser(userData) {
     return response.json();
 }
 
-// authAPI.js
 export const loginUser = async (email, password) => {
     const response = await fetch(`${API_URLS.LOGIN}`, {
         method: 'POST',

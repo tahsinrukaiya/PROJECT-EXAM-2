@@ -1,8 +1,10 @@
 import { Modal, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function SuccessModalReg({ show, onClose, message }) {
+    const navigate = useNavigate();
     const handleClose = () => {
-        window.location.href = "/login";
+        navigate = "/login";
     };
 
     return (
