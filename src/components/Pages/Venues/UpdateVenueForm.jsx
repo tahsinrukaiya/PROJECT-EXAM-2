@@ -18,6 +18,7 @@ export default function UpdateVenueForm() {
         pets: false,
     });
 
+
     useEffect(() => {
         const storedVenue = JSON.parse(localStorage.getItem('selectedVenue'));
         if (storedVenue) {
@@ -30,6 +31,7 @@ export default function UpdateVenueForm() {
                 parking: storedVenue.meta?.parking || false,
                 breakfast: storedVenue.meta?.breakfast || false,
                 pets: storedVenue.meta?.pets || false,
+
             });
         }
     }, []);
@@ -107,7 +109,7 @@ export default function UpdateVenueForm() {
                             type="text"
                             name="name"
                             className="form-control"
-                            value={venueData.name}
+                            value={venueData.name || ""}
                             onChange={handleFormChange}
                             placeholder="Venue Name"
                             required
@@ -126,7 +128,7 @@ export default function UpdateVenueForm() {
                         <textarea
                             name="description"
                             className="form-control"
-                            value={venueData.description}
+                            value={venueData.description || ""}
                             onChange={handleFormChange}
                             placeholder="Description of the venue"
                         />
@@ -135,7 +137,7 @@ export default function UpdateVenueForm() {
                             type="text"
                             name="imageUrl"
                             className="form-control"
-                            value={venueData.imageUrl}
+                            value={venueData.imageUrl || ""}
                             onChange={handleFormChange}
                             placeholder="URL of the venue image"
                         />
@@ -144,7 +146,7 @@ export default function UpdateVenueForm() {
                             type="number"
                             name="price"
                             className="form-control"
-                            value={venueData.price}
+                            value={venueData.price || ""}
                             onChange={handleFormChange}
                             placeholder="Price in NOK"
                             required
@@ -154,7 +156,7 @@ export default function UpdateVenueForm() {
                             type="number"
                             name="maxGuests"
                             className="form-control"
-                            value={venueData.maxGuests}
+                            value={venueData.maxGuests || ""}
                             onChange={handleFormChange}
                             placeholder="Number of guests"
                             required

@@ -659,6 +659,10 @@ textarea::placeholder {
   background-color: #2f3645 !important;
 }
 
+.venue-card {
+  background-color: white !important;
+}
+
 .booking-list .list {
   font-size: 16px !important;
 }
