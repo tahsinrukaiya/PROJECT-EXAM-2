@@ -9,6 +9,7 @@ import { registerCustomerSchema } from "../../../validation/registerForm";
 export default function RegisterVenueManager() {
   const { handleRegister } = useAuth();
   const [showModal, setShowModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
 
   const {
@@ -32,8 +33,9 @@ export default function RegisterVenueManager() {
       setSuccessMessage("Your registration was successful!");
       setShowModal(true);
       reset();
+      setErrorMessage(null);
     } catch (error) {
-      alert("Registration failed. Please try again.");
+      setErrorMessage(error.message);
     }
   };
 
@@ -89,6 +91,7 @@ export default function RegisterVenueManager() {
           <button type="submit" className="btn w-50 rounded-pill submit-btn">
             Submit
           </button>
+          {errorMessage && <p className="error-reg">{errorMessage}</p>}
         </form>
       </div>
       <SuccessModalReg
