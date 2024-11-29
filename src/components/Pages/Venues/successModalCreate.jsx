@@ -6,7 +6,6 @@ export default function SuccessModalCreate({ show, onClose, message }) {
 
     const handleClose = () => {
         navigate("/profile");
-        onClose();
     };
 
     return (

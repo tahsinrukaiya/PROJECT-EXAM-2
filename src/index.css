@@ -511,12 +511,12 @@
 
 /* Customizing the main calendar container--------------------------- */
 .flatpickr-day {
-  color: #2f3645 !important;
+  color: #2f3645;
 }
 
 .flatpickr-day:hover {
   background-color: #ffe382 !important;
-  color: #2f3645 !important;
+  color: #2f3645;
 }
 
 .flatpickr-day.selected {
@@ -533,9 +533,9 @@
   color: #2f3645 !important;
 }
 
-.flatpickr-day.disabled {
+.flatpickr .flatpickr-day.disabled {
   cursor: not-allowed !important;
-  opacity: 0.8 !important;
+  color: #e0e0e0 !important;
 }
 
 
