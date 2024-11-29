@@ -153,7 +153,11 @@ export default function Profile() {
                                                             src={venue.media && venue.media[0]?.url}
                                                             alt={venue.name}
                                                         />
-                                                        <h3 className="profile-card-title mt-2 mx-3">{venue.name}</h3>
+                                                        <h3 className="profile-card-title mx-3">{venue.name}</h3>
+                                                        <p className="profile-card-location mx-3">Location: {venue.location.address}</p>
+                                                        <p className="profile-card-maxguests mx-3">Maximum guests: {venue.maxGuests}</p>
+                                                        <p className="profile-card-price mx-3">Price per night: {venue.price}</p>
+
                                                         <div className="button-container mx-3 mb-3 mt-3">
                                                             <button
                                                                 className="update-venue-btn rounded-pill me-3"

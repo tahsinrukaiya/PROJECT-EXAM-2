@@ -26,6 +26,10 @@ export default function UpdateVenueForm() {
                 ...storedVenue,
                 imageUrl: mediaUrl,
                 location: storedVenue.location || { address: "" },
+                wifi: storedVenue.meta?.wifi || false,
+                parking: storedVenue.meta?.parking || false,
+                breakfast: storedVenue.meta?.breakfast || false,
+                pets: storedVenue.meta?.pets || false,
             });
         }
     }, []);
