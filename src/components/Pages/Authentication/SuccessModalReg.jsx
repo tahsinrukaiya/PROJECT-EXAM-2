@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function SuccessModalReg({ show, onClose, message }) {
     const navigate = useNavigate();
     const handleClose = () => {
-        navigate = "/login";
+        navigate("/login");
     };
 
     return (
