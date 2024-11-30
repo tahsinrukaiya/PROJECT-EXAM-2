@@ -212,7 +212,6 @@
 }
 
 /*----------------------------VENUECARDS-------------------------------*/
-
 .viewBtn {
   color: #2f3645;
   box-shadow: none;
@@ -229,6 +228,8 @@
 
 .heading-one {
   color: #2f3645 !important;
+  font-size: 2.2rem;
+  font-family: "Karla", sans-serif;
 }
 
 .btn-text {
