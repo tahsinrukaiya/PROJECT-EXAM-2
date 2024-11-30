@@ -27,7 +27,6 @@ export async function fetchProfileData(name, token) {
         }
 
         const data = await response.json();
-        console.log('Profile Data:', data);
         return data;
 
     } catch (err) {

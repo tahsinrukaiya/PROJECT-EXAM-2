@@ -4,10 +4,8 @@ import { API_KEY } from "../config";
 export async function deleteVenue(venueData, onDeleteSuccess) {
     const token = localStorage.getItem("accessToken");
     const apiKey = API_KEY;
-    console.log(token, apiKey);
 
     if (!token) {
-        console.error("Token not found!");
         throw new Error("Token not found!");
     }
 
@@ -15,7 +13,6 @@ export async function deleteVenue(venueData, onDeleteSuccess) {
         const { id } = venueData;
 
         if (!id) {
-            console.error('Venue ID is missing:', venueData);
             throw new Error('Venue ID is missing');
         }
         const checkVenueExistence = async (venueId) => {
@@ -30,7 +27,6 @@ export async function deleteVenue(venueData, onDeleteSuccess) {
 
                 if (response.ok) {
                     const data = await response.json();
-                    console.log('Venue from API:', data);
                     return data;
                 } else {
                     console.error('Venue not found on the server:', response.statusText);
@@ -46,10 +42,7 @@ export async function deleteVenue(venueData, onDeleteSuccess) {
             throw new Error('Venue not found. It may have already been deleted.');
         }
 
-        console.log('Deleting venue with ID:', id);
         const url = `${API_URLS.DELETE_VENUE}${id}`;
-        console.log('Request URL:', url);
-
         const response = await fetch(url, {
             method: 'DELETE',
             headers: {
@@ -59,11 +52,7 @@ export async function deleteVenue(venueData, onDeleteSuccess) {
             },
         });
 
-        console.log('Response Status:', response.status);
-        console.log('Response Status Text:', response.statusText);
-
         if (response.status === 204) {
-            console.log('Venue deleted successfully');
             if (onDeleteSuccess) {
                 onDeleteSuccess();
             }

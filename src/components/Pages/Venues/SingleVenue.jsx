@@ -17,7 +17,6 @@ export default function SingleVenue() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data);
       setVenue(data.data);
       setBookings(data.data.bookings);
     } catch (error) {

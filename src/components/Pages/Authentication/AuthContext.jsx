@@ -25,7 +25,6 @@ export function AuthProvider({ children }) {
         try {
             const response = await registerUser(userData);
             setAuthData(response.data);
-            console.log(response.data);
             if (response.data.venueManager) {
                 console.log("User is registered as a venue manager.");
             } else {
@@ -55,14 +54,12 @@ export function AuthProvider({ children }) {
             }
 
             const data = await response.json();
-            console.log("API Response Data:", data);
 
             if (!data || !data.data || !data.data.accessToken) {
                 throw new Error("Missing accessToken in response data");
             }
 
             setAuthData(data.data);
-            console.log("Logged in successfully:", data.data);
             saveUserData(data.data);
             return data.data;
         } catch (error) {

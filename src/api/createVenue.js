@@ -4,9 +4,7 @@ import { API_KEY } from "../config";
 export async function createVenue(venueData) {
     const token = localStorage.getItem("accessToken");
     const apiKey = API_KEY;
-    console.log(apiKey);
 
-    console.log(token);
     if (!token) {
         throw new Error("Token not found!");
     }
@@ -22,7 +20,6 @@ export async function createVenue(venueData) {
         });
         return await response.json();
     } catch (error) {
-        console.error('Error creating venue:', error);
         throw error;
     }
 }

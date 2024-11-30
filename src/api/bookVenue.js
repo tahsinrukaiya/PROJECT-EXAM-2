@@ -3,7 +3,6 @@ import { API_KEY } from "../config";
 
 const url = API_URLS.CREATE_BOOKING;
 const apiKey = API_KEY;
-console.log("the url to create a booking " + url);
 
 async function bookVenue({ dateFrom, dateTo, guests, venueId, token }) {
     try {
@@ -31,10 +30,8 @@ async function bookVenue({ dateFrom, dateTo, guests, venueId, token }) {
         }
 
         const data = await response.json();
-        console.log("Booking created successfully!");
         return { success: true, data };
     } catch (error) {
-        console.error("Error creating booking:", error);
         return { success: false, error: error.message };
     }
 }

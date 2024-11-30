@@ -1,6 +1,4 @@
 import { API_URLS } from "../config";
-console.log(API_URLS.REGISTER);
-console.log(API_URLS.LOGIN);
 
 export async function registerUser(userData) {
     const response = await fetch(`${API_URLS.REGISTER}`, {

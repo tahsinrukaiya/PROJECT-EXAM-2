@@ -32,9 +32,6 @@ export async function updateVenue(venueData) {
             },
         };
 
-        console.log('Venue data being sent to API:', venueDataFormatted);
-        console.log('API URL:', `${API_URLS.UPDATE_VENUE}${venueData.id}`);
-
         const response = await fetch(`${API_URLS.UPDATE_VENUE}${venueData.id}`, {
             method: 'PUT',
             headers: {
@@ -47,12 +44,10 @@ export async function updateVenue(venueData) {
 
         if (!response.ok) {
             const errorResponse = await response.json();
-            console.log('API Response:', errorResponse);
             throw new Error(`Failed to update venue: ${response.statusText}`);
         }
 
         const responseBody = await response.json();
-        console.log('Venue updated successfully:', responseBody);
         return responseBody;
     } catch (error) {
         console.error('Error updating venue:', error);

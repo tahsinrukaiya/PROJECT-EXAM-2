@@ -77,7 +77,6 @@ export default function UpdateVenueForm() {
             const updatedVenue = await updateVenue(venueData);
             if (updatedVenue) {
                 setSuccessMessage('Venue updated successfully!');
-                console.log('Success message set:', successMessage);
                 setVenueData(updatedVenue);
                 localStorage.setItem('selectedVenue', JSON.stringify(updatedVenue));
                 setTimeout(() => {

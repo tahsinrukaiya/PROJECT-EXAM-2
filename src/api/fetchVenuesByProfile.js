@@ -22,7 +22,6 @@ export async function fetchVenuesByProfile(name, token) {
             throw new Error('Failed to fetch venues.');
         }
         const venuesByProfile = await response.json();
-        console.log(venuesByProfile);
         return venuesByProfile;
     } catch (err) {
         throw new Error(err.message);

@@ -29,8 +29,6 @@ export default function UpdateProfileForm({ name, token }) {
 
         try {
             const response = await updateAvatar(name, token, avatarUrl, 'Updated Avatar');
-            console.log('Avatar updated successfully:', response);
-
             if (!response.ok) {
                 throw new Error('Unable to update your avatar. Please check the URL and try again.');
             }

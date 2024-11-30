@@ -33,13 +33,10 @@ export async function updateAvatar(name, token, avatarUrl, avatarAlt = 'Updated 
         }
 
         const data = await response.json();
-        console.log('Profile Data:', data);
-
         const userData = JSON.parse(localStorage.getItem("userData"));
+
         if (userData) {
             userData.avatar.url = data.avatar.url;
-            console.log(userData.avatar.url);
-
             localStorage.setItem("userData", JSON.stringify(userData));
         }
         return data;

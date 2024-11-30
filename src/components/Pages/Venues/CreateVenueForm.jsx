@@ -81,7 +81,6 @@ export default function CreateVenueForm() {
 
         try {
             const response = await createVenue(venueDataFormatted);
-            console.log("Venue created successfully", response);
 
             if (response && response.data) {
                 const newVenue = response.data;
@@ -112,7 +111,6 @@ export default function CreateVenueForm() {
             <div className="col-10 col-md-6 col-lg-6">
                 <form className="lease-venue-form rounded mb-3 mt-3 p-5" onSubmit={handleSubmit}>
                     <h1 className="heading-one text-center">Lease a venue</h1>
-
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>
                         <input
