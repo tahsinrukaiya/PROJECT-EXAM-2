@@ -28,22 +28,22 @@ function App() {
           <NavBar />
           <Routes>
             <Route index element={<Home />} />
-            <Route path="venue_list" element={<AllVenues />} />
+            <Route path="/venue_list" element={<AllVenues />} />
             <Route path="/single_venue/:id" element={<SingleVenue />} />
             <Route path="about_us" element={<AboutUs />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="login" element={<LoginForm />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<LoginForm />} />
             <Route path="/" element={<LoginCustomer />} />
             <Route path="/" element={<LoginVenueManager />} />
-            <Route path="register_customer" element={<RegisterCustomer />} />
+            <Route path="/register_customer" element={<RegisterCustomer />} />
             <Route
-              path="register_venue_manager"
+              path="/register_venue_manager"
               element={<RegisterVenueManager />}
             />
             <Route path="/lease-venue" element={<CreateVenueForm />} />
             <Route path="/update-venue" element={<UpdateVenueForm />} />
-            <Route path="register_type" element={<RegisterType />} />
+            <Route path="/register_type" element={<RegisterType />} />
             <Route path="*" element={<RouteNotFound />} />
           </Routes>
           <Footer />

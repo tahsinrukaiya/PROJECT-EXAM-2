@@ -89,122 +89,121 @@ export default function Profile() {
     }
 
     return (
-        <div className="container py-5 h-100">
-            <div className="row d-flex justify-content-center align-items-center h-100">
-                <div className="col col-lg-8 mb-4 mb-lg-0">
-                    <div className="card mb-3">
-                        <div className="row g-0">
-                            <div className="col-md-4">
-                                <img
-                                    src={profileData?.avatar?.url || "avatar"}
-                                    alt="Avatar"
-                                    className="img-fluid my-5 mx-2 avatar pt-3 pb-3 px-3 avatar"
-                                />
-                                <UpdateProfileForm name={name} token={token} onAvatarChange={handleAvatarChange} />
-                            </div>
-                            <div className="col-md-8">
-                                <div className="card-body p-4">
-                                    <h2 className="heading-profile">Information</h2>
-                                    <hr className="mt-0 mb-4" />
-                                    <div className="row pt-1">
-                                        <div className="col-10 mb-3 col-lg-10">
-                                            <h6 className="profile-data">Email</h6>
-                                            <p className="text-muted">{profileData?.email}</p>
-                                        </div>
-                                        <div className="col-6 mb-3">
-                                            <h6 className="profile-data">Name</h6>
-                                            <p className="text-muted">{profileData?.name}</p>
-                                        </div>
-                                        <div className="col-6 mb-3">
-                                            <h6 className="profile-data">Role</h6>
-                                            <p className="text-muted">{userRole}</p>
-                                        </div>
+        <div className="container d-flex justify-content-center align-items-center  py-5 h-100">
+            <div className="col col-lg-8 mb-4 mb-lg-0">
+                <div className="card mb-3">
+                    <div className="row g-0">
+                        <div className="col-md-4">
+                            <img
+                                src={profileData?.avatar?.url || "avatar"}
+                                alt="Avatar"
+                                className="img-fluid my-5 mx-2 avatar pt-3 pb-3 px-3 avatar"
+                            />
+                            <UpdateProfileForm name={name} token={token} onAvatarChange={handleAvatarChange} />
+                        </div>
+                        <div className="col-md-8">
+                            <div className="card-body p-4">
+                                <h2 className="heading-profile">Information</h2>
+                                <hr className="mt-0 mb-4" />
+                                <div className="row pt-1">
+                                    <div className="col-10 mb-3 col-lg-10">
+                                        <h6 className="profile-data">Email</h6>
+                                        <p className="text-muted">{profileData?.email}</p>
                                     </div>
+                                    <div className="col-6 mb-3">
+                                        <h6 className="profile-data">Name</h6>
+                                        <p className="text-muted">{profileData?.name}</p>
+                                    </div>
+                                    <div className="col-6 mb-3">
+                                        <h6 className="profile-data">Role</h6>
+                                        <p className="text-muted">{userRole}</p>
+                                    </div>
+                                </div>
 
-                                    {userRole === "Venue Manager" && (
-                                        <Link to="/lease-venue">
-                                            <button className="lease-btn rounded-pill mb-4 px-3 pt-1 pb-1">
-                                                Lease a venue
-                                            </button>
-                                        </Link>
-                                    )}
-                                    <h5 className="profile-data">{userRole === "Customer" ? "Your Upcoming Bookings" : "Manage Your Venues Here"}</h5>
-                                    <hr className="mt-0 mb-4" />
-                                    <div className="col-12 col-md-10 col-lg-10">
-                                        {userRole === "Customer" ? (
-                                            bookings.length > 0 ? (
-                                                bookings.map((booking) => (
-                                                    <div key={booking.id} className="card mb-3 px-3 booking-card">
-                                                        <h3 className="profile-card-title mt-2 mx-2">{booking.venueName}</h3>
-                                                        <h6 className="date-from">From: {new Date(booking.dateFrom).toLocaleDateString()}</h6>
-                                                        <h6 className="date-to">To: {new Date(booking.dateTo).toLocaleDateString()}</h6>
-                                                        <h6 className="number-of-guests">Guests: {booking.guests}</h6>
-                                                    </div>
-                                                ))
-                                            ) : (
-                                                <p className="px-3">No bookings available</p>
-                                            )
+                                {userRole === "Venue Manager" && (
+                                    <Link to="/lease-venue">
+                                        <button className="lease-btn rounded-pill mb-4 px-3 pt-1 pb-1">
+                                            Lease a venue
+                                        </button>
+                                    </Link>
+                                )}
+                                <h5 className="profile-data">{userRole === "Customer" ? "Your Upcoming Bookings" : "Manage Your Venues Here"}</h5>
+                                <hr className="mt-0 mb-4" />
+                                <div className="col-12 col-md-10 col-lg-10">
+                                    {userRole === "Customer" ? (
+                                        bookings.length > 0 ? (
+                                            bookings.map((booking) => (
+                                                <div key={booking.id} className="card mb-3 px-3 booking-card">
+                                                    <h3 className="profile-card-title mt-2 mx-2">{booking.venueName}</h3>
+                                                    <h6 className="date-from">From: {new Date(booking.dateFrom).toLocaleDateString()}</h6>
+                                                    <h6 className="date-to">To: {new Date(booking.dateTo).toLocaleDateString()}</h6>
+                                                    <h6 className="number-of-guests">Guests: {booking.guests}</h6>
+                                                </div>
+                                            ))
                                         ) : (
-                                            venues.length > 0 ? (
-                                                venues.map((venue) => (
-                                                    <div key={venue.id} className="card mb-3 venue-card">
-                                                        <img
-                                                            className="card-img-top px-3 pb-3 pt-3"
-                                                            src={venue.media && venue.media[0]?.url}
-                                                            alt={venue.name}
-                                                        />
-                                                        <h3 className="profile-card-title mx-3">{venue.name}</h3>
-                                                        <p className="profile-card-location mx-3">Location: {venue.location.address}</p>
-                                                        <p className="profile-card-maxguests mx-3">Maximum guests: {venue.maxGuests}</p>
-                                                        <p className="profile-card-price mx-3">Price per night: {venue.price}</p>
+                                            <p className="px-3">No bookings available</p>
+                                        )
+                                    ) : (
+                                        venues.length > 0 ? (
+                                            venues.map((venue) => (
+                                                <div key={venue.id} className="card mb-3 venue-card">
+                                                    <img
+                                                        className="card-img-top px-3 pb-3 pt-3"
+                                                        src={venue.media && venue.media[0]?.url}
+                                                        alt={venue.name}
+                                                    />
+                                                    <h3 className="profile-card-title mx-3">{venue.name}</h3>
+                                                    <p className="profile-card-location mx-3">Location: {venue.location.address}</p>
+                                                    <p className="profile-card-maxguests mx-3">Maximum guests: {venue.maxGuests}</p>
+                                                    <p className="profile-card-price mx-3">Price per night: {venue.price}</p>
 
-                                                        <div className="button-container mx-3 mb-3 mt-3">
-                                                            <button
-                                                                className="update-venue-btn rounded-pill me-3"
-                                                                onClick={() => handleUpdateClick(venue, navigate)}
-                                                            >
-                                                                <i className="fa-regular fa-pen-to-square"></i>Update
-                                                            </button>
-                                                            <button
-                                                                className="delete-venue-btn rounded-pill"
-                                                                onClick={() => {
-                                                                    setVenueToDelete(venue);
-                                                                    setIsModalOpen(true);
-                                                                }}
-                                                            >
-                                                                <i className="fa-solid fa-trash"></i>Delete
-                                                            </button>
-                                                        </div>
-                                                        {venue.bookings && venue.bookings.length > 0 ? (
-                                                            <div className="bookings-container mx-2 px-3">
-                                                                <h5>Bookings on this venue:</h5>
-                                                                {venue.bookings.map((booking, index) => (
-                                                                    <div key={booking.id || index} className="booking-item rounded">
-                                                                        <div className="booking-info px-3 pt-3 mb-3 pb-2">
-                                                                            <h6>Customer:</h6> {booking.customer?.name}
-                                                                            <h6 >Created:</h6>{new Date(booking.created).toLocaleString()}
-                                                                            <h6>Guests:</h6>{booking.guests}
-                                                                        </div>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        ) : (
-                                                            <p className="no-bookings px-3 fst-italic">No bookings available</p>
-                                                        )}
-
+                                                    <div className="button-container mx-3 mb-3 mt-3">
+                                                        <button
+                                                            className="update-venue-btn rounded-pill me-3"
+                                                            onClick={() => handleUpdateClick(venue, navigate)}
+                                                        >
+                                                            <i className="fa-regular fa-pen-to-square"></i>Update
+                                                        </button>
+                                                        <button
+                                                            className="delete-venue-btn rounded-pill"
+                                                            onClick={() => {
+                                                                setVenueToDelete(venue);
+                                                                setIsModalOpen(true);
+                                                            }}
+                                                        >
+                                                            <i className="fa-solid fa-trash"></i>Delete
+                                                        </button>
                                                     </div>
-                                                ))
-                                            ) : (
-                                                <p>No venues available</p>
-                                            )
-                                        )}
-                                    </div>
+                                                    {venue.bookings && venue.bookings.length > 0 ? (
+                                                        <div className="bookings-container mx-2 px-3">
+                                                            <h5>Bookings on this venue:</h5>
+                                                            {venue.bookings.map((booking, index) => (
+                                                                <div key={booking.id || index} className="booking-item rounded">
+                                                                    <div className="booking-info px-3 pt-3 mb-3 pb-2">
+                                                                        <h6>Customer:</h6> {booking.customer?.name}
+                                                                        <h6 >Created:</h6>{new Date(booking.created).toLocaleString()}
+                                                                        <h6>Guests:</h6>{booking.guests}
+                                                                    </div>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    ) : (
+                                                        <p className="no-bookings px-3 fst-italic">No bookings available</p>
+                                                    )}
+
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <p>No venues available</p>
+                                        )
+                                    )}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <SuccessModalDelete
                 isOpen={isModalOpen}
                 onClose={() => handleCloseModal(setIsModalOpen, setVenueToDelete)}
@@ -225,8 +224,6 @@ export default function Profile() {
                 }}
                 isError={error !== null}
             />
-
-
         </div>
     );
 }
