@@ -701,6 +701,12 @@ textarea::placeholder {
   color: #2f3645;
 }
 
+.feedback-message {
+  color: #973131 !important;
+  background-color: #ffe382 !important;
+  font-size: 11px !important;
+}
+
 /*-----------MEDIA QUERY--------------------MEDIA QUERY-----------MEDIA QUERY---------------*/
 @media only screen and (max-width: 768px) {
   .logo {

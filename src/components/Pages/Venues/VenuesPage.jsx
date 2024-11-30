@@ -15,8 +15,7 @@ const VenuesPage = () => {
     useEffect(() => {
         const loadVenues = async () => {
             try {
-                const data = await fetchVenues();
-                const sortedVenues = data.sort((a, b) => a.name.localeCompare(b.name));
+                const sortedVenues = await fetchVenues("created", "desc");
                 setVenues(sortedVenues);
                 setFilteredVenues(sortedVenues);
             } catch (err) {

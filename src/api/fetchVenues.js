@@ -1,9 +1,9 @@
 import { API_URLS } from "../config";
 
-const fetchVenues = async () => {
+const fetchVenues = async (sort = "created", sortOrder = "desc") => {
 
     try {
-        const response = await fetch(API_URLS.ALL_VENUES);
+        const response = await fetch(`${API_URLS.ALL_VENUES}?sort=${sort}&sortOrder=${sortOrder}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

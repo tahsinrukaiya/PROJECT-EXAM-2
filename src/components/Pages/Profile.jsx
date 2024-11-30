@@ -128,7 +128,7 @@ export default function Profile() {
                                             </button>
                                         </Link>
                                     )}
-                                    <h5 className="profile-data">{userRole === "Customer" ? "Your Bookings" : "Your Venues"}</h5>
+                                    <h5 className="profile-data">{userRole === "Customer" ? "Your Upcoming Bookings" : "Manage Your Venues Here"}</h5>
                                     <hr className="mt-0 mb-4" />
                                     <div className="col-12 col-md-10 col-lg-10">
                                         {userRole === "Customer" ? (
