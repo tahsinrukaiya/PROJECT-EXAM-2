@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { updateVenue } from "@api/updateVenue";
+import { useNavigate } from "react-router-dom";
 
 export default function UpdateVenueForm() {
     const [successMessage, setSuccessMessage] = useState("");
+    const navigate = useNavigate();
     const [venueData, setVenueData] = useState({
         name: "",
         location: {
@@ -79,7 +81,7 @@ export default function UpdateVenueForm() {
                 setVenueData(updatedVenue);
                 localStorage.setItem('selectedVenue', JSON.stringify(updatedVenue));
                 setTimeout(() => {
-                    window.location.href = "/profile";
+                    navigate('/profile');
                 }, 2000);
             } else {
                 throw new Error('Failed to update venue');
