@@ -8,7 +8,7 @@ const VenueCards = ({ venues, loading, error, limit = 6 }) => {
     }
     return (
         <>
-            <div className="heading2 mt-5 text-center">
+            <div className="heading-one-cotainer mt-5 text-center">
                 <h1 className="heading-one">Discover venues that match your holiday style and needs!</h1>
             </div>
             {error && <div className="error">Error: {error}</div>}
