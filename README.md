@@ -18,14 +18,20 @@ Powerful tools for venue managers to manage venues and bookings.
 🏡 Customer-Facing Features
 
 Browse Venues: Users can explore a variety of venues.
+
 Search Venues: A search bar allows users to quickly find their desired venue.
+
 View Venue Details: Includes venue descriptions, images, and a calendar with availability.
+
 Booking System: Registered customers can book accommodations.
+
 Booking Management: Customers can view their upcoming bookings.
+
 
 🛠️ Admin-Facing Features
 
 Venue Management: Venue managers can create, update, and delete their venues.
+
 Booking Overview: Venue managers can view bookings for their venues.
 
 🔒 User Account Features
@@ -33,15 +39,21 @@ Booking Overview: Venue managers can view bookings for their venues.
 User Registration:
 
 Customers and venue managers can register using their stud.noroff.no email.
+
 User Login and Logout: Secure access for all registered users.
+
 Profile Customization: Update avatars for personalized profiles.
 
 🛠️ Tech Stack
 
 React.js: Core framework for building the frontend.
+
 Bootstrap: For responsive layouts and pre-styled components.
+
 Custom CSS: Additional styling for unique design elements.
+
 React Router: Seamless navigation across the application.
+
 Holidaze API: Handles all backend functionalities.
 
 📦 Installation
