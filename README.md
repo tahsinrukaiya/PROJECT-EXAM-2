@@ -60,28 +60,22 @@ Holidaze API: Handles all backend functionalities.
 
 1️⃣ Clone the Repository
 
-bash
+on git bash
 Copy code
 git clone https://github.com/tahsinrukaiya/PROJECT-EXAM-2.git  
 cd holidaze 
 
 2️⃣ Install Dependencies
 
-bash
-Copy code
 npm install 
 
 3️⃣ Start the Development Server
 
-bash
-Copy code
 npm start  
 The application will be live at http://localhost:3000.
 
 4️⃣ Build for Production
 
-bash
-Copy code
 npm run build
 
 🎨 Design Highlights
