@@ -101,3 +101,6 @@ A big thank you to:
 
 Noroff School of Technology and Digital Media for the project brief and API documentation. 
 
+📞 Contact
+For questions or suggestions, please reach out to me at tahsinshorna@gmail.com
+
