@@ -48,6 +48,8 @@ Profile Customization: Update avatars for personalized profiles.
 
 React.js: Core framework for building the frontend.
 
+Vite: A fast development build tool that enhances the development experience and optimizes the app for production.
+
 Bootstrap: For responsive layouts and pre-styled components.
 
 Custom CSS: Additional styling for unique design elements.
@@ -56,13 +58,20 @@ React Router: Seamless navigation across the application.
 
 Holidaze API: Handles all backend functionalities.
 
+🔧 Development Tools
+
+ESLint: A JavaScript linter used to ensure code quality and consistency across the project.
+
+Prettier: A code formatter that enforces a consistent style, making the code more readable and maintainable.
+
+Vite: A build tool and development server that offers fast reloading and an optimized production build process for React projects.
+
 📦 Installation
 
 1️⃣ Clone the Repository
 
 on git bash
-Copy code
-git clone https://github.com/tahsinrukaiya/PROJECT-EXAM-2.git  
+Copy code "git clone https://github.com/tahsinrukaiya/PROJECT-EXAM-2.git"  
 cd holidaze 
 
 2️⃣ Install Dependencies
