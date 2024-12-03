@@ -36,9 +36,7 @@ Booking Overview: Venue managers can view bookings for their venues.
 
 🔒 User Account Features
 
-User Registration:
-
-Customers and venue managers can register using their stud.noroff.no email.
+User Registration: Customers and venue managers can register using their stud.noroff.no email.
 
 User Login and Logout: Secure access for all registered users.
 
